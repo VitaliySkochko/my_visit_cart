@@ -1,0 +1,86 @@
+.about-page{
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 80px;
+}
+
+/* — hero — */
+.about-hero{
+  margin: 8px 0 24px;
+  border-radius: 20px;
+  background: #f6f7fb;
+  padding: 24px;
+}
+.about-hero__glass{
+  border-radius: 16px;
+  padding: 24px 20px;
+  background: linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,.7));
+  border: 1px solid rgba(255,255,255,.7);
+  box-shadow: 0 10px 30px rgba(16,24,40,.08);
+  text-align: center;
+}
+.about-hero__title{
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(32px, 6vw, 56px);
+  margin: 0;
+}
+.about-hero__subtitle{
+  color: #6b7280;
+  margin: 6px 0 0;
+}
+
+/* — bio — */
+.about-bio{
+  display: grid;
+  gap: 24px;
+  grid-template-columns: 1fr;
+  margin: 24px 0 40px;
+}
+@media (min-width: 900px){
+  .about-bio{ grid-template-columns: 340px 1fr; align-items: start; }
+}
+.about-bio__media img{
+  width: 100%; height: auto; border-radius: 16px;
+  box-shadow: 0 14px 30px rgba(16, 24, 40, .12);
+  display: block;
+}
+.about-bio__text h2{
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  margin: 0 0 8px;
+}
+.about-bio__text p{ color: #525b6a; }
+
+/* — career timeline — */
+.about-career h2{
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(24px, 3.5vw, 36px);
+  margin: 0 0 14px;
+}
+
+.timeline{
+  list-style: none;
+  margin: 0; padding: 0;
+  border-left: 2px solid rgba(16,24,40,.08);
+}
+.timeline li{
+  position: relative;
+  padding: 0 0 22px 22px;
+}
+.tl-dot{
+  position: absolute;
+  left: -7px; top: 2px;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: #0b3b9c;
+  box-shadow: 0 0 0 4px rgba(11,59,156,.12);
+}
+.tl-card{
+  background: linear-gradient(to bottom, rgba(255,255,255,.95), rgba(255,255,255,.8));
+  border: 1px solid rgba(255,255,255,.7);
+  border-radius: 14px;
+  box-shadow: 0 8px 24px rgba(16,24,40,.08);
+  padding: 14px 16px;
+}
+.tl-meta{ font-size: 12px; color: #6b7280; margin-bottom: 4px; }
+.tl-title{ font-weight: 600; margin-bottom: 6px; }
+.tl-card p{ color: #4b5563; margin: 0; }

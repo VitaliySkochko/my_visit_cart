@@ -1,0 +1,37 @@
+/* src/components/ProjectCard.css */
+.proj-card{
+  display:grid; grid-template-columns:1fr; border-radius:18px; overflow:hidden;
+  background:linear-gradient(to bottom, rgba(255,255,255,.96), rgba(255,255,255,.85));
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 12px 34px rgba(16,24,40,.10);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+@media (min-width:900px){ .proj-card{ grid-template-columns:360px 1fr; } }
+.proj-card:hover{ transform:translateY(-2px); box-shadow:0 18px 42px rgba(16,24,40,.14); }
+
+.proj-card__img{ width:100%; height:220px; object-fit:cover; }
+@media (min-width:900px){ .proj-card__img{ height:100%; } }
+
+.proj-card__body{ padding:18px 18px 20px; }
+.proj-card__title{
+  font-family:"Playfair Display", Georgia, serif; font-size:clamp(20px,3.5vw,28px);
+  margin:0 0 4px;
+}
+.proj-card__subtitle{ color:#6b7280; font-size:14px; margin-bottom:8px; }
+.proj-card__desc{ color:#4b5563; margin:0 0 12px; }
+
+.proj-card__tags{
+  display:flex; flex-wrap:wrap; gap:8px; margin:0 0 14px; padding:0; list-style:none;
+}
+.proj-card__tags li{
+  background:#eef3ff; color:#0b3b9c; border-radius:999px; padding:6px 10px; font-size:12px; font-weight:600;
+}
+
+.proj-card__actions{ display:flex; gap:10px; }
+.btn{
+  display:inline-block; padding:10px 14px; border-radius:999px; font-weight:600;
+  text-decoration:none; color:#0b3b9c; background:#fff; border:1px solid rgba(0,60,255,.12);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.8), 0 6px 16px rgba(0,30,120,.10);
+}
+.btn--primary{ background:linear-gradient(180deg,#ffffff,#f1f5ff); }
+.btn:hover{ filter:brightness(.98); }

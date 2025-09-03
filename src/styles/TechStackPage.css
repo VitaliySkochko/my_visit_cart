@@ -1,0 +1,31 @@
+.tech-page{ max-width:1100px; margin:0 auto; padding:24px 20px 80px; }
+
+.tech-hero{ margin:8px 0 24px; border-radius:20px; background:#f6f7fb; padding:24px; }
+.tech-hero__glass{
+  border-radius:16px; padding:24px 20px;
+  background:linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,.7));
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 10px 30px rgba(16,24,40,.08); text-align:center;
+}
+.tech-hero h1{ font-family:"Playfair Display", Georgia, serif; font-size:clamp(32px,6vw,56px); margin:0; }
+.tech-hero p{ color:#6b7280; margin:6px 0 0; }
+
+.tech-grid{
+  display:grid; gap:18px; margin-top:16px;
+  grid-template-columns:1fr;
+}
+@media (min-width:900px){ .tech-grid{ grid-template-columns:1fr 1fr; } }
+
+.tech-card{
+  border-radius:16px; padding:18px 18px 20px;
+  background:linear-gradient(to bottom, rgba(255,255,255,.96), rgba(255,255,255,.85));
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 12px 34px rgba(16,24,40,.10);
+}
+.tech-card__badge{
+  display:inline-block; font-size:12px; color:#0b3b9c; background:#eef3ff;
+  border-radius:999px; padding:6px 10px; margin-bottom:8px;
+}
+.tech-card__title{ font-size:22px; font-weight:700; margin:0 0 10px; }
+.tech-card__list{ margin:0; padding-left:18px; color:#4b5563; }
+.tech-card__list li{ margin:6px 0; }

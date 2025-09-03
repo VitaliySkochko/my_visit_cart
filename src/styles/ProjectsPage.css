@@ -1,0 +1,32 @@
+/* src/pages/ProjectsPage.css */
+.projects-landing{ max-width:1100px; margin:0 auto; padding:24px 20px 80px; }
+
+.pl-hero{ margin:8px 0 24px; border-radius:20px; background:#f6f7fb; padding:24px; }
+.pl-hero__glass{
+  border-radius:16px; padding:24px 20px;
+  background:linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,.7));
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 10px 30px rgba(16,24,40,.08); text-align:center;
+}
+.pl-hero h1{ font-family:"Playfair Display", Georgia, serif; font-size:clamp(32px,6vw,56px); margin:0; }
+.pl-hero p{ color:#6b7280; margin:6px 0 0; }
+
+.pl-grid{ display:grid; gap:20px; grid-template-columns:1fr; margin-top:16px; }
+@media (min-width:860px){ .pl-grid{ grid-template-columns:1fr 1fr; } }
+
+.pl-card{
+  display:block; text-decoration:none; color:inherit;
+  border-radius:16px; padding:18px 18px 20px;
+  background:linear-gradient(to bottom, rgba(255,255,255,.95), rgba(255,255,255,.8));
+  border:1px solid rgba(255,255,255,.7);
+  box-shadow:0 10px 30px rgba(16,24,40,.08);
+  transition:transform .18s ease, box-shadow .18s ease;
+}
+.pl-card:hover{ transform:translateY(-2px); box-shadow:0 14px 38px rgba(16,24,40,.12); }
+.pl-card__badge{ display:inline-block; font-size:12px; color:#0b3b9c; background:#eef3ff; border-radius:999px; padding:6px 10px; margin-bottom:8px; }
+.pl-card__title{ font-size:22px; font-weight:700; margin:0 0 6px; }
+.pl-card__desc{ color:#4b5563; margin:0 0 12px; }
+.pl-card__cta{ font-weight:600; color:#0b3b9c; }
+
+.pl-card--disabled{ opacity:.6; filter:grayscale(0.2); cursor:not-allowed; }
+.pl-card--disabled .pl-card__cta{ color:#6b7280; }
