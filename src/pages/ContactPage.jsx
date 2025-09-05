@@ -9,25 +9,25 @@ export default function ContactPage() {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    // 👉 ВАРІАНТ 1 (просто): відкрити поштовий клієнт
     const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
     window.location.href = `mailto:you@example.com?subject=Portfolio%20contact&body=${body}`;
-
-    // 👉 ВАРІАНТ 2: пізніше підключимо бекенд (Fetch/axios на свій endpoint)
     setSent(true);
   };
 
   return (
     <main className="contact-page">
-      <header className="contact-hero">
+      {/* HERO */}
+      <header className="contact-hero appear">
         <div className="contact-hero__glass">
           <h1>Contact</h1>
           <p>Let’s build something glossy and impactful together.</p>
         </div>
       </header>
 
+      {/* GRID */}
       <section className="contact-grid">
-        <article className="contact-card">
+        {/* Direct */}
+        <article className="contact-card glass-card appear" style={{ animationDelay: '.05s' }}>
           <h3>Direct</h3>
           <ul className="contact-list">
             <li><a href="mailto:you@example.com">you@example.com</a></li>
@@ -36,17 +36,20 @@ export default function ContactPage() {
           </ul>
         </article>
 
-        <article className="contact-card contact-card--form">
+        {/* Form */}
+        <article className="contact-card glass-card appear" style={{ animationDelay: '.1s' }}>
           <h3>Send a message</h3>
+
           {sent ? (
             <div className="sent">
               <p>Thanks! Your default mail app should open now. I’ll get back to you soon.</p>
             </div>
           ) : (
-            <form className="contact-form" onSubmit={onSubmit}>
+            <form className="contact-form" onSubmit={onSubmit} noValidate>
               <div className="field">
-                <label>Name</label>
+                <label htmlFor="name">Name</label>
                 <input
+                  id="name"
                   name="name"
                   type="text"
                   placeholder="Your name"
@@ -57,8 +60,9 @@ export default function ContactPage() {
               </div>
 
               <div className="field">
-                <label>Email</label>
+                <label htmlFor="email">Email</label>
                 <input
+                  id="email"
                   name="email"
                   type="email"
                   placeholder="your@email.com"
@@ -69,8 +73,9 @@ export default function ContactPage() {
               </div>
 
               <div className="field">
-                <label>Message</label>
+                <label htmlFor="message">Message</label>
                 <textarea
+                  id="message"
                   name="message"
                   placeholder="Hi! I’d like to discuss a project…"
                   rows="5"
@@ -80,7 +85,9 @@ export default function ContactPage() {
                 />
               </div>
 
-              <button className="btn btn--primary" type="submit">Send</button>
+              <button className="btn btn--primary" type="submit">
+                <span>Send</span>
+              </button>
             </form>
           )}
         </article>

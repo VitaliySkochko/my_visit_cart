@@ -1,86 +1,174 @@
+/* ===== Page container ===== */
 .about-page{
   max-width: 1100px;
   margin: 0 auto;
-  padding: 24px 20px 80px;
+  padding: 24px 20px 96px;
 }
 
-/* — hero — */
+/* ===== Hero ===== */
 .about-hero{
-  margin: 8px 0 24px;
-  border-radius: 20px;
+  margin: 8px 0 28px;
+  border-radius: 24px;
   background: #f6f7fb;
   padding: 24px;
 }
+
 .about-hero__glass{
-  border-radius: 16px;
-  padding: 24px 20px;
-  background: linear-gradient(to bottom, rgba(255,255,255,.9), rgba(255,255,255,.7));
-  border: 1px solid rgba(255,255,255,.7);
-  box-shadow: 0 10px 30px rgba(16,24,40,.08);
+  --r: 18px;
+  border-radius: var(--r);
+  padding: 36px 32px;
   text-align: center;
+
+  /* glass + gradient stroke */
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(to bottom, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+    linear-gradient(135deg, #9ec8ff, #5aa2ff 35%, #2e7dff 55%, #8ab3ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 12px 32px rgba(16,24,40,.12), inset 0 1px 0 rgba(255,255,255,.2);
 }
+
 .about-hero__title{
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(32px, 6vw, 56px);
-  margin: 0;
-}
-.about-hero__subtitle{
-  color: #6b7280;
-  margin: 6px 0 0;
+  margin: 0 0 6px;
+  color: #0b1220;
+  text-shadow: 0 1px 0 rgba(255,255,255,.45);
 }
 
-/* — bio — */
+.about-hero__subtitle{
+  color: #4b5563;
+  margin: 0;
+  font-size: clamp(14px, 2.2vw, 18px);
+}
+
+/* ===== Bio ===== */
 .about-bio{
   display: grid;
   gap: 24px;
   grid-template-columns: 1fr;
-  margin: 24px 0 40px;
+  margin: 28px 0 44px;
 }
 @media (min-width: 900px){
   .about-bio{ grid-template-columns: 340px 1fr; align-items: start; }
 }
-.about-bio__media img{
-  width: 100%; height: auto; border-radius: 16px;
-  box-shadow: 0 14px 30px rgba(16, 24, 40, .12);
-  display: block;
-}
-.about-bio__text h2{
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(24px, 3.5vw, 36px);
-  margin: 0 0 8px;
-}
-.about-bio__text p{ color: #525b6a; }
 
-/* — career timeline — */
+/* Photo frame (square-ish, responsive) */
+.bio-photo{
+  position: relative;
+  width: min(320px, 90%);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  border-radius: 18px;
+  overflow: hidden;
+
+  /* gradient stroke */
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(to bottom, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+    linear-gradient(135deg, #9ec8ff, #5aa2ff 35%, #2e7dff 55%, #8ab3ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+
+  box-shadow: 0 14px 34px rgba(16,24,40,.14);
+  transform: translateZ(0);
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+.bio-photo img{
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: saturate(1.02) contrast(1.02);
+  transition: transform .6s ease;
+}
+.bio-photo:hover{ transform: translateY(-4px) scale(1.01); box-shadow: 0 18px 42px rgba(16,24,40,.2); }
+.bio-photo:hover img{ transform: scale(1.04) translateY(-2px); }
+
+.bio-photo__shine{
+  position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255,255,255,.35), rgba(255,255,255,0) 60%);
+  transform: translateX(-120%); transition: transform .8s ease;
+}
+.bio-photo:hover .bio-photo__shine{ transform: translateX(120%); }
+
+/* Reusable glass card */
+.glass-card{
+  --r: 16px;
+  border-radius: var(--r);
+  padding: 20px 22px;
+  background: rgba(255,255,255,.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid transparent;
+  background-image:
+    linear-gradient(to bottom, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+    linear-gradient(135deg, #9ec8ff, #5aa2ff 35%, #2e7dff 55%, #8ab3ff);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+  box-shadow: 0 10px 28px rgba(16,24,40,.10), inset 0 1px 0 rgba(255,255,255,.18);
+}
+
+.about-bio__text h2,
 .about-career h2{
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(24px, 3.5vw, 36px);
-  margin: 0 0 14px;
+  margin: 0 0 10px;
+  color: #0b1220;
 }
+.about-bio__text p{ color: #525b6a; margin: 0 0 12px; }
+
+/* ===== Timeline ===== */
+.about-career{ margin-top: 8px; }
 
 .timeline{
-  list-style: none;
-  margin: 0; padding: 0;
+  list-style: none; margin: 0; padding: 0;
+  position: relative;
   border-left: 2px solid rgba(16,24,40,.08);
 }
 .timeline li{
   position: relative;
   padding: 0 0 22px 22px;
 }
+
 .tl-dot{
   position: absolute;
   left: -7px; top: 2px;
   width: 12px; height: 12px; border-radius: 50%;
-  background: #0b3b9c;
-  box-shadow: 0 0 0 4px rgba(11,59,156,.12);
+  background: radial-gradient(circle at 30% 30%, #2e7dff, #0050d1);
+  box-shadow: 0 0 0 4px rgba(11,59,156,.12), 0 6px 16px rgba(11,59,156,.25);
+  animation: tlPulse 1.8s ease-in-out infinite;
 }
+
 .tl-card{
-  background: linear-gradient(to bottom, rgba(255,255,255,.95), rgba(255,255,255,.8));
-  border: 1px solid rgba(255,255,255,.7);
-  border-radius: 14px;
-  box-shadow: 0 8px 24px rgba(16,24,40,.08);
   padding: 14px 16px;
 }
 .tl-meta{ font-size: 12px; color: #6b7280; margin-bottom: 4px; }
-.tl-title{ font-weight: 600; margin-bottom: 6px; }
+.tl-title{ font-weight: 700; color: #0b1220; margin-bottom: 6px; }
 .tl-card p{ color: #4b5563; margin: 0; }
+
+/* ===== Appear (fadeInUp) ===== */
+.appear{
+  opacity: 0; transform: translateY(40px);
+  animation: fadeInUp .8s ease forwards;
+  animation-delay: var(--delay, 0s);
+}
+.appear[data-delay]{ --delay: attr(data-delay); }
+
+@keyframes fadeInUp{
+  from{ opacity: 0; transform: translateY(40px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* subtle dot pulse */
+@keyframes tlPulse{
+  0%,100%{ box-shadow: 0 0 0 4px rgba(11,59,156,.12), 0 6px 16px rgba(11,59,156,.25); transform: scale(1); }
+  50%   { box-shadow: 0 0 0 6px rgba(11,59,156,.16), 0 8px 22px rgba(11,59,156,.32); transform: scale(1.04); }
+}
+
+/* ===== A11y: reduced motion ===== */
+@media (prefers-reduced-motion: reduce){
+  .appear{ animation: none !important; opacity: 1 !important; transform: none !important; }
+  .bio-photo, .bio-photo img, .bio-photo__shine{ transition: none !important; }
+}

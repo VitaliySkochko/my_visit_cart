@@ -1,12 +1,13 @@
+// Header.jsx
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';   // 👈 додали
+import { NavLink } from 'react-router-dom';
 import '../styles/Header.css';
 
 const links = [
   { to: '/about', label: 'About Me' },
   { to: '/projects', label: 'Projects' },
-  { to: '/tech', label: 'Tech Stack' },   // можеш поки лишити якір, якщо сторінки нема
-  { to: '/contact', label: 'Contact' },   // теж саме
+  { to: '/tech', label: 'Tech Stack' },
+  { to: '/contact', label: 'Contact' },
 ];
 
 export default function Header() {
@@ -28,22 +29,25 @@ export default function Header() {
   return (
     <header className="site-header" role="banner">
       <div className="nav">
-        <Link className="brand" to="/">
+        <NavLink className="brand" to="/">
           <div className="brand__text">
             <span className="brand__title">Vitaliy Skochko</span>
             <span className="brand__subtitle">Frontend / Full-Stack Developer</span>
           </div>
-        </Link>
+        </NavLink>
 
         <nav className="nav__links" aria-label="Main menu">
           {links.map((l) => (
-            <Link key={l.to} to={l.to} className="nav__link" onClick={handleNavClick}>
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className={({ isActive }) => `nav__link ${isActive ? 'is-active' : ''}`}
+              onClick={handleNavClick}
+            >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
-          <Link to="/contact" className="nav__cta" onClick={handleNavClick}>
-            Hire Me
-          </Link>
+          
         </nav>
 
         <button
@@ -59,7 +63,6 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile drawer */}
       <div
         className={`nav-drawer ${open ? 'is-open' : ''}`}
         role="dialog"
@@ -68,13 +71,16 @@ export default function Header() {
       >
         <div className="drawer__inner">
           {links.map((l) => (
-            <Link key={l.to} to={l.to} className="drawer__link" onClick={handleNavClick}>
+            <NavLink
+              key={l.to}
+              to={l.to}
+              className="drawer__link"
+              onClick={handleNavClick}
+            >
               {l.label}
-            </Link>
+            </NavLink>
           ))}
-          <Link to="/contact" className="drawer__cta" onClick={handleNavClick}>
-            Hire Me
-          </Link>
+          
         </div>
       </div>
     </header>

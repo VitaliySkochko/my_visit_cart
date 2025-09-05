@@ -1,4 +1,3 @@
-// src/pages/WebProjectsPage.jsx
 import React from 'react';
 import ProjectCard from '../components/ProjectCard';
 import '../styles/WebProjectsPage.css';
@@ -15,8 +14,8 @@ const PROJECTS = [
     desc: 'Content platform with Firestore, auth, admin tools, category feeds, and modern glossy UI.',
     tags: ['React', 'Firestore', 'Auth', 'Analytics'],
     image: shot1,
-    href: 'https://example.com', // заміни на прод
-    repo: 'https://github.com/yourname/bigsports', // опційно
+    href: 'https://example.com',
+    repo: 'https://github.com/yourname/bigsports',
   },
   {
     title: 'PDF Generator API (PDM)',
@@ -41,16 +40,18 @@ const PROJECTS = [
 export default function WebProjectsPage() {
   return (
     <main className="web-projects">
-      <header className="wp-hero">
+      {/* HERO */}
+      <header className="wp-hero appear">
         <div className="wp-hero__glass">
           <h1>Web Projects</h1>
           <p>Hand-picked work with a glossy, magazine-inspired aesthetic.</p>
         </div>
       </header>
 
+      {/* LIST */}
       <section className="wp-list">
         {PROJECTS.map((p, i) => (
-          <ProjectCard key={i} {...p} />
+          <ProjectCard key={p.title} {...p} delay={0.06 * (i + 1)} />
         ))}
       </section>
     </main>
