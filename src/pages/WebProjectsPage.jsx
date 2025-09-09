@@ -4,37 +4,53 @@ import '../styles/WebProjectsPage.css';
 
 // тимчасові зображення (поклади свої у /src/img/)
 import shot1 from '../img/project-1.jpg';
-import shot2 from '../img/project-1.jpg';
-import shot3 from '../img/project-1.jpg';
+import shot2 from '../img/project-2.PNG';
+import shot3 from '../img/project-3.jpg';
+import shot4 from '../img/project-4.png';
+import shot5 from '../img/project-5.jpg';
+
 
 const PROJECTS = [
   {
-    title: 'BigSports — Sports News Portal',
-    subtitle: 'React • Firebase • Admin Panel • Analytics',
-    desc: 'Content platform with Firestore, auth, admin tools, category feeds, and modern glossy UI.',
-    tags: ['React', 'Firestore', 'Auth', 'Analytics'],
-    image: shot1,
-    href: 'https://example.com',
-    repo: 'https://github.com/yourname/bigsports',
-  },
+  title: 'SkinHelper — AI-Powered Cosmetics Store',
+  desc: 'An innovative e-commerce platform with AI-driven skin analysis. The frontend is built with React, while the backend uses JavaScript with Express and an SQL database. Features include personalized AI skin diagnostics, product recommendations, and a modern shopping experience.',
+  tags: ['React', 'Express', 'JavaScript', 'SQL', 'AI'],
+  image: shot5, // заміниш на скріншот свого сайту
+  href: 'https://www.skinhelper.store/',
+},
+
   {
-    title: 'PDF Generator API (PDM)',
-    subtitle: 'Node.js • PDFKit • Firebase Storage • Render',
-    desc: 'Backend that takes SolidWorks-like JSON and generates multi-page PDFs with stamps by GOST.',
-    tags: ['Node.js', 'PDFKit', 'Firebase Storage'],
-    image: shot2,
-    href: 'https://example.com',
-    repo: 'https://github.com/yourname/pdm_a4',
-  },
+  title: 'Appmachine.store — Trusted Mobile Apps',
+  desc: 'A platform showcasing trusted iOS and Android apps — already published, always available. Built with React and deployed on Render.com, with EmailJS integration for customer communication and Microsoft Clarity for analytics.',
+  tags: ['React', 'Render.com', 'EmailJS', 'Microsoft Clarity'],
+  image: shot4, 
+  href: 'https://appmachine.store',
+},
+
   {
-    title: 'SkinHelper — AI Skin Analysis',
-    subtitle: 'React • Node • PostgreSQL • OpenAI',
-    desc: 'E-commerce + AI pipeline for skin analysis, sleek admin, consultations, and payments flow.',
-    tags: ['React', 'Node', 'PostgreSQL', 'OpenAI'],
-    image: shot3,
-    href: 'https://example.com',
-    repo: 'https://github.com/yourname/skinhelper',
-  },
+  title: 'Busov — Freight Transport Services',
+  desc: 'A corporate website for cargo transportation in Kyiv and across Ukraine. Developed with React and Firebase, featuring an integrated EmailJS service for direct client inquiries and email notifications.',
+  tags: ['React', 'Firebase', 'EmailJS'],
+  image: shot3, 
+  href: 'https://busov.com.ua',
+},
+
+{
+  title: 'Spilno — Community Social Network',
+  desc: 'An experimental social network for communities, developed with React and Firebase. Features real-time data, authentication, and a modern UI designed for interaction and engagement.',
+  tags: ['React', 'Firebase', 'Social Network'],
+  image: shot2, // заміниш на свій скріншот
+  href: 'https://social-network-spilno.web.app/',
+},
+
+  {
+  title: 'BigSPORT — Sports News Website',
+  desc: 'A dynamic sports news portal built with React and Firebase. Includes automated news parsing and rewriting powered by ChatGPT, with a Node.js + Express backend for processing and Firestore for data storage.',
+  tags: ['React', 'Firebase', 'Node.js', 'Express', 'OpenAI'],
+  image: shot1, // заміниш на скрін свого сайту
+  href: 'https://bigsport.com.ua/', 
+},
+  
 ];
 
 export default function WebProjectsPage() {
@@ -44,7 +60,7 @@ export default function WebProjectsPage() {
       <header className="wp-hero appear">
         <div className="wp-hero__glass">
           <h1>Web Projects</h1>
-          <p>Hand-picked work with a glossy, magazine-inspired aesthetic.</p>
+          
         </div>
       </header>
 

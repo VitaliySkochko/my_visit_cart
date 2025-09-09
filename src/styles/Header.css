@@ -10,7 +10,7 @@
   --shadow: 0 10px 30px rgba(16, 24, 40, 0.10);
 
   --radius: 16px;
-  --z-header: 50;
+  --z-header: 50; 
 }
 
 /* — header з легким верхнім “бліком” */
@@ -22,6 +22,7 @@
   box-shadow: var(--shadow);
   isolation: isolate;
   padding: 20px;
+
 }
 .site-header::before{
   content:"";
