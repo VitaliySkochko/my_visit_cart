@@ -8,6 +8,8 @@ import ProjectsPage from './pages/ProjectsPage';
 import WebProjectsPage from './pages/WebProjectsPage';
 import TechStackPage from './pages/TechStackPage';   // 👈 NEW
 import ContactPage from './pages/ContactPage';       // 👈 NEW
+import SectionCards from "./components/SectionCards";
+import BigSportPage from './pages/BigSportPage';
 import './App.css';
 
 function Home() {
@@ -17,20 +19,7 @@ function Home() {
         <AboutTeaser />
       </section>
 
-      <section id="projects" className="section">
-        <h2>Projects</h2>
-        <p>Explore my work across web (mobile is coming soon).</p>
-      </section>
-
-      <section id="tech" className="section">
-        <h2>Tech Stack</h2>
-        <p>A quick overview of tools and technologies I use.</p>
-      </section>
-
-      <section id="contact" className="section">
-        <h2>Contact</h2>
-        <p>Reach me via email or the contact form.</p>
-      </section>
+      <SectionCards />   {/* 👈 нові картки */}
     </main>
   );
 }
@@ -46,6 +35,7 @@ export default function App() {
         <Route path="/projects/web" element={<WebProjectsPage />} />
         <Route path="/tech" element={<TechStackPage />} />       {/* 👈 NEW */}
         <Route path="/contact" element={<ContactPage />} />      {/* 👈 NEW */}
+        <Route path="/bigsport" element={<BigSportPage />} /> 
       </Routes>
     </div>
   );

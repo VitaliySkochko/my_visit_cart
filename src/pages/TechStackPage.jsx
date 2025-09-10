@@ -13,9 +13,8 @@ export default function TechStackPage() {
   return (
     <main className="tech-page">
       <header className="tech-hero appear">
-        <div className="tech-hero__glass">
+        <div className="pl-hero__title">
           <h1>Tech Stack</h1>
-          <p>Tools I use to build fast, elegant, magazine-style products.</p>
         </div>
       </header>
 

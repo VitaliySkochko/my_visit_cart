@@ -1,0 +1,36 @@
+.section-cards {
+  max-width: 1600px;
+  margin: 60px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  padding: 0 20px;
+}
+
+.section-card {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background-size: cover;
+  background-position: center;
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: #fff;
+  transition: transform 0.3s ease;
+}
+
+.section-card:hover {
+  transform: translateY(-6px);
+}
+
+.section-card__overlay {
+  position: absolute;
+  inset: 0;
+  
+
+  /* кнопка тільки внизу */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: 24px;
+}

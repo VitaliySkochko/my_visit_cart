@@ -18,9 +18,9 @@ export default function ContactPage() {
     <main className="contact-page">
       {/* HERO */}
       <header className="contact-hero appear">
-        <div className="contact-hero__glass">
+        <div className="pl-hero__title">
           <h1>Contact</h1>
-          <p>Let’s build something glossy and impactful together.</p>
+          
         </div>
       </header>
 

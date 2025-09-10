@@ -58,7 +58,7 @@ export default function WebProjectsPage() {
     <main className="web-projects">
       {/* HERO */}
       <header className="wp-hero appear">
-        <div className="wp-hero__glass">
+        <div className="pl-hero__title">
           <h1>Web Projects</h1>
           
         </div>
