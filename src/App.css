@@ -1,7 +1,35 @@
 .App {
   text-align: center;
+  position: relative;
+  z-index: 0;
 }
- /*--- Заголовок ---*/
+
+/* ===== Глобальний фон ===== */
+.App::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  top: 0;
+
+  /* світлий синьо-білий градієнт */
+  background: linear-gradient(135deg, #e6f0ff 0%, #f9fbff 40%, #c9ddff 100%);
+  z-index: -2;
+}
+
+.App::after{
+  content: "";
+  position: fixed;
+  inset: 0;
+  top: 140px;
+
+  /* фото як шар поверх градієнта */
+  background: url("./img/about-photo.png") center/cover no-repeat;
+  filter: blur(10px) brightness(0.85);
+  opacity: 0.55;
+  z-index: -1;
+}
+
+/*--- Заголовок ---*/
 .pl-hero__title{
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(36px, 5vw, 64px);
@@ -11,7 +39,6 @@
 }
 
 /*--- button ---*/
-/* кнопка */
 .about-teaser__cta {
   display: inline-block;
   padding: 16px 34px;
@@ -20,7 +47,7 @@
   font-weight: 600;
   font-size: 1.05rem;
   letter-spacing: 0.4px;
-
+cursor: pointer;
   color: #fff;
   background: linear-gradient(135deg, #3f8cff, #0050d1);
   border: none;
@@ -31,7 +58,7 @@
   transition: all 0.3s ease;
   position: relative;
   overflow: hidden;
-  min-width: 220px; /* робить кнопку ширшою */
+  min-width: 220px;
   text-align: center;
 }
 
@@ -57,4 +84,3 @@
 .about-teaser__cta:hover::after {
   transform: translateX(120%);
 }
-

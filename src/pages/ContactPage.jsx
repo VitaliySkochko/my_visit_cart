@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/ContactPage.css';
+import { FaLinkedin, FaGithub, FaInstagram, FaFacebook } from 'react-icons/fa';
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -17,31 +18,70 @@ export default function ContactPage() {
   return (
     <main className="contact-page">
       {/* HERO */}
-      <header className="contact-hero appear">
-        <div className="pl-hero__title">
+      <header className="contact-hero appear" style={{ animationDelay: '.02s' }}>
+        <div className="contact-hero__glass">
           <h1>Contact</h1>
-          
         </div>
       </header>
 
       {/* GRID */}
       <section className="contact-grid">
-        {/* Direct */}
-        <article className="contact-card glass-card appear" style={{ animationDelay: '.05s' }}>
-          <h3>Direct</h3>
-          <ul className="contact-list">
-            <li><a href="mailto:you@example.com">you@example.com</a></li>
-            <li><a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noreferrer">LinkedIn</a></li>
-            <li><a href="https://github.com/yourprofile" target="_blank" rel="noreferrer">GitHub</a></li>
-          </ul>
+        {/* LEFT: only title + icon links */}
+        <article className="contact-card glass-card appear" style={{ animationDelay: '.06s' }}>
+          <h3>Contacts</h3>
+          <div className="socials socials--big">
+            <a
+              className="socials__item"
+              href="https://www.linkedin.com/in/vitaliy-skochko-b8a150336/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <FaLinkedin size={24} />
+            </a>
+
+            <a
+              className="socials__item"
+              href="https://github.com/VitaliySkochko"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <FaGithub size={24} />
+            </a>
+
+            <a
+              className="socials__item"
+              href="https://www.instagram.com/vitaliyskochko/"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Instagram"
+              title="Instagram"
+            >
+              <FaInstagram size={24} />
+            </a>
+
+            <a
+              className="socials__item"
+              href="https://facebook.com/yourprofile"
+              target="_blank"
+              rel="noreferrer"
+              aria-label="Facebook"
+              title="Facebook"
+            >
+              <FaFacebook size={24} />
+            </a>
+          </div>
         </article>
 
-        {/* Form */}
+        {/* RIGHT: form */}
         <article className="contact-card glass-card appear" style={{ animationDelay: '.1s' }}>
           <h3>Send a message</h3>
 
           {sent ? (
-            <div className="sent">
+            <div className="sent" role="status">
               <p>Thanks! Your default mail app should open now. I’ll get back to you soon.</p>
             </div>
           ) : (
@@ -77,15 +117,15 @@ export default function ContactPage() {
                 <textarea
                   id="message"
                   name="message"
-                  placeholder="Hi! I’d like to discuss a project…"
                   rows="5"
+                  placeholder="Hi! I’d like to discuss a project…"
                   value={form.message}
                   onChange={onChange}
                   required
                 />
               </div>
 
-              <button className="btn btn--primary" type="submit">
+              <button className="about-teaser__cta" type="submit" aria-label="Send message by email">
                 <span>Send</span>
               </button>
             </form>
