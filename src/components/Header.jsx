@@ -32,7 +32,7 @@ export default function Header() {
         <NavLink className="brand" to="/">
           <div className="brand__text">
             <span className="brand__title">Vitaliy Skochko</span>
-            <span className="brand__subtitle">Frontend / Full-Stack Developer</span>
+            <span className="brand__subtitle">Full-stack Web Developer </span>
           </div>
         </NavLink>
 
