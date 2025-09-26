@@ -74,7 +74,7 @@
 
 .tech-card__badge{
   display: inline-block;
-  font-size: 12px;
+  font-size: 19px;
   font-weight: 700;
   color: #0b3b9c;
   background: #eef3ff;
@@ -84,29 +84,36 @@
 }
 
 .tech-card__title{
-  font-size: 22px;
+  font-size: 25px;
   font-weight: 800;
   margin: 0 0 10px;
   color: #0b1220;
 }
 
-.tech-card__list{
+.tech-card__list {
   margin: 0;
-  padding-left: 18px;
+  padding-left: 22px; /* трішки більший відступ під маркер */
   color: #334155;
-  font-size: 15px;
+  font-size: 18px;
+  list-style: none; /* вимикаємо стандартний браузерний буліт */
 }
-.tech-card__list li{
+
+.tech-card__list li {
   margin: 6px 0;
   position: relative;
+  line-height: 1.45;
+  padding-left: 6px; /* щоб текст не залипав на буліт */
 }
-.tech-card__list li::before{
-  content: "•";
+
+.tech-card__list li::before {
+  content: "•";                  /* буліт */
   position: absolute;
-  left: -14px;
-  color: #2e7dff;
-  font-weight: bold;
+  left: -18px;                   /* вирівнюємо */
+  color: #2e7dff;                /* ✅ синій акцент */
+  font-size: 22px;               /* робимо більший */
+  line-height: 1;
 }
+
 
 /* ===== Animation (fadeInUp) ===== */
 .appear{

@@ -2,18 +2,45 @@ import React from 'react';
 import '../styles/TechStackPage.css';
 
 const STACK = [
-  { group: 'Frontend', items: ['React', 'Vite/CRA', 'React Router', 'Redux/Zustand', 'TypeScript', 'CSS Modules', 'Tailwind', 'Framer Motion'] },
-  { group: 'Backend', items: ['Node.js', 'Express', 'REST', 'JWT', 'PDFKit', 'CRON (node-cron)'] },
-  { group: 'Databases & Cloud', items: ['PostgreSQL', 'Firebase (Auth, Firestore, Storage)', 'Render', 'Vercel', 'Netlify'] },
-  { group: 'Dev & Tools', items: ['Git/GitHub', 'ESLint/Prettier', 'Postman', 'CI/CD basics', 'Analytics (Amplitude/GA)'] },
-  { group: 'AI & Extras', items: ['OpenAI API', 'Prompting', 'RAG basics', 'Vector DB (FAISS)'] },
+  {
+    group: 'Languages',
+    items: ['Java', 'JavaScript (ES6+)', 'Python', 'SQL'],
+  },
+  {
+    group: 'Frontend',
+    items: ['React', 'React Router', 'HTML5/CSS3', 'Responsive UI/UX'],
+  },
+  {
+    group: 'Backend & APIs',
+    items: ['Node.js', 'Express', 'REST APIs', 'EmailJS (transactional)'],
+  },
+  {
+    group: 'Databases',
+    items: ['PostgreSQL', 'Firebase Firestore', 'SQL fundamentals'],
+  },
+  {
+    group: 'Cloud & DevOps',
+    items: ['Firebase Hosting/Storage/Auth', 'Render (Deployments)'],
+  },
+  {
+    group: 'AI & LLM Ops',
+    items: ['OpenAI API', 'Prompt Engineering', 'RAG basics', 'LangChain'],
+  },
+  {
+    group: 'Analytics & Monitoring',
+    items: ['Microsoft Clarity', 'Google Analytics', 'Amplitude'],
+  },
+   {
+    group: 'Workflow & Tools',
+    items: ['Git / GitHub', 'Postman', 'Project setup & CI basics'],
+  },
 ];
 
 export default function TechStackPage() {
   return (
     <main className="tech-page">
       <header className="tech-hero appear">
-        <div className="pl-hero__title">
+        <div className="contact-hero__glass">
           <h1>Tech Stack</h1>
         </div>
       </header>
