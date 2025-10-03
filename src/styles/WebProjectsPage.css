@@ -1,64 +1,151 @@
 .web-projects{
-  max-width: 1600px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 24px 20px 96px;
 }
 
-/* ===== HERO ===== */
-.wp-hero{
-  margin: 12px 0 32px;
-  text-align: center;
-}
-.wp-hero__glass{
-  --r: 18px;
-  border-radius: var(--r);
-  padding: 32px 28px;
-
-  background: rgba(255,255,255,.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  border: 1px solid transparent;
-  background-image:
-    linear-gradient(to bottom, rgba(255,255,255,.08), rgba(255,255,255,.02)),
-    linear-gradient(135deg, #9ec8ff, #5aa2ff 35%, #2e7dff 55%, #8ab3ff);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-
-  box-shadow: 0 12px 32px rgba(16,24,40,.12), inset 0 1px 0 rgba(255,255,255,.2);
-}
-.wp-hero h1{
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(32px, 6vw, 56px);
-  margin: 0 0 8px;
-  color: #0b1220;
-}
-.wp-hero p{
-  margin: 0;
-  color: #475569;
-  font-size: clamp(14px, 2vw, 18px);
-}
-
-/* ===== LIST GRID ===== */
+/* ===== LIST (1 column, centered, 1100px) ===== */
 .wp-list{
   display: grid;
-  gap: 22px;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 980px){
-  .wp-list{ grid-template-columns: 1fr 1fr; }
+  grid-template-columns: minmax(0, 1100px);
+  justify-content: center;
+  gap: 28px;
+  margin: 0 auto;
 }
 
-/* ===== Appear animation ===== */
-.appear{
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp .8s ease forwards;
+/* ===== Скляна картка з layout ===== */
+.wp-list .project-card,
+.wp-list > article,
+.wp-list > div{
+  --r: 18px;
+  border-radius: var(--r);
+  padding: 24px;
+  background: rgba(255,255,255,0.28);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 12px 28px rgba(0,0,0,0.12), inset 0 1px 0 rgba(255,255,255,0.25);
+  transition: transform .35s ease, box-shadow .35s ease;
+
+  /* головний грід усередині картки */
+  display: grid;
+  grid-template-columns: 420px 1fr;                 /* зліва фото, справа контент */
+  grid-template-areas:
+    "title  title"
+    "thumb  content";
+  column-gap: 24px;
+  row-gap: 14px;
 }
-@keyframes fadeInUp{
-  from{ opacity:0; transform: translateY(40px); }
-  to{ opacity:1; transform: translateY(0); }
+
+.wp-list .project-card:hover,
+.wp-list > article:hover,
+.wp-list > div:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
 }
-@media (prefers-reduced-motion: reduce){
-  .appear{ animation: none !important; opacity: 1 !important; transform: none !important; }
+
+/* ===== Заголовок зверху на всю ширину ===== */
+.wp-list .project-card > h1,
+.wp-list .project-card > h2,
+.wp-list .project-card > h3{
+  grid-area: title;
+  margin: 0;
+  font-weight: 800;
+  font-size: 28px;
+  color: #0b1220;
 }
+
+/* ===== Фото зліва ===== */
+/* якщо є обгортка .pc-thumb — таргетимо img всередині; якщо ні — сам <img> */
+.wp-list .project-card .pc-thumb{ grid-area: thumb; }
+.wp-list .project-card .pc-thumb img,
+.wp-list .project-card > img{
+  grid-area: thumb;
+  display: block;
+  width: 100%;
+  height: 280px;              /* компактніше */
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0,30,120,.08);
+}
+
+/* ===== Контент справа ===== */
+.wp-list .project-card .pc-content,
+.wp-list .project-card > .content,
+.wp-list .project-card > .project-content{
+  grid-area: content;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.wp-list .project-card p{
+  margin: 0;
+  color: #1e293b;
+  line-height: 1.55;
+  font-size: 16px;
+}
+
+/* Теги */
+.wp-list .project-card .tags,
+.wp-list .project-card .project-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.wp-list .project-card .tag{
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255,255,255,.7);
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 4px 12px rgba(0,30,120,.06);
+}
+
+/* Кнопка/лінк */
+.wp-list .project-card .cta,
+.wp-list .project-card a.button{
+  display: inline-block;
+  min-width: 220px;
+  padding: 12px 24px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: .3px;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(135deg, #3f8cff, #0050d1);
+  box-shadow: 0 8px 22px rgba(11,59,156,.45), inset 0 1px 0 rgba(255,255,255,.25);
+  transition: transform .28s ease, box-shadow .28s ease;
+}
+.wp-list .project-card .cta:hover,
+.wp-list .project-card a.button:hover{
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: 0 14px 30px rgba(11,59,156,.55);
+}
+
+/* ===== Мобільні/планшети ===== */
+@media (max-width: 1100px){
+  .wp-list{ grid-template-columns: minmax(0, 100%); padding: 0 16px; }
+}
+@media (max-width: 900px){
+  .wp-list .project-card{
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "title"
+      "thumb"
+      "content";
+    row-gap: 16px;
+  }
+  .wp-list .project-card .pc-thumb img,
+  .wp-list .project-card > img{ height: 220px; }
+  .wp-list .project-card{ padding: 20px; border-radius: 16px; }
+  .wp-list .project-card > h1,
+  .wp-list .project-card > h2,
+  .wp-list .project-card > h3{ font-size: 24px; }
+}
+
+

@@ -60,7 +60,7 @@
 /* Photo frame (square-ish, responsive) */
 .bio-photo{
   position: relative;
-  width: min(320px, 90%);
+  width: min(320px, 92%);
   aspect-ratio: 1 / 1;
   margin: 0 auto;
   border-radius: 18px;
@@ -117,7 +117,11 @@
   margin: 0 0 10px;
   color: #0b1220;
 }
-.about-bio__text p{ color: #525b6a; margin: 0 0 12px; }
+.about-bio__text p {
+  color: #000;         /* чорний колір */
+  margin: 0 0 12px;
+  text-align: left;    /* початок зліва */
+}
 
 /* ===== Timeline ===== */
 .about-career{ margin-top: 8px; }
@@ -172,3 +176,53 @@
   .appear{ animation: none !important; opacity: 1 !important; transform: none !important; }
   .bio-photo, .bio-photo img, .bio-photo__shine{ transition: none !important; }
 }
+
+/* Centered company row */
+.tl-company-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.tl-company-name {
+  font-weight: 600;
+  color: #0b1220;
+  font-size: 18px;
+}
+
+/* Dates */
+.tl-meta {
+  text-align: center;
+  font-size: 18px;
+  color: #2E8EEA;
+  margin-bottom: 4px;
+}
+
+/* Role */
+.tl-title {
+  text-align: center;
+  font-size: 17px;
+  font-weight: 500;
+  color: #1f2937;
+}
+
+/* Logo */
+.tl-logo-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(16,24,40,.12);
+}
+.tl-logo {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+
+

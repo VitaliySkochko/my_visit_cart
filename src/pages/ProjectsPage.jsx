@@ -10,9 +10,12 @@ export default function ProjectsPage() {
   return (
     <main className="projects-landing">
       {/* HERO тільки з заголовком */}
-      <header className="pl-hero">
-        <h1 className="pl-hero__title">Project</h1>
+      <header className="contact-hero appear" style={{ animationDelay: '.02s' }}>
+        <div className="contact-hero__glass">
+          <h1>Project</h1>
+        </div>
       </header>
+
 
       {/* Web Projects */}
       <section className="pl-grid">
