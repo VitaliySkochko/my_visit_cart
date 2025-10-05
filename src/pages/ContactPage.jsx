@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import '../styles/ContactPage.css';
-import { FaLinkedin, FaGithub, FaInstagram, FaFacebook } from 'react-icons/fa';
+import { Linkedin, Github, Instagram, Facebook } from 'lucide-react'; // 👈 заміна іконок
 
 export default function ContactPage() {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -26,52 +26,45 @@ export default function ContactPage() {
 
       {/* GRID */}
       <section className="contact-grid">
-        {/* LEFT: only title + icon links */}
+        {/* LEFT: title + icon links (в стилі BigSport) */}
         <article className="contact-card glass-card appear" style={{ animationDelay: '.06s' }}>
           <h3>Contacts</h3>
-          <div className="socials socials--big">
+          <div className="socials socials--icons">
             <a
-              className="socials__item"
               href="https://www.linkedin.com/in/vitaliy-skochko-b8a150336/"
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn"
               title="LinkedIn"
             >
-              <FaLinkedin size={24} />
+              <Linkedin size={40} strokeWidth={2.2} />
             </a>
-
             <a
-              className="socials__item"
               href="https://github.com/VitaliySkochko"
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub"
               title="GitHub"
             >
-              <FaGithub size={24} />
+              <Github size={40} strokeWidth={2.2} />
             </a>
-
             <a
-              className="socials__item"
               href="https://www.instagram.com/vitaliyskochko/"
               target="_blank"
               rel="noreferrer"
               aria-label="Instagram"
               title="Instagram"
             >
-              <FaInstagram size={24} />
+              <Instagram size={40} strokeWidth={2.2} />
             </a>
-
             <a
-              className="socials__item"
               href="https://facebook.com/yourprofile"
               target="_blank"
               rel="noreferrer"
               aria-label="Facebook"
               title="Facebook"
             >
-              <FaFacebook size={24} />
+              <Facebook size={30} strokeWidth={2.2} />
             </a>
           </div>
         </article>

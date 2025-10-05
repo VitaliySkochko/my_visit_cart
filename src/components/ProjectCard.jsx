@@ -1,9 +1,11 @@
 import React from 'react';
 import '../styles/ProjectCard.css';
+import { ArrowRight } from 'lucide-react'; // 👈 додаємо іконку
 
 export default function ProjectCard({
   title,
   subtitle,
+  year,
   desc,
   tags = [],
   image,
@@ -12,14 +14,21 @@ export default function ProjectCard({
   delay = 0,
 }) {
   return (
-    <article className="proj-card glass-border appear" style={{ animationDelay: `${delay}s` }}>
+    <article
+      className="proj-card glass-border appear"
+      style={{ animationDelay: `${delay}s` }}
+    >
       <div className="proj-card__thumb">
         <img src={image} alt={title} loading="lazy" />
         <span className="proj-card__shine" aria-hidden="true" />
       </div>
 
       <div className="proj-card__body">
-        <h3 className="proj-card__title">{title}</h3>
+        <h3 className="proj-card__title">
+          {title}
+          {year && <span className="proj-card__year"> · {year}</span>}
+        </h3>
+
         {subtitle && <div className="proj-card__subtitle">{subtitle}</div>}
         {desc && <p className="proj-card__desc">{desc}</p>}
 
@@ -33,13 +42,25 @@ export default function ProjectCard({
 
         <div className="proj-card__actions">
           {href && (
-            <a className="btn btn--primary" href={href} target="_blank" rel="noreferrer">
-              Live →
+            <a
+              className="link-arrow"
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>View project</span>
+              <ArrowRight className="link-arrow__icon" size={18} strokeWidth={2.4} />
             </a>
           )}
           {repo && (
-            <a className="btn btn--ghost" href={repo} target="_blank" rel="noreferrer">
-              Code
+            <a
+              className="link-arrow"
+              href={repo}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <span>View code</span>
+              <ArrowRight className="link-arrow__icon" size={18} strokeWidth={2.4} />
             </a>
           )}
         </div>

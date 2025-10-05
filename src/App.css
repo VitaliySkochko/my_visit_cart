@@ -20,7 +20,7 @@
   content: "";
   position: fixed;
   inset: 0;
-  top: 140px;
+  top: 100px;
 
   /* фото як шар поверх градієнта */
   background: url("./img/about-photo.png") center/cover no-repeat;
@@ -52,8 +52,7 @@ cursor: pointer;
   background: linear-gradient(135deg, #3f8cff, #0050d1);
   border: none;
 
-  box-shadow: 0 6px 18px rgba(11, 59, 156, 0.45),
-              inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  
 
   transition: all 0.3s ease;
   position: relative;
@@ -78,9 +77,111 @@ cursor: pointer;
 
 .about-teaser__cta:hover {
   transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 10px 28px rgba(11, 59, 156, 0.55);
 }
 
 .about-teaser__cta:hover::after {
   transform: translateX(120%);
 }
+
+/* ======================================================
+   Мінімалістична кнопка-посилання (біла + hover #5ea0ff)
+   ====================================================== */
+.link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.3px;
+  color: #fff;
+  position: relative;
+  transition: color 0.35s ease, transform 0.35s ease;
+}
+
+/* підкреслення */
+.link-arrow::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+  opacity: 0.9;
+}
+
+/* стрілка */
+.link-arrow__icon {
+  stroke-width: 2.4;
+  transition: transform 0.35s ease, opacity 0.35s ease, stroke 0.35s ease;
+  opacity: 0.85;
+  stroke: currentColor;
+}
+
+/* hover-ефекти */
+.link-arrow:hover {
+  color: #5ea0ff;
+  transform: translateY(-2px);
+  text-shadow: 0 0 10px rgba(94,160,255,0.4);
+}
+
+.link-arrow:hover::after {
+  transform: scaleX(1);
+}
+
+.link-arrow:hover .link-arrow__icon {
+  transform: translateX(6px);
+  opacity: 1;
+  stroke: #5ea0ff;
+}
+
+/* адаптив */
+@media (max-width: 640px) {
+  .link-arrow {
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+}
+
+
+
+
+
+
+/* ===== Глобальний фон для всіх сторінок ===== */
+.App::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  top: 0;
+  background: linear-gradient(135deg, #e6f0ff 0%, #f9fbff 40%, #c9ddff 100%);
+  z-index: -2;
+}
+
+.App::after{
+  content: "";
+  position: fixed;
+  inset: 0;
+  top: 100px;
+
+  background: url("./img/about-photo.png") center/cover no-repeat;
+  filter: blur(10px) brightness(0.85);
+  opacity: 0.55;
+  z-index: -1;
+}
+
+/* ===== Для головної сторінки — чисте фото без фільтрів, але з тим самим зміщенням ===== */
+.App.is-home::after{
+  top: 100px; /* ✅ така ж відстань, як у глобальному фоні */
+  background: url("./img/about-photo.png") center/cover no-repeat;
+  filter: none;        /* ❌ без блюру */
+  opacity: 1;          /* ✅ повна видимість */
+  z-index: -1;         /* залишаємо той самий рівень */
+}
+
+

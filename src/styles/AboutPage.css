@@ -3,6 +3,7 @@
   max-width: 1100px;
   margin: 0 auto;
   padding: 24px 20px 96px;
+  margin-top: 100px;
 }
 
 /* ===== Hero ===== */
@@ -196,16 +197,16 @@
 .tl-meta {
   text-align: center;
   font-size: 18px;
-  color: #2E8EEA;
+  color: #1f2937;
   margin-bottom: 4px;
 }
 
 /* Role */
 .tl-title {
   text-align: center;
-  font-size: 17px;
-  font-weight: 500;
-  color: #1f2937;
+  font-size: 19px;
+  font-weight: 700;
+  color: #2E8EEA;
 }
 
 /* Logo */

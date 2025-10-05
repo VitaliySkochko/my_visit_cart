@@ -10,20 +10,30 @@
 
   --radius: 16px;
   --z-header: 50;
+  --header-h: 98px; /* висота фіксованого хедера */
 }
 
-/* ===== HEADER ===== */
+/* ===== HEADER (fixed, без стрибків) ===== */
 .site-header{
-  position: sticky;
-  top: 0;
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--header-h);
+  box-sizing: border-box;
   z-index: var(--z-header);
+  padding: 20px 0;
+  display: block;
+
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   background: linear-gradient(180deg, var(--glass-bg1), var(--glass-bg2));
   border-bottom: 1px solid var(--glass-border);
-  isolation: isolate;
-  padding: 20px;
+
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  contain: paint;
 }
+
 .site-header::before{
   content:"";
   position:absolute; inset:0 0 auto 0; height:8px;
@@ -31,10 +41,12 @@
   opacity:.6; pointer-events:none;
 }
 
+/* ===== NAV GRID ===== */
 .nav{
   max-width: 1200px;
   margin: 0 auto;
-  padding: 12px 20px;
+  height: calc(var(--header-h) - 40px); /* компенсуємо padding 20px зверху/знизу */
+  padding: 0 20px;
   display: grid;
   grid-template-columns: 1fr auto auto;
   gap: 12px;
@@ -49,15 +61,17 @@
   text-decoration:none;
   color:inherit;
 }
+
 .brand__text{ line-height:1.05; }
+
 .brand__title{
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(18px, 2vw, 36px);
   color: #2E8EEA;
   font-weight: 700;
   letter-spacing: 0.2px;
-  
 }
+
 .brand__subtitle{
   display:block;
   font-size:20px;
@@ -68,6 +82,7 @@
 
 /* ===== NAV LINKS (DESKTOP) ===== */
 .nav__links{ display:none; }
+
 @media (min-width:1024px){
   .nav__links{
     display:flex;
@@ -76,10 +91,10 @@
   }
 }
 
-/* Пункти меню — тільки текст + підкреслення при hover/focus */
+/* ===== LINK STYLE ===== */
 .nav__link{
   position: relative;
-  padding: 6px 0; /* без горизонтальних паддингів */
+  padding: 6px 0;
   text-decoration: none;
   color: var(--ink);
   font-weight: 600;
@@ -87,6 +102,7 @@
   line-height: 1.2;
   transition: color .18s ease;
 }
+
 .nav__link::after{
   content:"";
   position:absolute;
@@ -97,17 +113,13 @@
   transform-origin: left;
   transition: transform .18s ease;
 }
+
 .nav__link:hover::after{ transform: scaleX(1); }
-.nav__link.is-active{
-  color: #2E8EEA; /* приклад синього */
-}
+.nav__link.is-active{ color: #2E8EEA; }
 .nav__link:focus-visible{ outline: none; }
 .nav__link:focus-visible::after{ transform: scaleX(1); }
-/* Якщо потрібно підкреслювати активний:
-.nav__link.is-active::after{ transform: scaleX(1); }
-*/
 
-/* ===== BURGER (mobile) — чистий, акуратний ===== */
+/* ===== BURGER (mobile) ===== */
 .nav__toggle{
   position: relative;
   justify-self: end;
@@ -126,7 +138,7 @@
 .nav__toggle:focus{ outline: none; }
 @media (min-width:1024px){ .nav__toggle{ display:none; } }
 
-/* Три рівні риски (— — —) з округлими кінцями */
+/* ===== BURGER ICON ===== */
 .toggle__bar{
   position: absolute;
   left: 50%;
@@ -140,7 +152,6 @@
 .toggle__bar:nth-child(2){ top: 19px; }
 .toggle__bar:nth-child(3){ top: 26px; }
 
-/* Відкритий стан — чистий хрестик */
 .nav__toggle[aria-expanded="true"] .toggle__bar:nth-child(1){
   top: 19px; width: 20px; transform: translateX(-50%) rotate(45deg);
 }
@@ -152,17 +163,19 @@
 /* ===== MOBILE DRAWER ===== */
 .nav-drawer{
   position: fixed;
-  inset: 98px 0 auto 0;
+  inset: var(--header-h) 0 auto 0;
   transform: translateY(-10px);
   opacity: 0;
   pointer-events: none;
   transition: .25s ease;
 }
+
 .nav-drawer.is-open{
   transform: translateY(0);
   opacity: 1;
   pointer-events: auto;
 }
+
 .drawer__inner{
   margin: 8px auto 0;
   max-width: 1200px;
@@ -175,7 +188,7 @@
   gap: 2px;
 }
 
-/* Мобільні лінки — без підкреслення (тільки колір при наведенні) */
+/* ===== MOBILE LINKS ===== */
 .drawer__link{
   display:block;
   padding: 14px 2px;
@@ -190,7 +203,7 @@
 .drawer__link:hover{ color: #2E8EEA; }
 .drawer__link:focus-visible{ outline: none; }
 
-/* На мобільних повністю прибираємо underline-псевдоелементи */
+/* прибираємо underline на мобілках */
 @media (max-width: 1023px){
   .drawer__link::after,
   .drawer__link:hover::after,
@@ -201,3 +214,11 @@
 @media (prefers-reduced-motion: reduce){
   *{ animation:none !important; transition:none !important; }
 }
+
+/* ===== COMPENSATION for fixed header ===== */
+.page{
+  padding-top: calc(var(--header-h) + 8px); /* щоб контент не стрибав */
+}
+
+/* стабільний скролбар (без зміни ширини при відкритті/закритті меню) */
+html { scrollbar-gutter: stable both-edges; }
