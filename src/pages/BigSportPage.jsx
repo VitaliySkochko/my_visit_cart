@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "../styles/ContactPage.css";
 import "../styles/BigSportPage.css";
 import { Globe, Instagram, Youtube, Linkedin, ChevronLeft, ChevronRight } from "lucide-react";
@@ -6,25 +6,45 @@ import { Globe, Instagram, Youtube, Linkedin, ChevronLeft, ChevronRight } from "
 import img1 from "../img/project-1.jpg";
 import img2 from "../img/01.png";
 
-
 export default function BigSportPage() {
   const slides = [
     {
-  title: "BigSport — Modern Sports Media",
-  text: "A next-generation Ukrainian sports news platform delivering verified stories, match highlights, and exclusive insights — all in one place.",
-  img: img1, // емблема BigSport
-},
-{
-  title: "BigSport 4.0 — Smarter, Faster, Stronger",
-  text: "The latest version of our website with a redesigned interface.",
-  img: img2, // версія сайту 4.0
-},
-    
+      title: "BigSport — Modern Sports Media",
+      text: "A next-generation Ukrainian sports news platform delivering verified stories, match highlights, and exclusive insights — all in one place.",
+      img: img1,
+    },
+    {
+      title: "BigSport 4.0 — Smarter, Faster, Stronger",
+      text: "The latest version of our website with a redesigned interface.",
+      img: img2,
+    },
   ];
 
   const [current, setCurrent] = useState(0);
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
   const next = () => setCurrent((current + 1) % slides.length);
   const prev = () => setCurrent((current - 1 + slides.length) % slides.length);
+
+  // свайп: початок
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  // свайп: завершення
+  const handleTouchEnd = (e) => {
+    touchEndX.current = e.changedTouches[0].clientX;
+    handleSwipe();
+  };
+
+  const handleSwipe = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    if (Math.abs(diff) > 50) {
+      if (diff > 0) next(); // свайп вліво → наступний
+      else prev();          // свайп вправо → попередній
+    }
+  };
 
   return (
     <main className="contact-page">
@@ -35,8 +55,13 @@ export default function BigSportPage() {
         </div>
       </header>
 
-      {/* === PHOTO SLIDER (окрема плашка) === */}
-      <section className="bigsport-slider glass-card appear" style={{ animationDelay: ".05s" }}>
+      {/* === PHOTO SLIDER === */}
+      <section
+        className="bigsport-slider glass-card appear"
+        style={{ animationDelay: ".05s" }}
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <div
           className="bigsport-slide"
           style={{ backgroundImage: `url(${slides[current].img})` }}
@@ -47,6 +72,7 @@ export default function BigSportPage() {
             <p>{slides[current].text}</p>
           </div>
 
+          {/* кнопки залишаються, але приховуються на мобільних через CSS */}
           <button className="slider-btn prev" onClick={prev} aria-label="Previous slide">
             <ChevronLeft size={28} />
           </button>
@@ -56,7 +82,7 @@ export default function BigSportPage() {
         </div>
       </section>
 
-      {/* === OLD GRID з інформаційними плашками === */}
+      {/* === GRID з інформаційними блоками === */}
       <section className="contact-grid">
         <article className="contact-card glass-card appear" style={{ animationDelay: ".1s" }}>
           <h3>About BigSport</h3>
@@ -106,9 +132,7 @@ export default function BigSportPage() {
 
         <article className="contact-card glass-card appear" style={{ animationDelay: ".35s" }}>
           <h3>Audience</h3>
-          <p>
-            For fans, journalists, and everyone who loves sports as much as we do.
-          </p>
+          <p>For fans, journalists, and everyone who loves sports as much as we do.</p>
         </article>
 
         <article className="contact-card glass-card appear" style={{ animationDelay: ".4s" }}>
@@ -119,7 +143,7 @@ export default function BigSportPage() {
           </ul>
         </article>
 
-        {/* LINKS (іконки) */}
+        {/* LINKS */}
         <article className="contact-card glass-card appear" style={{ animationDelay: ".45s" }}>
           <h3>Links</h3>
           <div className="bigsport-links">

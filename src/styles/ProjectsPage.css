@@ -194,3 +194,49 @@
   }
 }
 
+/* ===== iPhone SE (375px і менше) ===== */
+@media (max-width: 375px){
+  .projects-landing{
+    margin-top: 102px;
+    padding: 20px max(10px, env(safe-area-inset-left)) 64px max(10px, env(safe-area-inset-right));
+  }
+
+  .pl-grid{ gap: 16px; }
+
+  .pl-card--pro{
+    width: min(300px, 94vw);   /* було 340 → компактніше */
+    padding: 12px;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(0,0,0,.12), inset 0 1px 0 rgba(255,255,255,.22);
+  }
+
+  .pl-card__thumb{
+    width: 160px;              /* було 170–200 */
+    height: 160px;
+    margin: 4px auto 10px;
+    border-radius: 12px;
+  }
+
+  .pl-card__title{
+    font-size: 19px;           /* було 20–22 */
+    margin: 0 0 6px;
+    letter-spacing: .15px;
+  }
+
+  .pl-card__content{ padding: 0 2px; }
+
+  .pl-card__cta-btn{
+    width: 100%;
+    min-width: 0;
+    padding: 10px 16px;
+    font-size: .92rem;
+    min-height: 44px;          /* комфортний тап */
+    box-shadow: 0 10px 22px rgba(11,59,156,.40);
+  }
+
+  /* легше навантаження на GPU на дуже малих */
+  .pl-card--pro:hover{ transform: none; box-shadow: 0 12px 26px rgba(0,0,0,.14); }
+  .pl-card--pro:hover .pl-card__thumb{ transform: none; }
+  .pl-card--pro:hover .pl-card__thumb img{ transform: none; }
+}
+

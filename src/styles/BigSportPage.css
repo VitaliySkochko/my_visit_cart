@@ -158,3 +158,42 @@
     height: 36px;
   }
 }
+
+/* ===== Адаптація фото (мобільні) ===== */
+@media (max-width: 768px){
+  .bigsport-slide{
+    height: 480px;
+    background-size: cover;
+    background-position: 50% 40%; /* трохи вище центру */
+  }
+}
+
+/* ===== iPhone SE (до 375px) ===== */
+@media (max-width: 375px){
+  .bigsport-slide{
+    height: 320px;               /* менша висота */
+    background-size: cover;
+    background-position: 50% 35%; /* фокус вище — не зрізає голови */
+  }
+}
+
+/* ===== дуже вузькі (до 320px) ===== */
+@media (max-width: 320px){
+  .bigsport-slide{
+    height: 300px;
+    background-position: 50% 32%;
+  }
+}
+
+@media (max-width: 768px){
+  .slider-btn {
+    display: none !important;
+  }
+}
+
+/* ===== MOBILE: приховуємо текст на фото ===== */
+@media (max-width: 768px){
+  .bigsport-slide__content {
+    display: none !important;
+  }
+}
