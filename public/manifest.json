@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "VS",
+  "name": "Vitaliy Skochko — Web Developer",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,18 +8,20 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
+      "src": "icon192.png",
+      "sizes": "192x192",
+      "type": "image/png"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
+      "src": "icon512.png",
+      "sizes": "512x512",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#2E8EEA",
+  "background_color": "#ffffff",
+  "description": "Portfolio та сайти від Vitaliy Skochko: React, Firebase, сучасний UI/UX, спортивні медіа та бізнес-візитки."
 }
+
