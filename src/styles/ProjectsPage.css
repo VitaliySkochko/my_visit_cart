@@ -141,13 +141,56 @@
 
 /* ===== Адаптив під мобільні/планшети ===== */
 @media (max-width: 900px){
-  .pl-card--pro{ padding: 16px; border-radius: 14px; }
-  .pl-card__thumb{ width: 220px; height: 220px; }
-  .pl-card__title{ font-size: 24px; }
-  .pl-card__cta-btn{ width: 100%; min-width: 0; }
+  .pl-card--pro{
+    width: min(320px, 90vw);
+    padding: 14px;
+    border-radius: 12px;
+  }
+
+  .pl-card__thumb{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 12px;
+  }
+
+  .pl-card__title{
+    font-size: 22px;
+    margin-bottom: 8px;
+  }
+
+  .pl-card__content{
+    padding: 0 4px;
+  }
+
+  .pl-card__cta-btn{
+    width: 100%;
+    min-width: 0;
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
 }
 
+/* ===== Мобільні (до 600px) ===== */
 @media (max-width: 600px){
-  .pl-card__thumb{ width: 200px; height: 200px; }
-  .pl-card__title{ font-size: 22px; }
+  .pl-card--pro{
+    width: min(340px, 92vw);
+    padding: 12px;
+    border-radius: 10px;
+  }
+
+  .pl-card__thumb{
+    width: 170px;
+    height: 170px;
+    margin-bottom: 10px;
+  }
+
+  .pl-card__title{
+    font-size: 20px;
+  }
+
+  .pl-card__cta-btn{
+    font-size: 0.9rem;
+    padding: 9px 18px;
+  }
 }
+

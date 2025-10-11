@@ -61,10 +61,85 @@
   to{ opacity: 1; transform: translateY(0); }
 }
 
-/* Невеликі адаптивні нюанси */
+/* ====== МОБІЛЬНІ (до 640px) ====== */
 @media (max-width: 640px){
-  .about-teaser{ margin: 24px auto; }
-  .about-teaser__glass{ padding: 24px; }
+  .about-teaser{
+    margin: 20px auto;
+    padding: 0 14px;            /* невеликий горизонтальний відступ від країв екрана */
+  }
+
+  .about-teaser__glass{
+    width: 100%;
+    max-width: 100%;
+    border-radius: 14px;
+    padding: 20px 18px;         /* компактніше */
+    box-shadow: 0 8px 22px rgba(0,0,0,.22);
+  }
+
+  .about-teaser__title{
+    font-size: clamp(24px, 7vw, 32px);
+    line-height: 1.18;
+    margin-bottom: 12px;
+  }
+
+  .about-teaser__text{
+    font-size: clamp(14px, 4vw, 16px);
+    line-height: 1.65;
+    margin-bottom: 18px;
+  }
+
+  /* Якщо є кнопка в блоці */
+  .about-teaser__cta{
+    display: inline-block;
+    width: 100%;
+    min-height: 44px;           /* комфортна зона натискання */
+  }
+}
+
+/* ====== ДУЖЕ МАЛІ ЕКРАНИ (до 360px) — ще трохи тісніше ====== */
+@media (max-width: 360px){
+  .about-teaser__glass{ padding: 16px 14px; }
+  .about-teaser__title{ font-size: clamp(22px, 8vw, 28px); }
+  .about-teaser__text{ font-size: 14px; }
+}
+
+/* ====== ПЛАНШЕТИ (641–1024px) ====== */
+@media (min-width: 641px) and (max-width: 1024px){
+  .about-teaser{
+    margin: 32px auto;
+    padding: 0 24px;            /* «дихаючі» поля зліва/справа */
+    max-width: 960px;
+  }
+
+  .about-teaser--glassonly{
+    place-items: center;        /* центруємо плашку всередині */
+  }
+
+  .about-teaser__glass{
+    width: min(92vw, 700px);    /* трохи ширше за мобільний, але не на всю */
+    max-width: 700px;
+    border-radius: 16px;
+    padding: 28px 32px;
+    box-shadow: 0 10px 28px rgba(0,0,0,.22);
+  }
+
+  .about-teaser__title{
+    font-size: clamp(32px, 4.2vw, 44px);
+    margin-bottom: 14px;
+  }
+
+  .about-teaser__text{
+    font-size: clamp(15px, 1.8vw, 18px);
+    line-height: 1.7;
+    margin-bottom: 22px;
+  }
+}
+
+/* ====== ПОВАГА ДО КОРИСТУВАЧА: менше анімацій ====== */
+@media (prefers-reduced-motion: reduce){
+  .about-teaser__glass{
+    animation: none;
+  }
 }
 
 

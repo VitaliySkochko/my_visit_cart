@@ -28,10 +28,8 @@
   background: linear-gradient(180deg, var(--glass-bg1), var(--glass-bg2));
   border-bottom: 1px solid var(--glass-border);
 
-  transform: translateZ(0);
   will-change: transform;
-  backface-visibility: hidden;
-  contain: paint;
+  
 }
 
 .site-header::before{
