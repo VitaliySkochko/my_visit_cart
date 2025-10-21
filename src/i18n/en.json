@@ -1,0 +1,178 @@
+{
+  "name": "Vitaliy Skochko",
+  "about": "About Me",
+  "projects": "Projects",
+  "tech": "Tech Stack",
+  "contact": "Contact",
+  "hero_title": "Web Developer",
+  "language": "Language",
+
+  "about_title": "About Me",
+  "about_text": "I’m Vitaliy — a Full-Stack Developer who loves clean code and sharp design. I craft modern web apps that blend elegant UI with solid engineering.",
+  "about_button": "Read full bio",
+
+  "tech_stack": "Tech stack",
+  "view_project": "View project",
+  "view_code": "View code",
+
+  "card_projects_title": "My Projects",
+  "card_contacts_title": "My Contacts",
+  "card_bigsport_title": "BigSPORT Project",
+  "card_button_explore": "Explore",
+
+  "portrait_alt": "Portrait of Vitaliy Skochko",
+  "bio_title": "Biography",
+  "bio_paragraph_1": "I am a software developer at Intelligent Writing, focusing on building modern applications with React as my primary technology stack. My journey into IT began in November 2023 when I started learning Java to understand the fundamentals of Object-Oriented Programming.",
+  "bio_paragraph_2": "I studied entirely on my own, driven by curiosity and a desire to create something meaningful. The motivation came while I was working as a copywriter at a sports news website. When that project closed, I was inspired to build my own platform — which eventually became BigSport, a sports media platform I founded and developed as a full-stack engineer.",
+  "bio_paragraph_3": "Beyond coding, I am passionate about product thinking — understanding how technology can solve real problems, improve user experience, and scale into something bigger.",
+
+  "career_title": "IT Career",
+  "career_1_title": "Founder & Full-stack Developer",
+  "career_1_date": "Jul 2024 – Present · {{duration}}",
+  "career_2_title": "Full-stack Web Developer",
+  "career_2_date": "Feb 2025 – Oct 2025 · {{duration}}",
+  "career_3_title": "Engineering Manager",
+  "career_3_date": "Oct 2025 – Present · {{duration}}",
+
+  "duration_less_month": "less than a month",
+  "duration_months": "{{count}} month",
+  "duration_years": "{{count}} year",
+  "duration_full": "{{years}} years {{months}} months",
+
+  "backend_projects_title": "Backend Projects",
+  "backend_project_1_title": "BigSport News Automation Backend",
+  "backend_project_1_desc": "A high-performance Node.js backend powering the automated content pipeline for BigSport. It integrates advanced web scraping, AI-driven text rewriting, and cloud-based data processing. The system continuously aggregates sports news from multiple sources, reformats it with GPT models, and delivers structured content to Firestore. Built for reliability, scalability, and full automation — enabling real-time publishing without manual intervention.",
+
+  "contact_title": "Contact",
+  "contact_links_title": "Contacts",
+  "contact_form_title": "Send a message",
+  "contact_name": "Name",
+  "contact_email": "Email",
+  "contact_message": "Message",
+  "contact_name_placeholder": "Your name",
+  "contact_email_placeholder": "your@email.com",
+  "contact_message_placeholder": "Hi! I’d like to discuss a project…",
+  "contact_send_button": "Send",
+  "contact_send_aria": "Send message by email",
+  "contact_sent_message": "Thanks! Your default mail app should open now. I’ll get back to you soon.",
+
+  "projects_title": "Projects",
+  "projects_web_title": "Web Projects",
+  "projects_backend_title": "Backend Projects",
+  "projects_web_alt": "Preview of Web Projects",
+  "projects_backend_alt": "Preview of Backend Projects",
+  "projects_explore": "Explore",
+
+  "tech_title": "Tech Stack",
+  "stack": [
+    { "group": "Languages", "items": ["Java", "JavaScript (ES6+)", "Python", "SQL"] },
+    { "group": "Frontend", "items": ["React", "React Router", "HTML5/CSS3", "Responsive UI/UX"] },
+    { "group": "Backend & APIs", "items": ["Node.js", "Express", "REST APIs", "EmailJS (transactional)"] },
+    { "group": "Databases", "items": ["PostgreSQL", "Firebase Firestore", "SQL fundamentals"] },
+    { "group": "Cloud & DevOps", "items": ["Firebase Hosting/Storage/Auth", "Render (Deployments)"] },
+    { "group": "AI & LLM Ops", "items": ["OpenAI API", "Prompt Engineering", "RAG basics", "LangChain"] },
+    { "group": "Analytics & Monitoring", "items": ["Microsoft Clarity", "Google Analytics", "Amplitude"] },
+    { "group": "Workflow & Tools", "items": ["Git / GitHub", "Postman", "Project setup & CI basics"] }
+  ],
+
+  "web_projects_title": "Web Projects",
+  "web_projects": [
+    {
+      "title": "Intelligent Writing — AI Content Agency",
+      "year": 2025,
+      "desc": "Official corporate website of Intelligent Writing — a next-generation AI content and research agency. Built with React and deployed on Firebase Hosting, it showcases the company’s services, portfolio, and technology-driven approach to writing and analytics.",
+      "tags": ["React", "Firebase", "Corporate Website"],
+      "href": "https://intwriting.com/"
+    },
+    {
+      "title": "SkinHelper — AI-Powered Cosmetics Store",
+      "year": 2025,
+      "desc": "An innovative e-commerce platform with AI-driven skin analysis. The frontend is built with React, while the backend uses JavaScript with Express and an SQL database. Features include personalized AI skin diagnostics, product recommendations, and a modern shopping experience.",
+      "tags": ["React", "Express", "JavaScript", "SQL", "AI"],
+      "href": "https://www.skinhelper.store/"
+    },
+    {
+      "title": "Appmachine.store — Trusted Mobile Apps",
+      "year": 2025,
+      "desc": "A platform showcasing trusted iOS and Android apps — already published, always available. Built with React and deployed on Render.com, with EmailJS integration for customer communication and Microsoft Clarity for analytics.",
+      "tags": ["React", "Render.com", "EmailJS", "Microsoft Clarity"],
+      "href": "https://appmachine.store"
+    },
+    {
+      "title": "Busov — Freight Transport Services",
+      "year": 2025,
+      "desc": "A corporate website for cargo transportation in Kyiv and across Ukraine. Developed with React and Firebase, featuring an integrated EmailJS service for direct client inquiries and email notifications.",
+      "tags": ["React", "Firebase", "EmailJS"],
+      "href": "https://busov.com.ua"
+    },
+    {
+      "title": "Spilno — Community Social Network",
+      "year": 2025,
+      "desc": "An experimental social network for communities, developed with React and Firebase. Features real-time data, authentication, and a modern UI designed for interaction and engagement.",
+      "tags": ["React", "Firebase", "Social Network"],
+      "href": "https://social-network-spilno.web.app/"
+    },
+    {
+      "title": "BigSPORT — Sports News Website",
+      "year": 2025,
+      "desc": "A dynamic sports news portal built with React and Firebase. Includes automated news parsing and rewriting powered by ChatGPT, with a Node.js + Express backend for processing and Firestore for data storage.",
+      "tags": ["React", "Firebase", "Node.js", "Express", "OpenAI"],
+      "href": "https://bigsport.com.ua/"
+    }
+  ],
+
+  "bigsport_title": "BigSport",
+  "bigsport_slides": [
+    {
+      "title": "BigSport — Modern Sports Media",
+      "text": "A next-generation Ukrainian sports news platform delivering verified stories, match highlights, and exclusive insights — all in one place."
+    },
+    {
+      "title": "BigSport 4.0 — Smarter, Faster, Stronger",
+      "text": "The latest version of our website with a redesigned interface."
+    }
+  ],
+
+  "slider_prev_aria": "Previous slide",
+  "slider_next_aria": "Next slide",
+
+  "bigsport_about_title": "About BigSport",
+  "bigsport_about_text": "BigSport is a modern sports platform created for those who want to get important updates first-hand: real-time news, clear analysis, and convenient navigation across clubs, tournaments, and sports.",
+
+  "bigsport_mission_title": "Mission",
+  "bigsport_mission_text": "To develop sports culture in Ukraine: deliver information quickly, explain context, and inspire with athlete and team stories.",
+
+  "bigsport_coverage_title": "Coverage",
+  "bigsport_coverage_items": [
+    { "label": "Ukrainian Football", "text": "UPL, Cup, national team." },
+    { "label": "European Leagues", "text": "Premier League, La Liga, Serie A, Bundesliga, Ligue 1." },
+    { "label": "European Cups", "text": "Champions League, Europa League, Conference League." },
+    { "label": "Biathlon", "text": "World Cup, Ukrainian athletes’ results." }
+  ],
+
+  "bigsport_formats_title": "Formats",
+  "bigsport_formats_items": [
+    { "label": "News", "text": "key facts only, no fluff." },
+    { "label": "Reviews", "text": "data and trends." },
+    { "label": "Interviews", "text": "athletes, coaches, experts." },
+    { "label": "Club Archive", "text": "teams that left competitions." }
+  ],
+
+  "bigsport_principles_title": "Principles",
+  "bigsport_principles_items": [
+    { "label": "Speed", "text": "publish fast, update responsibly." },
+    { "label": "Accuracy", "text": "respect for facts." },
+    { "label": "Usability", "text": "clean interface." },
+    { "label": "Respect", "text": "ethical language." }
+  ],
+
+  "bigsport_audience_title": "Audience",
+  "bigsport_audience_text": "For fans, journalists, and everyone who loves sports as much as we do.",
+
+  "bigsport_team_title": "Team & Contact",
+  "bigsport_founder_label": "Founder",
+  "bigsport_email_label": "Email",
+
+  "bigsport_links_title": "Links"
+
+}

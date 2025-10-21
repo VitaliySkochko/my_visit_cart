@@ -1,0 +1,178 @@
+{
+  "name": "Віталій Скочко",
+  "about": "Про мене",
+  "projects": "Проєкти",
+  "tech": "Технології",
+  "contact": "Контакти",
+  "hero_title": "Веб-розробник",
+  "language": "Мова",
+
+  "about_title": "Про мене",
+  "about_text": "Я Віталій — Full-Stack розробник, який цінує чистий код і продуманий дизайн. Створюю сучасні веб-застосунки, що поєднують елегантний інтерфейс із надійною архітектурою.",
+  "about_button": "Читати повну біографію",
+
+  "tech_stack": "Технології",
+  "view_project": "Переглянути проєкт",
+  "view_code": "Переглянути код",
+
+  "card_projects_title": "Мої проєкти",
+  "card_contacts_title": "Мої контакти",
+  "card_bigsport_title": "Проєкт BigSPORT",
+  "card_button_explore": "Переглянути",
+
+  "portrait_alt": "Портрет Віталія Скочка",
+  "bio_title": "Біографія",
+  "bio_paragraph_1": "Я — розробник у компанії Intelligent Writing, спеціалізуюсь на створенні сучасних застосунків із використанням React. Моя подорож у IT почалася у листопаді 2023 року, коли я почав вивчати Java, щоб зрозуміти основи об’єктно-орієнтованого програмування.",
+  "bio_paragraph_2": "Я навчався повністю самостійно, керуючись цікавістю та бажанням створювати щось значуще. Мотивація прийшла тоді, коли я працював копірайтером на спортивному сайті. Коли проєкт закрився, я вирішив створити власну платформу — так з’явився BigSport, який я розробив як full-stack інженер.",
+  "bio_paragraph_3": "Окрім програмування, мене надихає продуктовий підхід — як технології можуть вирішувати реальні проблеми, покращувати досвід користувачів і масштабуватись у щось більше.",
+
+  "career_title": "IT кар’єра",
+  "career_1_title": "Засновник і Full-stack розробник",
+  "career_1_date": "Лип 2024 – дотепер · {{duration}}",
+  "career_2_title": "Full-stack веб-розробник",
+  "career_2_date": "Лют 2025 – Жов 2025 · {{duration}}",
+  "career_3_title": "Engineering Manager",
+  "career_3_date": "Жов 2025 – дотепер · {{duration}}",
+
+  "duration_less_month": "менше місяця",
+  "duration_months": "{{count}} міс.",
+  "duration_years": "{{count}} рік",
+  "duration_full": "{{years}} р. {{months}} міс.",
+
+  "backend_projects_title": "Backend-проєкти",
+  "backend_project_1_title": "BigSport — бекенд автоматизації новин",
+  "backend_project_1_desc": "Високопродуктивний бекенд на Node.js, який забезпечує автоматизований контент-пайплайн для BigSport. Інтегрує просунутий веб-скрейпінг, AI-переписування тексту та хмарну обробку даних. Система безперервно агрегує спортивні новини з кількох джерел, переформатовує їх за допомогою GPT-моделей і зберігає структурований контент у Firestore. Створений для надійності, масштабованості та повної автоматизації — публікація відбувається в реальному часі без ручного втручання.",
+
+  "contact_title": "Контакти",
+  "contact_links_title": "Посилання",
+  "contact_form_title": "Надіслати повідомлення",
+  "contact_name": "Ім’я",
+  "contact_email": "Електронна пошта",
+  "contact_message": "Повідомлення",
+  "contact_name_placeholder": "Ваше ім’я",
+  "contact_email_placeholder": "ваш@email.com",
+  "contact_message_placeholder": "Вітаю! Хотів би обговорити проєкт…",
+  "contact_send_button": "Надіслати",
+  "contact_send_aria": "Надіслати повідомлення електронною поштою",
+  "contact_sent_message": "Дякую! Ваш поштовий клієнт має відкритися автоматично. Я відповім найближчим часом.",
+
+  "projects_title": "Проєкти",
+  "projects_web_title": "Веб-проєкти",
+  "projects_backend_title": "Бекенд-проєкти",
+  "projects_web_alt": "Зображення веб-проєктів",
+  "projects_backend_alt": "Зображення бекенд-проєктів",
+  "projects_explore": "Переглянути",
+
+   "tech_title": "Технології",
+  "stack": [
+    { "group": "Мови програмування", "items": ["Java", "JavaScript (ES6+)", "Python", "SQL"] },
+    { "group": "Фронтенд", "items": ["React", "React Router", "HTML5/CSS3", "Адаптивний UI/UX"] },
+    { "group": "Бекенд і API", "items": ["Node.js", "Express", "REST API", "EmailJS (транзакційні листи)"] },
+    { "group": "Бази даних", "items": ["PostgreSQL", "Firebase Firestore", "Основи SQL"] },
+    { "group": "Хмара та DevOps", "items": ["Firebase Hosting/Storage/Auth", "Render (деплоймент)"] },
+    { "group": "AI та LLM Ops", "items": ["OpenAI API", "Промпт-інжиніринг", "Основи RAG", "LangChain"] },
+    { "group": "Аналітика та моніторинг", "items": ["Microsoft Clarity", "Google Analytics", "Amplitude"] },
+    { "group": "Робочий процес і інструменти", "items": ["Git / GitHub", "Postman", "Налаштування проєктів і базовий CI"] }
+  ],
+
+  "web_projects_title": "Веб-проєкти",
+  "web_projects": [
+    {
+      "title": "Intelligent Writing — AI-агенція контенту",
+      "year": 2025,
+      "desc": "Офіційний корпоративний сайт Intelligent Writing — агенції нового покоління, що поєднує ШІ, аналітику та дослідження. Розроблено на React і розгорнуто через Firebase Hosting. Представляє послуги компанії, портфоліо та технологічний підхід до створення контенту.",
+      "tags": ["React", "Firebase", "Корпоративний сайт"],
+      "href": "https://intwriting.com/"
+    },
+    {
+      "title": "SkinHelper — AI-магазин косметики",
+      "year": 2025,
+      "desc": "Інноваційна e-commerce платформа з аналізом шкіри на базі ШІ. Фронтенд — React, бекенд — Express + SQL. Містить персональні рекомендації, діагностику стану шкіри та сучасний інтерфейс.",
+      "tags": ["React", "Express", "JavaScript", "SQL", "AI"],
+      "href": "https://www.skinhelper.store/"
+    },
+    {
+      "title": "Appmachine.store — Надійні мобільні додатки",
+      "year": 2025,
+      "desc": "Платформа, що представляє перевірені iOS та Android-додатки. Побудована на React і розгорнута на Render.com. Інтегровано EmailJS для зворотного зв’язку та Microsoft Clarity для аналітики.",
+      "tags": ["React", "Render.com", "EmailJS", "Microsoft Clarity"],
+      "href": "https://appmachine.store"
+    },
+    {
+      "title": "Busov — Вантажні перевезення",
+      "year": 2025,
+      "desc": "Корпоративний сайт компанії з вантажоперевезень у Києві та Україні. Розроблено на React із Firebase та EmailJS для зручного зв’язку з клієнтами.",
+      "tags": ["React", "Firebase", "EmailJS"],
+      "href": "https://busov.com.ua"
+    },
+    {
+      "title": "Spilno — Соціальна мережа спільнот",
+      "year": 2025,
+      "desc": "Експериментальна соціальна мережа на React і Firebase. Містить реальний час, авторизацію користувачів і сучасний дизайн для спілкування та взаємодії.",
+      "tags": ["React", "Firebase", "Соціальна мережа"],
+      "href": "https://social-network-spilno.web.app/"
+    },
+    {
+      "title": "BigSPORT — Спортивний новинний портал",
+      "year": 2025,
+      "desc": "Динамічний портал спортивних новин, створений на React і Firebase. Містить систему автоматичного парсингу та переписування новин через ChatGPT, бекенд на Node.js + Express і Firestore для зберігання даних.",
+      "tags": ["React", "Firebase", "Node.js", "Express", "OpenAI"],
+      "href": "https://bigsport.com.ua/"
+    }
+  ],
+
+  "bigsport_title": "BigSport",
+  "bigsport_slides": [
+    {
+      "title": "BigSport — сучасне спортивне медіа",
+      "text": "Українська платформа спортивних новин нового покоління: перевірені факти, хайлайти матчів і ексклюзивні інсайти — все в одному місці."
+    },
+    {
+      "title": "BigSport 4.0 — швидше, розумніше, зручніше",
+      "text": "Остання версія сайту з оновленим інтерфейсом."
+    }
+  ],
+
+  "slider_prev_aria": "Попередній слайд",
+  "slider_next_aria": "Наступний слайд",
+
+  "bigsport_about_title": "Про BigSport",
+  "bigsport_about_text": "BigSport — це сучасна спортивна платформа для тих, хто хоче отримувати важливі оновлення з перших рук: новини в реальному часі, зрозумілу аналітику та зручну навігацію по клубах, турнірах і видам спорту.",
+
+  "bigsport_mission_title": "Місія",
+  "bigsport_mission_text": "Розвивати спортивну культуру в Україні: швидко доносити інформацію, пояснювати контекст і надихати історіями спортсменів та команд.",
+
+  "bigsport_coverage_title": "Охоплення",
+  "bigsport_coverage_items": [
+    { "label": "Український футбол", "text": "УПЛ, Кубок, збірна." },
+    { "label": "Європейські ліги", "text": "АПЛ, Ла Ліга, Серія A, Бундесліга, Ліга 1." },
+    { "label": "Єврокубки", "text": "Ліга чемпіонів, Ліга Європи, Ліга Конференцій." },
+    { "label": "Біатлон", "text": "Кубок світу, результати українських спортсменів." }
+  ],
+
+  "bigsport_formats_title": "Формати",
+  "bigsport_formats_items": [
+    { "label": "Новини", "text": "тільки ключові факти, без води." },
+    { "label": "Огляди", "text": "дані та тренди." },
+    { "label": "Інтерв’ю", "text": "спортсмени, тренери, експерти." },
+    { "label": "Архів клубів", "text": "команди, що припинили виступи." }
+  ],
+
+  "bigsport_principles_title": "Принципи",
+  "bigsport_principles_items": [
+    { "label": "Швидкість", "text": "публікуємо швидко, оновлюємо відповідально." },
+    { "label": "Точність", "text": "повагa до фактів." },
+    { "label": "Зручність", "text": "чистий інтерфейс." },
+    { "label": "Повага", "text": "етична мова." }
+  ],
+
+  "bigsport_audience_title": "Аудиторія",
+  "bigsport_audience_text": "Для фанів, журналістів і всіх, хто любить спорт так само, як і ми.",
+
+  "bigsport_team_title": "Команда та контакти",
+  "bigsport_founder_label": "Засновник",
+  "bigsport_email_label": "Email",
+
+  "bigsport_links_title": "Посилання"
+
+}

@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import '../styles/ContactPage.css';
-import { Linkedin, Github, Instagram, Facebook } from 'lucide-react'; // 👈 заміна іконок
+import { Linkedin, Github, Instagram, Facebook } from 'lucide-react';
 
 export default function ContactPage() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({ name: '', email: '', message: '' });
   const [sent, setSent] = useState(false);
 
@@ -20,15 +22,15 @@ export default function ContactPage() {
       {/* HERO */}
       <header className="contact-hero appear" style={{ animationDelay: '.02s' }}>
         <div className="contact-hero__glass">
-          <h1>Contact</h1>
+          <h1>{t('contact_title')}</h1>
         </div>
       </header>
 
       {/* GRID */}
       <section className="contact-grid">
-        {/* LEFT: title + icon links (в стилі BigSport) */}
+        {/* LEFT — social links */}
         <article className="contact-card glass-card appear" style={{ animationDelay: '.06s' }}>
-          <h3>Contacts</h3>
+          <h3>{t('contact_links_title')}</h3>
           <div className="socials socials--icons">
             <a
               href="https://www.linkedin.com/in/vitaliy-skochko-b8a150336/"
@@ -69,23 +71,23 @@ export default function ContactPage() {
           </div>
         </article>
 
-        {/* RIGHT: form */}
+        {/* RIGHT — contact form */}
         <article className="contact-card glass-card appear" style={{ animationDelay: '.1s' }}>
-          <h3>Send a message</h3>
+          <h3>{t('contact_form_title')}</h3>
 
           {sent ? (
             <div className="sent" role="status">
-              <p>Thanks! Your default mail app should open now. I’ll get back to you soon.</p>
+              <p>{t('contact_sent_message')}</p>
             </div>
           ) : (
             <form className="contact-form" onSubmit={onSubmit} noValidate>
               <div className="field">
-                <label htmlFor="name">Name</label>
+                <label htmlFor="name">{t('contact_name')}</label>
                 <input
                   id="name"
                   name="name"
                   type="text"
-                  placeholder="Your name"
+                  placeholder={t('contact_name_placeholder')}
                   value={form.name}
                   onChange={onChange}
                   required
@@ -93,12 +95,12 @@ export default function ContactPage() {
               </div>
 
               <div className="field">
-                <label htmlFor="email">Email</label>
+                <label htmlFor="email">{t('contact_email')}</label>
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="your@email.com"
+                  placeholder={t('contact_email_placeholder')}
                   value={form.email}
                   onChange={onChange}
                   required
@@ -106,20 +108,24 @@ export default function ContactPage() {
               </div>
 
               <div className="field">
-                <label htmlFor="message">Message</label>
+                <label htmlFor="message">{t('contact_message')}</label>
                 <textarea
                   id="message"
                   name="message"
                   rows="5"
-                  placeholder="Hi! I’d like to discuss a project…"
+                  placeholder={t('contact_message_placeholder')}
                   value={form.message}
                   onChange={onChange}
                   required
                 />
               </div>
 
-              <button className="about-teaser__cta" type="submit" aria-label="Send message by email">
-                <span>Send</span>
+              <button
+                className="about-teaser__cta"
+                type="submit"
+                aria-label={t('contact_send_aria')}
+              >
+                <span>{t('contact_send_button')}</span>
               </button>
             </form>
           )}

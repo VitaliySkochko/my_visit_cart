@@ -5,11 +5,12 @@ import AboutTeaser from './components/AboutTeaser';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import WebProjectsPage from './pages/WebProjectsPage';
+import BackendProjectsPage from './pages/BackendProjectsPage'; // 👈 додано
 import TechStackPage from './pages/TechStackPage';
 import ContactPage from './pages/ContactPage';
 import SectionCards from "./components/SectionCards";
 import BigSportPage from './pages/BigSportPage';
-import HomeHero from './components/HomeHero';        // 👈 NEW
+import HomeHero from './components/HomeHero';
 import './App.css';
 
 function Home() {
@@ -17,7 +18,7 @@ function Home() {
     <main className="page">
       <HomeHero>
         <AboutTeaser />
-        <SectionCards />     {/* тепер картки знаходяться всередині фото-фону */}
+        <SectionCards /> {/* тепер картки знаходяться всередині фото-фону */}
       </HomeHero>
     </main>
   );
@@ -35,6 +36,7 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/web" element={<WebProjectsPage />} />
+        <Route path="/projects/backend" element={<BackendProjectsPage />} /> {/* 👈 новий маршрут */}
         <Route path="/tech" element={<TechStackPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/bigsport" element={<BigSportPage />} />

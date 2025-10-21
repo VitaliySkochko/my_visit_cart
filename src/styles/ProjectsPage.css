@@ -15,12 +15,14 @@
 
 
 /* ===== GRID ===== */
-.pl-grid{
+.pl-grid {
   display: grid;
-  place-items: center;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  justify-content: center;
+  align-items: start;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 32px;
 }
+
 
 /* ===== Скляна преміальна картка (як .glass-card) ===== */
 .pl-card--pro{

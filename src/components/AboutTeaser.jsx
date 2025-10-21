@@ -1,21 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import '../styles/AboutTeaser.css';
-import { ArrowRight } from 'lucide-react'; // 👈 додаємо стрілку
+import { ArrowRight } from 'lucide-react';
 
 export default function AboutTeaser() {
+  const { t } = useTranslation();
+
   return (
     <div className="about-teaser about-teaser--glassonly">
       <div className="about-teaser__glass">
-        <h2 className="about-teaser__title">About Me</h2>
-        <p className="about-teaser__text">
-          I’m Vitaliy — Full-Stack Developer who loves clean code and sharp design.
-          I craft modern web apps that blend elegant UI with solid engineering.
-        </p>
+        <h2 className="about-teaser__title">{t('about_title')}</h2>
+        <p className="about-teaser__text">{t('about_text')}</p>
 
-        {/* 👇 оновлена кнопка у форматі текст + стрілка */}
         <Link to="/about" className="link-arrow">
-          <span>Read full bio</span>
+          <span>{t('about_button')}</span>
           <ArrowRight className="link-arrow__icon" size={20} strokeWidth={2.4} />
         </Link>
       </div>

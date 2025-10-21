@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/ProjectCard.css';
-import { ArrowRight } from 'lucide-react'; // 👈 додаємо іконку
+import { useTranslation } from 'react-i18next';
+import { ArrowRight } from 'lucide-react';
 
 export default function ProjectCard({
   title,
@@ -13,6 +14,8 @@ export default function ProjectCard({
   repo,
   delay = 0,
 }) {
+  const { t } = useTranslation();
+
   return (
     <article
       className="proj-card glass-border appear"
@@ -33,9 +36,9 @@ export default function ProjectCard({
         {desc && <p className="proj-card__desc">{desc}</p>}
 
         {tags?.length > 0 && (
-          <ul className="proj-card__tags" aria-label="Tech stack">
-            {tags.map((t) => (
-              <li key={t} className="tag">{t}</li>
+          <ul className="proj-card__tags" aria-label={t('tech_stack')}>
+            {tags.map((tItem) => (
+              <li key={tItem} className="tag">{tItem}</li>
             ))}
           </ul>
         )}
@@ -48,7 +51,7 @@ export default function ProjectCard({
               target="_blank"
               rel="noreferrer"
             >
-              <span>View project</span>
+              <span>{t('view_project')}</span>
               <ArrowRight className="link-arrow__icon" size={18} strokeWidth={2.4} />
             </a>
           )}
@@ -59,7 +62,7 @@ export default function ProjectCard({
               target="_blank"
               rel="noreferrer"
             >
-              <span>View code</span>
+              <span>{t('view_code')}</span>
               <ArrowRight className="link-arrow__icon" size={18} strokeWidth={2.4} />
             </a>
           )}
