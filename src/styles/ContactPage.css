@@ -1,52 +1,55 @@
-/* ============ PAGE with gradient background + photo overlay ============ */
+/* =============================================================
+   src/styles/ContactPage.css — unified with About/Timeline style
+   ============================================================= */
+:root{
+  --blue:#2E8EEA;
+  --ink:#0b1220;
+  --muted:#4b5563;
+  --line:#e6e8ee;
+  --cardShadow: 0 8px 20px rgba(16,24,40,.08);
+}
+
+/* ===== Page (matching About) ===== */
 .contact-page{
   max-width: 1100px;
   margin: 0 auto;
-  margin-top: 100px;
   padding: 24px 20px 96px;
-  position: relative;
-  z-index: 0;
+  margin-top: 100px;
 }
 
-/* фон */
-.contact-page::before{
-  content: "";
-  position: fixed;
-  inset: 0;
-  top: 120px;  /* фон починається під хедером */
-  z-index: -2;
+/* ===== Hero (solid like About) ===== */
+.contact-hero{ margin: 8px 0 28px; text-align:center; }
+.contact-hero__solid{
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--cardShadow);
+  padding: 10px 32px;
 }
-
-/* фото як напівпрозорий шар */
-
-
-/* ===== Hero ===== */
-.contact-hero{
-  margin: 12px 0 32px;
-  text-align: center;
-}
-.contact-hero__glass{
-  --r: 18px;
-  border-radius: var(--r);
-  padding: 0px 22px;
-
-  background: rgba(255,255,255,0.35); /* ✅ легкий білий */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(255,255,255,0.55);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.35);
-}
-.contact-hero h1{
+.contact-hero__title{
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(32px, 6vw, 56px);
-  margin: 0 0 8px;
-  color: #0b1220;
-}
-.contact-hero p{
   margin: 0;
-  color: #475569;
-  font-size: clamp(14px, 2vw, 18px);
+  color: var(--ink);
+}
+
+/* ===== Cards (reuse white-card like About) ===== */
+.white-card{
+  --r:16px;
+  border-radius: var(--r);
+  padding: 20px 22px;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow: var(--cardShadow);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.white-card:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16,24,40,.1); }
+
+.contact-card h3{
+  font-size: 22px;
+  font-weight: 800;
+  margin: 0 0 14px;
+  color: var(--ink);
 }
 
 /* ===== Grid ===== */
@@ -59,164 +62,105 @@
   .contact-grid{ grid-template-columns: 1fr 1fr; }
 }
 
-/* ===== Glass card ===== */
-.glass-card{
-  --r: 16px;
-  border-radius: var(--r);
-  padding: 22px;
-
-  background: rgba(255,255,255,0.30); /* ✅ тепер напівпрозорий білий */
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  border: 1px solid rgba(255,255,255,0.50);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.10), inset 0 1px 0 rgba(255,255,255,0.25);
-  transition: transform .35s ease, box-shadow .35s ease;
-}
-.glass-card:hover{ transform: translateY(-3px); box-shadow: 0 16px 36px rgba(0,0,0,0.15); }
-
-.contact-card h3{
-  font-size: 22px;
-  font-weight: 800;
-  margin: 0 0 14px;
-  color: #0b1220;
-}
-
 /* ===== Form ===== */
 .contact-form{ display: grid; gap: 14px; }
 .field label{
   display: block;
   text-align: left;
   font-size: 12px;
-  color: black;
+  color: var(--ink);
   margin-bottom: 6px;
 }
 .field input,
 .field textarea{
-  width: 94%;
+  width: 90%;
   border-radius: 12px;
   border: 1px solid rgba(0,60,255,.12);
   padding: 12px 14px;
-  background: rgba(255,255,255,0.9);
+  background: #fff;
   color: #0e1116;
-  box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.9),
-    0 6px 16px rgba(0,30,120,.06);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), 0 6px 16px rgba(0,30,120,.06);
   transition: border-color .2s ease, box-shadow .2s ease, transform .15s ease;
 }
 .field input:focus,
 .field textarea:focus{
   outline: none;
   border-color: #2e7dff;
-  box-shadow:
-    0 0 0 3px rgba(46,125,255,.15),
-    inset 0 1px 0 rgba(255,255,255,.95);
+  box-shadow: 0 0 0 3px rgba(46,125,255,.15), inset 0 1px 0 rgba(255,255,255,.95);
   transform: translateY(-1px);
 }
 .field input:invalid,
 .field textarea:invalid{ border-color: rgba(220, 38, 38, .35); }
 
+/* error */
+.form-error{
+  background: #fff4f4;
+  color: #b42318;
+  border: 1px solid #ffd1d1;
+  border-radius: 10px;
+  padding: 10px 12px;
+}
 
+/* honeypot */
+.hp{ position:absolute; left:-9999px; width:1px; height:1px; opacity:0; pointer-events:none; }
+
+/* submit button state */
+.about-teaser__cta[disabled]{ opacity:.7; cursor:not-allowed; }
 
 /* ===== Sent ===== */
 .sent{
-  background: rgba(255,255,255,0.5);
-  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(46,142,234,.06);
+  border: 1px solid rgba(46,142,234,.25);
   padding: 14px;
   border-radius: 12px;
   color: #0b3b9c;
   font-weight: 600;
 }
 
-/* ===== Animation ===== */
-.appear{ opacity: 0; transform: translateY(40px); animation: fadeInUp .8s ease forwards; }
-@keyframes fadeInUp{ from{ opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
-@media (prefers-reduced-motion: reduce){
-  .appear{ animation: none !important; opacity: 1 !important; transform: none !important; }
-}
-/* ===== Social icons (як на BigSport) ===== */
+/* ===== Social icons — round with brand colors ===== */
 .socials.socials--icons{
   display: flex;
   justify-content: center;
-  gap: 28px;
+  gap: 16px;
   margin-top: 8px;
 }
-
-.socials.socials--icons a{
-  color: #5ea0ff;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: color .3s ease, transform .3s ease, text-shadow .3s ease;
-  will-change: transform;
+.soc{
+  width: 44px; height: 44px; border-radius: 999px;
+  display:inline-flex; align-items:center; justify-content:center;
+  color: #fff; border: 1px solid rgba(0,0,0,.06);
+  box-shadow: 0 6px 16px rgba(16,24,40,.10);
+  transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
 }
+.soc:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(16,24,40,.18); filter: saturation(1.05); }
 
-.socials.socials--icons a:hover{
-  color: white;
-  transform: translateY(-3px);
-  text-shadow: 0 0 10px rgba(94,160,255,0.35);
-}
+/* brand backgrounds */
+.soc--linkedin{ background:#0A66C2; }
+.soc--github{ background:#0b1220; }
+.soc--instagram{ background: radial-gradient(45px 45px at 30% 30%, #feda75, #fa7e1e 35%, #d62976 58%, #962fbf 76%, #4f5bd5 100%); }
+.soc--facebook{ background:#1877F2; }
 
-/* Прибрали старі “плитки” */
-.socials--big .socials__item{ all: unset; }
-.socials--big .socials__item{ display:none; } /* запобігти конфліктам зі старим макетом */
+/* ===== Animations (reuse) ===== */
+.appear{ opacity:0; transform:translateY(40px); animation:fadeInUp .8s ease forwards; }
+@keyframes fadeInUp{ from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
+@media (prefers-reduced-motion: reduce){ .appear{ animation:none!important; opacity:1!important; transform:none!important; } }
 
-/* адаптив */
-@media (max-width: 600px){
-  .socials.socials--icons{ gap: 22px; }
-}
-
-
-
-/* ====================== MOBILE ADAPTATION ====================== */
-
-/* До 900px — легке ущільнення макета + зручні торч-таргети */
+/* ===== Mobile tweaks ===== */
 @media (max-width: 900px){
   .contact-page{ padding: 20px 16px 72px; }
   .contact-hero{ margin: 8px 0 24px; }
-  .contact-hero__glass{ padding: 8px 16px; }
-  .contact-hero h1{ font-size: clamp(26px, 5.2vw, 40px); margin: 0; }
-
-  .glass-card{ padding: 18px; border-radius: 14px; }
-  .contact-card h3{ font-size: 20px; margin-bottom: 10px; }
-
-  .socials{ gap: 10px; }
-  .socials--big .socials__item{ width: 64px; height: 64px; border-radius: 12px; }
-  .socials__item svg{ width: 34px; height: 34px; }
-
-  .field label{ font-size: 12px; }
-  .field input,
-  .field textarea{ width: 90%; padding: 12px 14px; } /* повна ширина на мобілі */
-
-  /* кнопка на всю ширину */
-  .about-teaser__cta{ width: 100%; min-width: 0; padding: 14px 18px; }
+  .contact-hero__solid{ padding: 8px 16px; }
+  .contact-hero__title{ font-size: clamp(26px, 5.2vw, 40px); }
+  .white-card{ padding:18px; border-radius:14px; }
+  .contact-card h3{ font-size:20px; margin-bottom:10px; }
+  .soc{ width:42px; height:42px; }
 }
-
-/* До 600px — ще компактніше, зручніші відступи */
 @media (max-width: 600px){
-  /* фон починається трохи нижче — з урахуванням вищого мобільного хедера */
-  .contact-page::before{ top: 140px; }
-
   .contact-page{ padding: 16px 14px 64px; }
-  .contact-hero__glass{ padding: 6px 12px; }
-  .contact-hero h1{ font-size: clamp(24px, 6vw, 34px); }
-
-  .glass-card{ padding: 16px; border-radius: 12px; }
+  .white-card{ padding:16px; border-radius:12px; }
   .contact-grid{ gap: 16px; }
-
-  .socials{ gap: 8px; }
-  .socials--big .socials__item{ width: 56px; height: 56px; }
-  .socials__item svg{ width: 28px; height: 28px; }
-
-  .field label{ font-size: 11px; }
-  .field textarea{ min-height: 120px; }
-
-  .sent{ padding: 12px; }
+  .soc{ width:40px; height:40px; }
 }
-
-/* Трохи щільніше на дуже малих (до ~360px) */
 @media (max-width: 360px){
-  .socials--big .socials__item{ width: 52px; height: 52px; }
-  .socials__item svg{ width: 26px; height: 26px; }
-  .glass-card{ padding: 14px; }
+  .white-card{ padding:14px; }
+  .soc{ width:38px; height:38px; }
 }

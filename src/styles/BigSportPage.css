@@ -1,199 +1,60 @@
+/* =============================================================
+   src/styles/BigSportPage.css — unified with About/Contact
+   ============================================================= */
+:root{
+  --blue:#2E8EEA;
+  --ink:#0b1220;
+  --muted:#4b5563;
+  --line:#e6e8ee;
+  --cardShadow: 0 8px 20px rgba(16,24,40,.08);
+}
+
+/* ===== Page ===== */
+.bigsport-page{ max-width: 1100px; margin: 0 auto; padding: 24px 20px 96px; margin-top: 100px; }
+
+/* ===== Hero (solid) ===== */
+.bigsport-hero{ margin: 8px 0 28px; text-align:center; }
+.bigsport-hero__solid{ border-radius: 22px; background:#fff; border:1px solid var(--line); box-shadow: var(--cardShadow); padding: 10px 32px; }
+.bigsport-hero__title{ font-family: 'Playfair Display', Georgia, serif; font-size: clamp(32px, 6vw, 56px); margin: 0; color: var(--ink); }
+
+/* ===== Grid (як contact-grid) ===== */
+.bigsport-grid{ display:grid; gap:24px; grid-template-columns: 1fr; }
+@media (min-width: 900px){ .bigsport-grid{ grid-template-columns: 1fr 1fr; } }
+
+/* ===== White card (reuse) ===== */
+.white-card{ --r:16px; border-radius: var(--r); padding: 20px 22px; background:#fff; border:1px solid var(--line); box-shadow: var(--cardShadow); transition: transform .2s ease, box-shadow .2s ease; }
+.white-card:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16,24,40,.1); }
+
 /* ===== PHOTO SLIDER ===== */
-.bigsport-slider {
-  position: relative;
-  overflow: hidden;
-  border-radius: 18px;
-  max-width: 1200px;
-  margin: 60px auto;
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
-}
+.bigsport-slider{ position: relative; overflow: hidden; border-radius: 18px; max-width: 1200px; margin: 40px auto 48px; background: #fff; border: 1px solid var(--line); box-shadow: var(--cardShadow); }
+.bigsport-slide{ position: relative; width: 100%; height: 680px; background-size: cover; background-position: center; border-radius: 18px; overflow: hidden; transition: background-image .6s ease; }
+.bigsport-slide__overlay{ position: absolute; inset:0; background: transparent; }
 
-.bigsport-slide {
-  position: relative;
-  width: 100%;
-  height: 680px;
-  background-size: cover;
-  background-position: center;
-  border-radius: 18px;
-  overflow: hidden;
-  transition: background-image 0.6s ease;
-}
+/* Плашка під текст */
+.bigsport-slide__content{ position:absolute; bottom:40px; left:40px; max-width:520px; color:#fff; z-index:3; background: rgba(0,0,0,.45); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border-radius:16px; padding:24px 28px; border:1px solid rgba(255,255,255,.15); box-shadow: 0 8px 24px rgba(0,0,0,.25); animation: fadeInUp .7s ease both; }
+.bigsport-slide__content h3{ font-family:'Playfair Display', Georgia, serif; font-size: clamp(22px, 2vw, 30px); margin:0 0 10px; line-height:1.3; }
+.bigsport-slide__content p{ font-size: clamp(15px, 1.3vw, 18px); line-height:1.6; color:#e9eef7; margin:0; }
 
-/* ===== Без фільтрів на фото ===== */
-.bigsport-slide__overlay {
-  position: absolute;
-  inset: 0;
-  background: transparent; /* ✅ фото оригінальне, без затемнення */
-}
+/* Навігаційні кнопки */
+.slider-btn{ position:absolute; top:50%; transform: translateY(-50%); background: rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.55); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); width:46px; height:46px; border-radius:50%; color:#fff; cursor:pointer; z-index:10; box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.22); transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
+.slider-btn:hover{ transform: translateY(-50%) scale(1.06); background: rgba(0,0,0,.60); box-shadow: 0 10px 28px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.28); }
+.slider-btn:focus-visible{ outline: 2px solid #5ea0ff; outline-offset: 2px; }
+.slider-btn.prev{ left:20px; } .slider-btn.next{ right:20px; }
 
-/* ===== ПЛАШКА ПІД ТЕКСТ ===== */
-.bigsport-slide__content {
-  position: absolute;
-  bottom: 40px;
-  left: 40px;
-  max-width: 520px;
-  color: #fff;
-  z-index: 3;
+/* ===== Social icons — round brand style ===== */
+.socials.socials--icons{ display:flex; justify-content:center; gap:16px; margin-top: 8px; }
+.soc{ width:44px; height:44px; border-radius:999px; display:inline-flex; align-items:center; justify-content:center; color:#fff; border:1px solid rgba(0,0,0,.06); box-shadow: 0 6px 16px rgba(16,24,40,.10); transition: transform .25s ease, box-shadow .25s ease, filter .25s ease; }
+.soc:hover{ transform: translateY(-2px); box-shadow: 0 10px 22px rgba(16,24,40,.18); filter: saturation(1.05); }
+.soc--web{ background:#0b1220; } .soc--instagram{ background: radial-gradient(45px 45px at 30% 30%, #feda75, #fa7e1e 35%, #d62976 58%, #962fbf 76%, #4f5bd5 100%); } .soc--youtube{ background:#FF0000; } .soc--linkedin{ background:#0A66C2; }
 
-  /* ✨ напівпрозора скляна плашка */
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-radius: 16px;
-  padding: 24px 28px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+/* ===== Animation ===== */
+.appear{ opacity:0; transform:translateY(40px); animation:fadeInUp .8s ease forwards; }
+@keyframes fadeInUp{ from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
+@media (prefers-reduced-motion: reduce){ .appear{ animation:none!important; opacity:1!important; transform:none!important; } }
 
-  animation: fadeInUp 0.7s ease both;
-}
-
-.bigsport-slide__content h3 {
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(22px, 2vw, 30px);
-  margin: 0 0 10px;
-  line-height: 1.3;
-}
-
-.bigsport-slide__content p {
-  font-size: clamp(15px, 1.3vw, 18px);
-  line-height: 1.6;
-  color: #e9eef7;
-  margin: 0;
-}
-
-/* ===== КНОПКИ НАВІГАЦІЇ (завжди видимі) ===== */
-.slider-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  /* робимо темнішу плашку під іконкою */
-  background: rgba(0, 0, 0, 0.45);
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-
-  width: 46px;
-  height: 46px;
-  border-radius: 50%;
-  color: #fff;
-
-  cursor: pointer;
-  z-index: 10;                 /* було 4 — підняли вище за все */
-  box-shadow: 0 8px 24px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.22);
-  transition: transform .25s ease, background .25s ease, box-shadow .25s ease;
-}
-
-.slider-btn:hover {
-  transform: translateY(-50%) scale(1.06);
-  background: rgba(0, 0, 0, 0.6);
-  box-shadow: 0 10px 28px rgba(0,0,0,.45), inset 0 1px 0 rgba(255,255,255,.28);
-}
-
-.slider-btn:focus-visible {
-  outline: 2px solid #5ea0ff;
-  outline-offset: 2px;
-}
-
-.slider-btn.prev { left: 20px; }
-.slider-btn.next { right: 20px; }
-
-
-/* ===== LINKS (іконки) ===== */
-.bigsport-links {
-  display: flex;
-  justify-content: center;
-  gap: 32px;
-  margin-top: 20px;
-}
-
-.bigsport-links a {
-  color: #5ea0ff;
-  transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.bigsport-links a:hover {
-  color: white;
-  transform: translateY(-3px);
-}
-
-/* ===== АНІМАЦІЯ ===== */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* ===== АДАПТИВ ===== */
-@media (max-width: 768px) {
-  .bigsport-slide {
-    height: 480px;
-  }
-
-  .bigsport-slide__content {
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    padding: 18px 20px;
-    max-width: none;
-  }
-
-  .bigsport-slide__content h3 {
-    font-size: 20px;
-  }
-
-  .bigsport-slide__content p {
-    font-size: 14px;
-  }
-
-  .slider-btn {
-    width: 36px;
-    height: 36px;
-  }
-}
-
-/* ===== Адаптація фото (мобільні) ===== */
-@media (max-width: 768px){
-  .bigsport-slide{
-    height: 480px;
-    background-size: cover;
-    background-position: 50% 40%; /* трохи вище центру */
-  }
-}
-
-/* ===== iPhone SE (до 375px) ===== */
-@media (max-width: 375px){
-  .bigsport-slide{
-    height: 320px;               /* менша висота */
-    background-size: cover;
-    background-position: 50% 35%; /* фокус вище — не зрізає голови */
-  }
-}
-
-/* ===== дуже вузькі (до 320px) ===== */
-@media (max-width: 320px){
-  .bigsport-slide{
-    height: 300px;
-    background-position: 50% 32%;
-  }
-}
-
-@media (max-width: 768px){
-  .slider-btn {
-    display: none !important;
-  }
-}
-
-/* ===== MOBILE: приховуємо текст на фото ===== */
-@media (max-width: 768px){
-  .bigsport-slide__content {
-    display: none !important;
-  }
-}
+/* ===== Adaptivity ===== */
+@media (max-width: 900px){ .bigsport-page{ padding: 20px 16px 72px; } .bigsport-hero__solid{ padding: 8px 16px; } .bigsport-hero__title{ font-size: clamp(26px, 5.2vw, 40px); } .white-card{ padding:18px; border-radius:14px; } }
+@media (max-width: 768px){ .bigsport-slide{ height: 480px; background-size:cover; background-position: 50% 40%; } .bigsport-slide__content{ display:none !important; } .slider-btn{ display:none !important; } }
+@media (max-width: 600px){ .bigsport-page{ padding: 16px 14px 64px; } .white-card{ padding:16px; border-radius:12px; } .bigsport-grid{ gap:16px; } }
+@media (max-width: 375px){ .bigsport-slide{ height: 320px; background-position: 50% 35%; } }
+@media (max-width: 320px){ .bigsport-slide{ height: 300px; background-position: 50% 32%; } }

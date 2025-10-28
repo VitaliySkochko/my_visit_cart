@@ -1,3 +1,15 @@
+/* =============================================================
+   src/styles/TechStackPage.css — unified with About/Contact
+   ============================================================= */
+:root{
+  --blue:#2E8EEA;
+  --ink:#0b1220;
+  --muted:#4b5563;
+  --line:#e6e8ee;
+  --cardShadow: 0 8px 20px rgba(16,24,40,.08);
+}
+
+/* ===== Page ===== */
 .tech-page{
   max-width: 1100px;
   margin: 0 auto;
@@ -5,40 +17,20 @@
   margin-top: 100px;
 }
 
-/* ===== Hero ===== */
-.tech-hero{
-  margin: 12px 0 32px;
-  text-align: center;
+/* ===== Hero (solid) ===== */
+.tech-hero{ margin: 8px 0 28px; text-align:center; }
+.tech-hero__solid{
+  border-radius: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--cardShadow);
+  padding: 10px 32px;
 }
-.tech-hero__glass{
-  --r: 18px;
-  border-radius: var(--r);
-  padding: 32px 28px;
-
-  background: rgba(255,255,255,.08);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-
-  border: 1px solid transparent;
-  background-image:
-    linear-gradient(to bottom, rgba(255,255,255,.08), rgba(255,255,255,.02)),
-    linear-gradient(135deg, #9ec8ff, #5aa2ff 35%, #2e7dff 55%, #8ab3ff);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-
-  box-shadow: 0 12px 32px rgba(16,24,40,.12), inset 0 1px 0 rgba(255,255,255,.2);
-}
-
-.tech-hero h1{
+.tech-hero__title{
   font-family: "Playfair Display", Georgia, serif;
   font-size: clamp(32px, 6vw, 56px);
-  margin: 0 0 8px;
-  color: #0b1220;
-}
-.tech-hero p{
   margin: 0;
-  color: #475569;
-  font-size: clamp(14px, 2vw, 18px);
+  color: var(--ink);
 }
 
 /* ===== Grid ===== */
@@ -51,82 +43,77 @@
   .tech-grid{ grid-template-columns: 1fr 1fr; }
 }
 
-/* ===== Card ===== */
-.glass-card{
-  --r: 16px;
+/* ===== Card (white like About/Contact) ===== */
+.white-card{
+  --r:16px;
   border-radius: var(--r);
   padding: 20px 22px;
-  background: rgba(255,255,255,.08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid transparent;
-  background-image:
-    linear-gradient(to bottom, rgba(255,255,255,.08), rgba(255,255,255,.02)),
-    linear-gradient(135deg, #9ec8ff, #5aa2ff 35%, #2e7dff 55%, #8ab3ff);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
-  box-shadow: 0 10px 28px rgba(16,24,40,.10), inset 0 1px 0 rgba(255,255,255,.18);
-  transition: transform .35s ease, box-shadow .35s ease;
+  background:#fff;
+  border:1px solid var(--line);
+  box-shadow: var(--cardShadow);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-.glass-card:hover{
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 16px 40px rgba(16,24,40,.18);
-}
+.white-card:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16,24,40,.1); }
 
 .tech-card__badge{
-  display: inline-block;
-  font-size: 19px;
+  display:inline-block;
+  font-size: 14px;
   font-weight: 700;
   color: #0b3b9c;
-  background: #eef3ff;
+  background: rgba(46,142,234,.10);
+  border: 1px solid rgba(46,142,234,.25);
   border-radius: 999px;
   padding: 6px 10px;
   margin-bottom: 10px;
 }
 
 .tech-card__title{
-  font-size: 25px;
+  font-size: 22px;
   font-weight: 800;
   margin: 0 0 10px;
-  color: #0b1220;
+  color: var(--ink);
 }
 
-.tech-card__list {
+/* Список — кастомні буліти в єдиному синьому */
+.tech-card__list{
   margin: 0;
-  padding-left: 22px; /* трішки більший відступ під маркер */
+  padding-left: 22px;
   color: #334155;
-  font-size: 18px;
-  list-style: none; /* вимикаємо стандартний браузерний буліт */
+  font-size: 16px;
+  list-style: none;
 }
-
-.tech-card__list li {
+.tech-card__list li{
   margin: 6px 0;
   position: relative;
   line-height: 1.45;
-  padding-left: 6px; /* щоб текст не залипав на буліт */
+  padding-left: 6px;
 }
-
-.tech-card__list li::before {
-  content: "•";                  /* буліт */
+.tech-card__list li::before{
+  content: "•";
   position: absolute;
-  left: -18px;                   /* вирівнюємо */
-  color: #2e7dff;                /* ✅ синій акцент */
-  font-size: 22px;               /* робимо більший */
+  left: -18px;
+  color: var(--blue);
+  font-size: 20px;
   line-height: 1;
 }
 
+/* ===== Animations ===== */
+.appear{ opacity:0; transform:translateY(40px); animation:fadeInUp .8s ease forwards; }
+@keyframes fadeInUp{ from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
+@media (prefers-reduced-motion: reduce){ .appear{ animation:none!important; opacity:1!important; transform:none!important; } }
 
-/* ===== Animation (fadeInUp) ===== */
-.appear{
-  opacity: 0;
-  transform: translateY(40px);
-  animation: fadeInUp .8s ease forwards;
+/* ===== Mobile tweaks ===== */
+@media (max-width: 900px){
+  .tech-page{ padding: 20px 16px 72px; }
+  .tech-hero__solid{ padding: 8px 16px; }
+  .tech-hero__title{ font-size: clamp(26px, 5.2vw, 40px); }
+  .white-card{ padding:18px; border-radius:14px; }
 }
-@keyframes fadeInUp{
-  from{ opacity:0; transform:translateY(40px);}
-  to{ opacity:1; transform:translateY(0);}
+@media (max-width: 600px){
+  .tech-page{ padding: 16px 14px 64px; }
+  .white-card{ padding:16px; border-radius:12px; }
+  .tech-grid{ gap: 16px; }
 }
-
-@media (prefers-reduced-motion: reduce){
-  .appear{ animation: none !important; opacity: 1 !important; transform: none !important; }
+@media (max-width: 360px){
+  .white-card{ padding:14px; }
 }

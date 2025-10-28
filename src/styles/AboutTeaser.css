@@ -1,149 +1,37 @@
-/* Базовий контейнер без фонового зображення */
-.about-teaser{
-  position: relative;
-  margin: 40px auto;
-  max-width: 1100px;
-  padding: 0;                /* фон/відступи робить скляний блок */
-  background: transparent;   /* жодного background-image */
-  text-align: center;
+/* =============================================================
+   src/styles/AboutTeaser.css — unified with About/Contact
+   ============================================================= */
+:root{
+  --blue:#2E8EEA;
+  --ink:#0b1220;
+  --muted:#4b5563;
+  --line:#e6e8ee;
+  --cardShadow: 0 8px 20px rgba(16,24,40,.08);
 }
 
-/* модифікатор «лише скляна плашка» */
-.about-teaser--glassonly{
-  display: grid;
-  place-items: center;
-}
+/* Container */
+.about-teaser{ position: relative; margin: 32px auto 40px; max-width: 1100px; text-align: center; }
 
-/* overlay не потрібен */
-.about-teaser__overlay{ display: none; }
+/* Card (white, shared look) */
+.white-card{ --r:16px; border-radius: var(--r); padding: 24px 28px; background:#fff; border:1px solid var(--line); box-shadow: var(--cardShadow); transition: transform .2s ease, box-shadow .2s ease; }
+.white-card:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16,24,40,.1); }
 
-/* Скляна плашка */
-.about-teaser__glass{
-  position: relative;
-  z-index: 1;
-  border-radius: 18px;
-  padding: clamp(28px, 4vw, 40px) clamp(28px, 4.5vw, 48px);
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  max-width: 760px;
-  width: min(100%, 760px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
-  animation: fadeInUp 0.8s ease both;
-}
+.about-teaser__card{ max-width: 760px; margin: 0 auto; }
 
-/* Заголовок і текст — світлі, щоб працювали і на будь-якому тлі */
-.about-teaser__title{
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 700;
-  line-height: 1.2;
-  margin: 0 0 16px;
-  color: #fff;
-  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.35);
-}
+.about-teaser__title{ font-family: 'Playfair Display', Georgia, serif; font-size: clamp(28px, 5vw, 48px); margin: 0 0 12px; color: var(--ink); }
+.about-teaser__text{ font-size: clamp(15px, 1.6vw, 18px); color:#1f2937; line-height:1.65; margin: 0 0 18px; }
 
-.about-teaser__text{
-  font-size: clamp(16px, 1.4vw, 19px);
-  font-weight: 400;
-  color: #f0f3fa;
-  margin: 0 0 24px;
-  line-height: 1.7;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.28);
-}
+/* CTA link (shared) */
+.link-arrow{ display:inline-flex; align-items:center; gap:8px; font-weight:700; color: var(--blue); text-decoration:none; letter-spacing:.2px; border-bottom:1px solid rgba(46,142,234,.25); padding-bottom:2px; transition: gap .2s ease, color .2s ease, border-color .2s ease; }
+.link-arrow__icon{ transition: transform .2s ease; }
+.link-arrow:hover{ gap:10px; color:#1668c1; border-color:#1668c1; }
+.link-arrow:hover .link-arrow__icon{ transform: translateX(2px); }
 
-/* Кнопка — використовує твої глобальні стилі .about-teaser__cta */
+/* Animation */
+.appear{ opacity:0; transform:translateY(40px); animation:fadeInUp .8s ease forwards; }
+@keyframes fadeInUp{ from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
+@media (prefers-reduced-motion: reduce){ .appear{ animation:none!important; opacity:1!important; transform:none!important; } }
 
-/* Анімація */
-@keyframes fadeInUp{
-  from{ opacity: 0; transform: translateY(40px); }
-  to{ opacity: 1; transform: translateY(0); }
-}
-
-/* ====== МОБІЛЬНІ (до 640px) ====== */
-@media (max-width: 640px){
-  .about-teaser{
-    margin: 20px auto;
-    padding: 0 14px;            /* невеликий горизонтальний відступ від країв екрана */
-  }
-
-  .about-teaser__glass{
-    width: 100%;
-    max-width: 100%;
-    border-radius: 14px;
-    padding: 20px 18px;         /* компактніше */
-    box-shadow: 0 8px 22px rgba(0,0,0,.22);
-  }
-
-  .about-teaser__title{
-    font-size: clamp(24px, 7vw, 32px);
-    line-height: 1.18;
-    margin-bottom: 12px;
-  }
-
-  .about-teaser__text{
-    font-size: clamp(14px, 4vw, 16px);
-    line-height: 1.65;
-    margin-bottom: 18px;
-  }
-
-  /* Якщо є кнопка в блоці */
-  .about-teaser__cta{
-    display: inline-block;
-    width: 100%;
-    min-height: 44px;           /* комфортна зона натискання */
-  }
-}
-
-/* ====== ДУЖЕ МАЛІ ЕКРАНИ (до 360px) — ще трохи тісніше ====== */
-@media (max-width: 360px){
-  .about-teaser__glass{ padding: 16px 14px; }
-  .about-teaser__title{ font-size: clamp(22px, 8vw, 28px); }
-  .about-teaser__text{ font-size: 14px; }
-}
-
-/* ====== ПЛАНШЕТИ (641–1024px) ====== */
-@media (min-width: 641px) and (max-width: 1024px){
-  .about-teaser{
-    margin: 32px auto;
-    padding: 0 24px;            /* «дихаючі» поля зліва/справа */
-    max-width: 960px;
-  }
-
-  .about-teaser--glassonly{
-    place-items: center;        /* центруємо плашку всередині */
-  }
-
-  .about-teaser__glass{
-    width: min(92vw, 700px);    /* трохи ширше за мобільний, але не на всю */
-    max-width: 700px;
-    border-radius: 16px;
-    padding: 28px 32px;
-    box-shadow: 0 10px 28px rgba(0,0,0,.22);
-  }
-
-  .about-teaser__title{
-    font-size: clamp(32px, 4.2vw, 44px);
-    margin-bottom: 14px;
-  }
-
-  .about-teaser__text{
-    font-size: clamp(15px, 1.8vw, 18px);
-    line-height: 1.7;
-    margin-bottom: 22px;
-  }
-}
-
-/* ====== ПОВАГА ДО КОРИСТУВАЧА: менше анімацій ====== */
-@media (prefers-reduced-motion: reduce){
-  .about-teaser__glass{
-    animation: none;
-  }
-}
-
-
-
-
-
-
+/* Responsive */
+@media (max-width: 900px){ .white-card{ padding: 20px 22px; border-radius:14px; } .about-teaser{ margin: 24px auto 32px; padding: 0 16px; } }
+@media (max-width: 600px){ .white-card{ padding: 16px 18px; border-radius:12px; } .about-teaser__title{ font-size: clamp(24px, 7vw, 32px); } .about-teaser__text{ font-size: clamp(14px, 4vw, 16px); } }

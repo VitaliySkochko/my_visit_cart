@@ -94,26 +94,13 @@ cursor: pointer;
   font-weight: 600;
   font-size: 1.05rem;
   letter-spacing: 0.3px;
-  color: #fff;
+  color: #2E8EEA;
   position: relative;
   transition: color 0.35s ease, transform 0.35s ease;
 }
 
 /* підкреслення */
-.link-arrow::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 100%;
-  height: 2px;
-  background: currentColor;
-  border-radius: 2px;
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.35s ease;
-  opacity: 0.9;
-}
+
 
 /* стрілка */
 .link-arrow__icon {
