@@ -1,3 +1,4 @@
+// src/components/ProjectCard.jsx
 import React from 'react';
 import '../styles/ProjectCard.css';
 import { useTranslation } from 'react-i18next';
@@ -13,6 +14,7 @@ export default function ProjectCard({
   href,
   repo,
   delay = 0,
+  showLinks = true, // 👈 новий проп: показувати кнопки чи ні
 }) {
   const { t } = useTranslation();
 
@@ -43,30 +45,33 @@ export default function ProjectCard({
           </ul>
         )}
 
-        <div className="proj-card__actions">
-          {href && (
-            <a
-              className="link-arrow"
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>{t('view_project')}</span>
-              <ArrowRight className="link-arrow__icon" size={18} strokeWidth={2.4} />
-            </a>
-          )}
-          {repo && (
-            <a
-              className="link-arrow"
-              href={repo}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>{t('view_code')}</span>
-              <ArrowRight className="link-arrow__icon" size={18} strokeWidth={2.4} />
-            </a>
-          )}
-        </div>
+        {/* показуємо кнопки лише якщо showLinks === true */}
+        {showLinks && (
+          <div className="proj-card__actions">
+            {href && (
+              <a
+                className="link-arrow"
+                href={href}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>{t('view_project')}</span>
+                <ArrowRight className="link-arrow__icon" size={18} strokeWidth={2.4} />
+              </a>
+            )}
+            {repo && (
+              <a
+                className="link-arrow"
+                href={repo}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>{t('view_code')}</span>
+                <ArrowRight className="link-arrow__icon" size={18} strokeWidth={2.4} />
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </article>
   );

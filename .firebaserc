@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "vitaliy-skochko-visit"
-  }
+    "default": "vitaliy-skochko-visit",
+    "main": "vitaliy-skochko-visit"
+  },
+  "targets": {},
+  "etags": {}
 }

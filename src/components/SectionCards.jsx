@@ -5,7 +5,7 @@ import "../styles/SectionCards.css";
 import { ArrowRight } from "lucide-react";
 
 import img1 from "../img/web-projects-card.png";
-import img2 from "../img/about-photo.png";
+import img2 from "../img/contact.webp";
 import img3 from "../img/1111.png";
 
 export default function SectionCards() {

@@ -43,6 +43,10 @@
   "backend_project_1_title": "BigSport News Automation Backend",
   "backend_project_1_desc": "A high-performance Node.js backend powering the automated content pipeline for BigSport. It integrates advanced web scraping, AI-driven text rewriting, and cloud-based data processing. The system continuously aggregates sports news from multiple sources, reformats it with GPT models, and delivers structured content to Firestore. Built for reliability, scalability, and full automation — enabling real-time publishing without manual intervention.",
 
+  "backend_project_capi_title": "Prime Cleaner — Full Analytics & CAPI Backend",
+  "backend_project_capi_desc": "Built a full analytics infrastructure for an iOS app (Prime Cleaner): integrated AppsFlyer to track installs and ad sources, RevenueCat for subscriptions and billing, and Facebook Conversions API via a custom Node.js backend. The app’s events are now sent to Meta for ad optimization towards users who actually complete purchases.",
+  "backend_project_capi_short": "Integrated AppsFlyer, RevenueCat, and Facebook CAPI via Node.js backend for end-to-end user tracking and ad optimization.",
+
   "contact_title": "Contact",
   "contact_links_title": "Contacts",
   "contact_form_title": "Send a message",

@@ -5,7 +5,7 @@ import '../styles/ProjectsPage.css';
 import { ArrowRight } from 'lucide-react';
 
 import webThumb from '../img/web-projects-card.png';
-import backendThumb from '../img/web-projects-card.png';
+import backendThumb from '../img/web-projects-card.webp';
 
 export default function ProjectsPage() {
   const { t } = useTranslation();

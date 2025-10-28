@@ -35,7 +35,7 @@
 /* ===== Фото (менше, компактніше) ===== */
 .section-card__image {
   width: 100%;
-  height: 130px; /* 👈 зменшено */
+  height: 230px; /* 👈 зменшено */
   background-size: cover;
   background-position: center;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -75,5 +75,5 @@
 /* ===== Адаптив ===== */
 @media (max-width: 768px) {
   .section-cards { gap: 20px; margin: 40px auto; }
-  .section-card__image { height: 110px; }
+  .section-card__image { height: 210px; }
 }

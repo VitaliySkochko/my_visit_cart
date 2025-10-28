@@ -1,178 +1,256 @@
-/* ========== Base glass card with gradient stroke ========== */
-.glass-border {
+/* =================================================================== */
+/* Project Card (clean)                                                */
+/* =================================================================== */
+
+/* ---- Design tokens ---- */
+:root{
   --r: 18px;
+  --glass-bg-strong: rgba(255,255,255,.08);
+  --glass-bg-weak: rgba(255,255,255,.02);
+  --glass-blur: 8px;
+
+  --blue-1: #3b82f6;  /* акцент тексту */
+  --btn-grad-a: #3f8cff;
+  --btn-grad-b: #0050d1;
+
+  --tag-fg: #0b3b9c;
+  --tag-bg: #eef3ff;
+
+  --shadow-card: 0 12px 32px rgba(16,24,40,.12);
+  --shadow-card-hover: 0 18px 44px rgba(16,24,40,.18);
+  --shadow-thumb: 0 10px 28px rgba(0,0,0,.16);
+
+  --btn-shadow: 0 8px 22px rgba(11,59,156,.45);
+  --btn-shadow-hover: 0 14px 30px rgba(11,59,156,.55);
+  --btn-ghost-shadow: 0 6px 16px rgba(0,30,120,.08);
+  --btn-ghost-hover: 0 10px 22px rgba(0,30,120,.12);
+
+  --radius: 18px;
+  --radius-thumb: 14px;
+}
+
+/* ---- Motion safety ---- */
+@media (prefers-reduced-motion: reduce){
+  * { animation: none !important; transition: none !important; }
+}
+
+/* =================================================================== */
+/* Base glass card with gradient stroke                                */
+/* =================================================================== */
+.glass-border{
   position: relative;
-  border-radius: var(--r);
-  background: rgba(255, 255, 255, .08);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  border-radius: var(--radius);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
 
   border: 1px solid transparent;
   background-image:
-    linear-gradient(to bottom, rgba(255, 255, 255, .08), rgba(255, 255, 255, .02)),
+    linear-gradient(to bottom, var(--glass-bg-strong), var(--glass-bg-weak)),
     linear-gradient(135deg, #9ec8ff, #5aa2ff 35%, #2e7dff 55%, #8ab3ff);
   background-origin: border-box;
   background-clip: padding-box, border-box;
 
-  box-shadow: 0 12px 32px rgba(16, 24, 40, .12), inset 0 1px 0 rgba(255, 255, 255, .18);
+  box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255,255,255,.18);
   transition: transform .35s ease, box-shadow .35s ease;
-}
-.glass-border:hover {
-  transform: translateY(-4px) scale(1.01);
-  box-shadow: 0 18px 44px rgba(16, 24, 40, .18), inset 0 1px 0 rgba(255, 255, 255, .22);
+  will-change: transform;
 }
 
-/* ========== Project card: базова сітка (1 колонка). 
-   Горизонтальні відступи НЕ задаємо тут, щоб не дублювати. ========== */
-.proj-card {
+@media (hover:hover){
+  .glass-border:hover{
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: var(--shadow-card-hover), inset 0 1px 0 rgba(255,255,255,.22);
+  }
+}
+
+/* =================================================================== */
+/* Project card layout                                                  */
+/* =================================================================== */
+.proj-card{
   display: grid;
   grid-template-columns: 1fr;
-  row-gap: 14px;      /* лише вертикальний відступ всередині компоненту */
-  column-gap: 0;      /* важливо! керуємо gap на сторінці списку */
+  row-gap: 14px;   /* лише вертикальні внутрішні відступи компонента */
+  column-gap: 0;   /* горизонтальні gaps контролює контейнер сторінки */
   padding: 18px;
   align-items: stretch;
 }
 
-
-/* Thumb */
-.proj-card__thumb {
+/* ---- Thumbnail ---- */
+.proj-card__thumb{
   position: relative;
-  width: 100%;              /* заповнює свою колонку */
+  width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 14px;
+  border-radius: var(--radius-thumb);
   overflow: hidden;
-  box-shadow: 0 10px 28px rgba(0, 0, 0, .16);
-  transform: translateZ(0);
+  box-shadow: var(--shadow-thumb);
   transition: transform .35s ease;
+  will-change: transform;
 }
-.proj-card:hover .proj-card__thumb { transform: translateY(-2px) scale(1.01); }
 
-.proj-card__thumb img {
+@media (hover:hover){
+  .proj-card:hover .proj-card__thumb{ transform: translateY(-2px) scale(1.01); }
+}
+
+.proj-card__thumb img{
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
   transition: transform .6s ease;
 }
-.proj-card:hover .proj-card__thumb img { transform: scale(1.05) translateY(-2px); }
 
-/* shine */
-.proj-card__shine {
-  position: absolute; inset: 0; pointer-events: none; border-radius: inherit;
-  background: linear-gradient(120deg, rgba(255, 255, 255, .35), rgba(255, 255, 255, 0) 60%);
-  transform: translateX(-120%); transition: transform .8s ease;
+@media (hover:hover){
+  .proj-card:hover .proj-card__thumb img{ transform: scale(1.05) translateY(-2px); }
 }
-.proj-card:hover .proj-card__shine { transform: translateX(120%); }
 
-/* Body */
-.proj-card__body {
-  padding: 2px 4px 6px;
+/* ---- Shine ---- */
+.proj-card__shine{
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(255,255,255,.35), rgba(255,255,255,0) 60%);
+  transform: translateX(-120%);
+  transition: transform .8s ease;
+}
+
+@media (hover:hover){
+  .proj-card:hover .proj-card__shine{ transform: translateX(120%); }
+}
+
+/* ---- Body ---- */
+.proj-card__body{
   display: flex;
   flex-direction: column;
-  text-align: left;
   gap: 12px;
   min-height: 100%;
+  padding: 2px 4px 6px;
+  text-align: left;
 }
 
-.proj-card__title {
+/* ---- Typography ---- */
+.proj-card__title{
   margin: 0 0 6px;
   font-size: clamp(20px, 1.6vw, 28px);
   font-weight: 800;
-  color: #3b82f6;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, .35);
+  color: var(--blue-1);
+  text-shadow: 0 1px 0 rgba(255,255,255,.35);
 }
 
-.proj-card__subtitle {
-  color: #3b82f6;
-  font-weight: 700;
+.proj-card__subtitle{
+  margin: 0 0 8px;
   font-size: 14px;
-  margin-bottom: 8px;
+  font-weight: 700;
+  color: var(--blue-1);
 }
 
-.proj-card__desc {
+.proj-card__desc{
   margin: 0 0 12px;
-  color: #000;
-  line-height: 1.6;
   font-size: clamp(14px, 1vw, 16px);
+  line-height: 1.6;
+  color: #000;
 }
 
-/* Tags */
-.proj-card__tags {
+/* ---- Tags ---- */
+.proj-card__tags{
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
   margin: 0 0 14px;
   padding: 0;
   list-style: none;
-  justify-content: left;
+  justify-content: flex-start;
 }
-.tag {
+
+.tag{
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 16px;
   font-weight: 700;
-  color: #0b3b9c;
-  background: #eef3ff;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .85);
+  color: var(--tag-fg);
+  background: var(--tag-bg);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.85);
 }
 
-/* Actions */
-.proj-card__actions {
+/* ---- Actions ---- */
+.proj-card__actions{
   margin-top: auto;
   display: flex;
-  justify-content: left;
   align-items: center;
+  justify-content: flex-start;
   gap: 10px;
   flex-wrap: wrap;
 }
 
-/* Buttons */
-.btn {
+/* =================================================================== */
+/* Buttons                                                             */
+/* =================================================================== */
+.btn{
   display: inline-block;
+  min-width: 160px;
+  padding: 12px 22px;
   border-radius: 999px;
   font-weight: 700;
   letter-spacing: .3px;
   text-decoration: none;
-  padding: 12px 22px;
-  min-width: 160px;
   text-align: center;
-  transition: transform .28s ease, box-shadow .28s ease;
   position: relative;
   overflow: hidden;
+  transition: transform .28s ease, box-shadow .28s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.btn--primary {
-  color: #fff;
-  background: linear-gradient(135deg, #3f8cff, #0050d1);
-  box-shadow: 0 8px 22px rgba(11, 59, 156, .45), inset 0 1px 0 rgba(255, 255, 255, .22);
+.btn:focus-visible{
+  outline: 0;
+  box-shadow:
+    0 0 0 3px rgba(255,255,255,.9),
+    0 0 0 6px rgba(63,140,255,.5);
+  transform: translateY(-1px);
 }
-.btn--primary::after {
+
+/* Primary */
+.btn--primary{
+  color: #fff;
+  background: linear-gradient(135deg, var(--btn-grad-a), var(--btn-grad-b));
+  box-shadow: var(--btn-shadow), inset 0 1px 0 rgba(255,255,255,.22);
+}
+
+.btn--primary::after{
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-  background: linear-gradient(120deg, rgba(255, 255, 255, .45) 0%, rgba(255, 255, 255, 0) 60%);
+  background: linear-gradient(120deg, rgba(255,255,255,.45) 0%, rgba(255,255,255,0) 60%);
   transform: translateX(-120%);
   transition: transform .6s ease;
 }
-.btn--primary:hover {
-  transform: translateY(-3px) scale(1.02);
-  box-shadow: 0 14px 30px rgba(11, 59, 156, .55);
-}
-.btn--primary:hover::after { transform: translateX(120%); }
 
-.btn--ghost {
-  color: #0b3b9c;
-  background: #ffffff;
-  border: 1px solid rgba(0, 60, 255, .14);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9), 0 6px 16px rgba(0, 30, 120, .08);
-}
-.btn--ghost:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 22px rgba(0, 30, 120, .12);
+@media (hover:hover){
+  .btn--primary:hover{
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: var(--btn-shadow-hover);
+  }
+  .btn--primary:hover::after{ transform: translateX(120%); }
 }
 
-/* Адаптив усередині компоненту (без зміни горизонтальних gaps) */
+/* Ghost */
+.btn--ghost{
+  color: var(--tag-fg);
+  background: #fff;
+  border: 1px solid rgba(0,60,255,.14);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.9), var(--btn-ghost-shadow);
+}
+
+@media (hover:hover){
+  .btn--ghost:hover{
+    transform: translateY(-2px);
+    box-shadow: var(--btn-ghost-hover);
+  }
+}
+
+/* =================================================================== */
+/* Responsive (component-scope only)                                    */
+/* =================================================================== */
 @media (max-width: 900px){
-  .proj-card { padding: 16px; }
+  .proj-card{ padding: 16px; }
 }
