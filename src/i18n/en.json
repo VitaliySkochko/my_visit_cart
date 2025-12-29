@@ -82,6 +82,13 @@
   "web_projects_title": "Web Projects",
   "web_projects": [
     {
+  "title": "HOUZ Music Records — Electronic Music Label",
+  "year": 2025,
+  "desc": "Official website of HOUZ Music Records — an underground electronic music label and platform. Includes releases, artist profiles, events, merch, and professional mastering with SEO-ready metadata and modern UI.",
+  "tags": ["React", "SEO", "Music Platform", "Brand Website"],
+  "href": "https://houzmusicrecords.com/"
+},
+    {
       "title": "Intelligent Writing — AI Content Agency",
       "year": 2025,
       "desc": "Official corporate website of Intelligent Writing — a next-generation AI content and research agency. Built with React and deployed on Firebase Hosting, it showcases the company’s services, portfolio, and technology-driven approach to writing and analytics.",

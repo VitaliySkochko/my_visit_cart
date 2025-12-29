@@ -13,6 +13,8 @@ import shot3 from '../img/project-3.jpg';
 import shot4 from '../img/project-4.png';
 import shot5 from '../img/project-5.jpg';
 import shot6 from '../img/project-6.svg';
+import shot7 from '../img/project-7.jpg';
+
 
 export default function WebProjectsPage() {
   const { t } = useTranslation();
@@ -22,7 +24,7 @@ export default function WebProjectsPage() {
   const PROJECTS = Array.isArray(raw) ? raw : [];
 
   // мапимо зображення вручну, бо вони з локальних імпортів
-  const images = [shot6, shot5, shot4, shot3, shot2, shot1];
+  const images = [shot7, shot6, shot5, shot4, shot3, shot2, shot1];
 
   return (
     <main className="web-projects">
