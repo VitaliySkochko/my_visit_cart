@@ -254,3 +254,27 @@
 @media (max-width: 900px){
   .proj-card{ padding: 16px; }
 }
+
+
+
+/* =============================================================
+   FORCE links visible on mobile (override ProjectCard.css)
+   ============================================================= */
+@media (max-width: 900px){
+  .wp-list .proj-card__actions{
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+  }
+
+  .wp-list a.link-arrow{
+    display: inline-flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    position: relative;
+    z-index: 2;
+  }
+}
+
