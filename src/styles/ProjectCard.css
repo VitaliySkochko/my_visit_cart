@@ -40,20 +40,16 @@
 .glass-border{
   position: relative;
   border-radius: var(--radius);
-  background: var(--glass-bg-strong);
-  backdrop-filter: blur(var(--glass-blur));
-  -webkit-backdrop-filter: blur(var(--glass-blur));
 
-  border: 1px solid transparent;
-  background-image:
-    linear-gradient(to bottom, var(--glass-bg-strong), var(--glass-bg-weak)),
-    linear-gradient(135deg, #9ec8ff, #5aa2ff 35%, #2e7dff 55%, #8ab3ff);
-  background-origin: border-box;
-  background-clip: padding-box, border-box;
+  background: #ffffff;
 
-  box-shadow: var(--shadow-card), inset 0 1px 0 rgba(255,255,255,.18);
-  transition: transform .35s ease, box-shadow .35s ease;
-  will-change: transform;
+  border: 1px solid rgba(46,142,234,.18);
+
+  box-shadow: 0 8px 20px rgba(16,24,40,.08);
+
+  transition:
+    transform .18s ease,
+    box-shadow .18s ease;
 }
 
 @media (hover:hover){
@@ -84,7 +80,6 @@
   overflow: hidden;
   box-shadow: var(--shadow-thumb);
   transition: transform .35s ease;
-  will-change: transform;
 }
 
 @media (hover:hover){

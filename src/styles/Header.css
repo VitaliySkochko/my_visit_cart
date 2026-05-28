@@ -14,24 +14,20 @@
 }
 
 /* ===== HEADER (fixed, без стрибків) ===== */
-.site-header{
+.site-header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: var(--header-h);
   box-sizing: border-box;
   z-index: var(--z-header);
   padding: 20px 0;
   display: block;
 
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  background: linear-gradient(180deg, var(--glass-bg1), var(--glass-bg2));
+  background: rgba(255, 255, 255, 0.94);
   border-bottom: 1px solid var(--glass-border);
-
-  will-change: transform;
-  
 }
-
 .site-header::before{
   content:"";
   position:absolute; inset:0 0 auto 0; height:8px;
