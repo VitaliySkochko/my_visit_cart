@@ -1,0 +1,151 @@
+.projects-showcase-section {
+  width: min(100%, 1400px);
+  margin: 0 auto;
+  padding: clamp(40px, 4.5vw, 66px) clamp(20px, 4.3vw, 60px) 0;
+  box-sizing: border-box;
+}
+
+.projects-showcase {
+  min-height: 600px;
+  display: grid;
+  grid-template-columns: minmax(0, 55%) minmax(0, 45%);
+  gap: clamp(40px, 5vw, 80px);
+  align-items: center;
+}
+
+.projects-showcase__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(44px, 6vw, 84px) 0;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+.projects-showcase__title {
+  margin: 0;
+  max-width: 610px;
+  color: #f5f5f7;
+  font-size: clamp(42px, 4.5vw, 68px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1.05;
+  white-space: pre-line;
+}
+
+.projects-showcase__description {
+  max-width: 580px;
+  margin: clamp(28px, 3vw, 40px) 0 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: clamp(17px, 1.4vw, 20px);
+  line-height: 1.6;
+}
+
+.projects-showcase__more {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  margin-top: clamp(28px, 3vw, 40px);
+  padding-bottom: 5px;
+  color: #f5f5f7;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.projects-showcase__visual {
+  position: relative;
+  min-height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.projects-showcase__visual::before {
+  content: "";
+  position: absolute;
+  width: 72%;
+  aspect-ratio: 1;
+  left: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  background: radial-gradient(circle, rgba(100, 80, 255, 0.12), transparent 70%);
+  filter: blur(45px);
+  opacity: 0.7;
+  transition: opacity 450ms ease;
+}
+
+.projects-showcase__visual img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: min(110%, 800px);
+  max-width: none;
+  height: auto;
+  object-fit: contain;
+  transition: transform 500ms ease;
+}
+
+.projects-showcase:hover .projects-showcase__visual::before { opacity: 1; }
+.projects-showcase:hover .projects-showcase__visual img { transform: scale(1.015); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .projects-showcase-section:not(.is-visible) .projects-showcase__visual,
+  .projects-showcase-section:not(.is-visible) .projects-showcase__title,
+  .projects-showcase-section:not(.is-visible) .projects-showcase__description,
+  .projects-showcase-section:not(.is-visible) .projects-showcase__more {
+    opacity: 0;
+  }
+
+  .projects-showcase-section.is-visible .projects-showcase__visual {
+    animation: projects-visual-enter 3350ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .projects-showcase-section.is-visible .projects-showcase__title,
+  .projects-showcase-section.is-visible .projects-showcase__description,
+  .projects-showcase-section.is-visible .projects-showcase__more {
+    animation: projects-text-enter 2750ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .projects-showcase-section.is-visible .projects-showcase__title { animation-delay: 100ms; }
+  .projects-showcase-section.is-visible .projects-showcase__description { animation-delay: 325ms; }
+  .projects-showcase-section.is-visible .projects-showcase__more { animation-delay: 550ms; }
+}
+
+@keyframes projects-visual-enter {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes projects-text-enter {
+  from { opacity: 0; transform: translateX(50px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@media (max-width: 900px) {
+  .projects-showcase {
+    min-height: 0;
+    grid-template-columns: 1fr;
+  }
+
+  .projects-showcase__content { order: 1; padding: 0; }
+  .projects-showcase__visual { order: 2; min-height: 0; padding: clamp(20px, 5vw, 44px) 0 0; justify-content: center; }
+  .projects-showcase__visual img { width: min(100%, 680px); }
+}
+
+@media (max-width: 560px) {
+  .projects-showcase-section { padding-top: 32px; padding-bottom: 0; }
+  .projects-showcase__title { font-size: clamp(38px, 11.5vw, 52px); }
+  .projects-showcase__description { margin-top: 24px; }
+  .projects-showcase__more { margin-top: 26px; }
+  .projects-showcase__visual { padding-top: 20px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .projects-showcase__visual::before,
+  .projects-showcase__visual img { transition: none; }
+}

@@ -3,8 +3,28 @@
   "about": "About Me",
   "projects": "Projects",
   "tech": "Tech Stack",
-  "contact": "Contact",
+  "contact": "Socials",
+  "nav_about": "About",
+  "nav_projects": "Projects",
+  "nav_contact": "Social Networks",
   "hero_title": "Web Developer",
+  "hero_greeting": "Hi, I’m",
+  "hero_first_name": "Vitaliy",
+  "hero_last_name": "Skochko",
+  "hero_description": "I create modern web products by combining development, design, and new technologies. I work with frontend and backend, integrate AI, and turn ideas into complete digital products.",
+  "hero_projects_button": "My projects",
+  "hero_contact_button": "Contact me",
+  "hero_more_link": "Learn more",
+  "home_projects_title": "Ideas that become\nreal products",
+  "home_projects_description": "I create web solutions that combine quality code, thoughtful interfaces, and product thinking. From ideas and architecture to development, integrations, and launching a finished product.",
+  "home_projects_more": "Learn more",
+  "home_projects_image_alt": "A selection of Vitaliy Skochko’s web projects",
+  "home_bigsport_description": "Founder and Full-stack Developer of BigSport — a sports news website with up-to-date news and a modern interface.",
+  "home_bigsport_more": "Learn more",
+  "home_bigsport_image_alt": "BigSport displayed on a laptop and smartphone",
+  "home_contact_title": "Have a project or idea?",
+  "home_contact_description": "Use the form to discuss a project, share an idea, commission development work, or simply get in touch.",
+  "home_contact_secondary": "I’ll reply and help you identify the right next step.",
   "language": "Language",
   "about_title": "About Me",
   "about_text": "I’m Vitaliy — a Full-Stack Developer who loves clean code and sharp design. I craft modern web apps that blend elegant UI with solid engineering.",
@@ -17,11 +37,45 @@
   "card_bigsport_title": "BigSPORT Project",
   "card_button_explore": "Explore",
   "portrait_alt": "Portrait of Vitaliy Skochko",
+  "about_page_label": "About me",
+  "about_page_title": "Who I am and what I do",
+  "about_page_lead": "I combine development, technology, and product thinking to create modern web solutions.",
   "bio_title": "Biography",
-  "bio_paragraph_1": "I am a software developer at Intelligent Writing, focusing on building modern applications with React as my primary technology stack. My journey into IT began in November 2023 when I started learning Java to understand the fundamentals of Object-Oriented Programming.",
-  "bio_paragraph_2": "I studied entirely on my own, driven by curiosity and a desire to create something meaningful. The motivation came while I was working as a copywriter at a sports news website. When that project closed, I was inspired to build my own platform — which eventually became BigSport, a sports media platform I founded and developed as a full-stack engineer.",
-  "bio_paragraph_3": "Beyond coding, I am passionate about product thinking — understanding how technology can solve real problems, improve user experience, and scale into something bigger.",
-  "career_title": "IT Career",
+  "bio_paragraph_1": "I am a web developer who creates modern web products and works with both the client and server sides of applications. I develop frontend and backend systems, work with APIs, databases, and integrations, and connect analytics systems to track user behavior and support product growth.",
+  "bio_paragraph_2": "I can deliver a web project entirely from scratch — from structure, architecture, and interface to server logic, integrations, analytics, and the launch of a finished product.",
+  "bio_paragraph_3": "Another focus of my work is AI and prompt engineering. I work with large language models, create prompts, integrate AI functionality into web products, and use modern AI tools for automation and development.",
+  "bio_paragraph_4": "I am also the founder and developer of the BigSPORT sports platform — my own product combining sports content, web development, analytics, and product thinking.",
+  "focus_areas_label": "Areas of work",
+  "focus_development_title": "Development",
+  "focus_development_text": "Frontend, Backend, APIs, databases",
+  "focus_analytics_title": "Analytics",
+  "focus_analytics_text": "Web analytics integration and configuration",
+  "focus_ai_title": "AI & Prompt Engineering",
+  "focus_ai_text": "AI integrations, prompts, and automation",
+  "focus_products_title": "Products",
+  "focus_products_text": "From idea to finished web product",
+  "career_section_label": "Professional journey",
+  "career_title": "Experience",
+  "experience_full_time": "Full-time",
+  "experience_part_time": "Part-time",
+  "experience_iw_manager_date": "Oct 2025 — Present",
+  "experience_iw_developer_date": "Feb 2025 — Oct 2025",
+  "experience_bigsport_date": "Jul 2024 — Present",
+  "experience_iw_years": "2025 — Present",
+  "experience_bigsport_years": "2024 — Present",
+  "career_current_badge": "Current position",
+  "career_current_title": "Product Development and Management Engineer",
+  "career_current_date": "October 2025 — Present",
+  "career_current_description": "Developing web products, contributing to product decisions, implementing new features, integrating AI and analytics, and evolving product architecture.",
+  "career_fullstack_title": "Full-Stack Developer",
+  "career_fullstack_date": "2023 — 2025",
+  "career_fullstack_description": "Building web applications from scratch, developing frontend and backend systems and APIs, and working with databases, integrations, and analytics.",
+  "career_frontend_title": "Front-End Developer",
+  "career_frontend_date": "2021 — 2023",
+  "career_frontend_description": "Developing web interfaces, responsive layouts, working with JavaScript, and growing frontend application development skills.",
+  "career_start_title": "Beginning the web development journey",
+  "career_start_date": "2019 — 2021",
+  "career_start_description": "Learning the foundations of web development, HTML, CSS, and JavaScript, building first personal projects, and exploring the full development cycle.",
   "career_1_title": "Founder & Full-stack Developer",
   "career_1_date": "Jul 2024 – Present · {{duration}}",
   "career_2_title": "Full-stack Web Developer",
@@ -34,11 +88,11 @@
   "duration_full": "{{years}} years {{months}} months",
   "backend_projects_title": "Backend Projects",
   "backend_project_1_title": "BigSport News Automation Backend",
-  "backend_project_1_desc": "A high-performance Node.js backend powering the automated content pipeline for BigSport. It integrates advanced web scraping, AI-driven text rewriting, and cloud-based data processing. The system continuously aggregates sports news from multiple sources, reformats it with GPT models, and delivers structured content to Firestore. Built for reliability, scalability, and full automation — enabling real-time publishing without manual intervention.",
+  "backend_project_1_desc": "An automated backend for creating news content on BigSport. The system parses news from football websites, processes the collected content using an AI model, and generates a new unique article from it. The finished material is automatically added to the BigSport website, where an editor can review and revise it before publication.",
   "backend_project_capi_title": "Prime Cleaner — Full Analytics & CAPI Backend",
-  "backend_project_capi_desc": "Built a full analytics infrastructure for an iOS app (Prime Cleaner): integrated AppsFlyer to track installs and ad sources, RevenueCat for subscriptions and billing, and Facebook Conversions API via a custom Node.js backend. The app’s events are now sent to Meta for ad optimization towards users who actually complete purchases.",
+  "backend_project_capi_desc": "Built a complete analytics infrastructure for the Prime Cleaner iOS app: integrated AppsFlyer to track installs and advertising sources, RevenueCat to manage subscriptions and payments, and Facebook Conversions API through a custom Node.js backend. Data about key actions and purchases is automatically sent to Meta to optimize advertising campaigns, while product analytics is sent to Amplitude to track user behavior.",
   "backend_project_capi_short": "Integrated AppsFlyer, RevenueCat, and Facebook CAPI via Node.js backend for end-to-end user tracking and ad optimization.",
-  "contact_title": "Contact",
+  "contact_title": "Social Media",
   "contact_links_title": "Contacts",
   "contact_form_title": "Send a message",
   "contact_name": "Name",
@@ -49,8 +103,16 @@
   "contact_message_placeholder": "Hi! I’d like to discuss a project…",
   "contact_send_button": "Send",
   "contact_send_aria": "Send message by email",
+  "contact_fill_all": "Please complete all fields.",
+  "contact_email_invalid": "Enter a valid email address.",
+  "contact_spam_detected": "Spam detected. Please try again.",
+  "contact_send_error": "The message could not be sent. Please try again.",
   "contact_sent_message": "Thanks! Your default mail app should open now. I’ll get back to you soon.",
   "projects_title": "Projects",
+  "projects_web_showcase_title": "Web",
+  "projects_web_showcase_description": "I create modern web products — from interface design and frontend development to complete websites and web platforms.",
+  "projects_backend_showcase_title": "Backend",
+  "projects_backend_showcase_description": "I develop the server side of web products: APIs, business logic, database workflows, and integrations with external services.",
   "projects_web_title": "Web Projects",
   "projects_backend_title": "Backend Projects",
   "projects_web_alt": "Preview of Web Projects",
@@ -128,6 +190,18 @@
   ],
   "web_projects_title": "Web Projects",
   "web_projects": [
+    {
+      "title": "Institute of Cognitive Defence",
+      "year": 2026,
+      "desc": "A company website for a research organization studying threats of cognitive influence on the free world’s societies.",
+      "href": "https://icd2026.org/"
+    },
+    {
+      "title": "Lux MIKROCEMENT",
+      "year": 2026,
+      "desc": "A company website for Lux MIKROCEMENT, which provides microcement services in Warsaw and throughout Poland. The website presents information about the company, its services, examples of completed work, and contact options.",
+      "href": "https://luxmikrocement.com/"
+    },
     {
   "title": "ChatShop — AI Storefront",
   "year": 2026,
@@ -212,9 +286,9 @@
       "href": "https://social-network-spilno.web.app/"
     },
     {
-      "title": "BigSPORT — Sports News Website",
+      "title": "BigSport",
       "year": 2025,
-      "desc": "A dynamic sports news portal built with React and Firebase. Includes automated news parsing and rewriting powered by ChatGPT, with a Node.js + Express backend for processing and Firestore for data storage.",
+      "desc": "A sports news website featuring up-to-date news from Ukraine and around the world, a modern interface, and convenient access to sports content.",
       "tags": [
         "React",
         "Firebase",
@@ -226,6 +300,119 @@
     }
   ],
   "bigsport_title": "BigSport",
+  "bigsport_hero_description": "A Ukrainian sports portal covering the most important events in Ukrainian and international sports.",
+  "bigsport_site_start_label": "Website launch",
+  "bigsport_site_start_value": "30.03.2025",
+  "bigsport_development_label": "Project development",
+  "bigsport_development_value": "July 2024 — March 2025",
+  "bigsport_domain_label": "Domain",
+  "bigsport_portfolio_heading": "A new generation of sports media",
+  "bigsport_portfolio_description": "BigSport is a sports news website featuring up-to-date news from Ukraine and around the world, a modern interface, and convenient access to sports content.",
+  "bigsport_visit_site": "Visit website",
+  "bigsport_directions_title": "Core areas",
+  "bigsport_portfolio_directions": [
+    {
+      "key": "ukrainianFootball",
+      "title": "Ukrainian football",
+      "description": "The Ukrainian Premier League, First and Second Leagues, Ukrainian Cup, national team, transfers, and club news."
+    },
+    {
+      "key": "championships",
+      "title": "Leagues",
+      "description": "The Premier League, Spanish La Liga, Serie A, Bundesliga, French Ligue 1, European and world football news, and major transfer stories."
+    },
+    {
+      "key": "europeanCups",
+      "title": "European cups",
+      "description": "The Champions League, Europa League, and Conference League."
+    },
+    {
+      "key": "biathlon",
+      "title": "Biathlon",
+      "description": "The World Cup, IBU Cup, Olympic Games, and World Championships."
+    },
+    {
+      "key": "sports",
+      "title": "Sports",
+      "description": "Boxing, tennis, futsal, and MMA."
+    },
+    {
+      "key": "tournaments",
+      "title": "Tournaments",
+      "description": "The year’s major football tournaments: the 2026 World Cup, 2025 Club World Cup, and other major international competitions."
+    }
+  ],
+  "bigsport_history_title": "Project history",
+  "bigsport_history_items": [
+    {
+      "date": "March 6, 2023",
+      "title": "BigSport YouTube channel created",
+      "icon": "youtube",
+      "link": "https://www.youtube.com/@BigSport-TV1",
+      "linkLabel": "BigSport YouTube channel"
+    },
+    {
+      "date": "July 2024",
+      "title": "BigSport website development begins",
+      "icon": "development"
+    },
+    {
+      "date": "September 2, 2024",
+      "title": "BigSport Instagram page created",
+      "icon": "instagram",
+      "link": "https://www.instagram.com/bigsport.com.ua/",
+      "linkLabel": "BigSport Instagram"
+    },
+    {
+      "date": "November 2024",
+      "title": "BigSport 2.0 released — the website entered test mode.",
+      "gallery": "version2",
+      "version": "2.0",
+      "icon": "website"
+    },
+    {
+      "date": "December 2024",
+      "title": "BigSport 3.0 released — the website continued operating in test mode.",
+      "gallery": "version3",
+      "version": "3.0",
+      "icon": "website"
+    },
+    {
+      "date": "March 30, 2025",
+      "title": "Official launch of BigSport 4.0 at bigsport.com.ua",
+      "gallery": "version4",
+      "version": "4.0",
+      "icon": "website"
+    },
+    {
+      "date": "September 2, 2025",
+      "title": "BigSport LinkedIn page created",
+      "icon": "linkedin",
+      "link": "https://www.linkedin.com/company/bigsport",
+      "linkLabel": "BigSport LinkedIn"
+    },
+    {
+      "date": "February 13, 2026",
+      "title": "BigSport Facebook page created",
+      "icon": "facebook",
+      "link": "https://www.facebook.com/profile.php?id=61587925061004",
+      "linkLabel": "BigSport Facebook"
+    },
+    {
+      "date": "April 18, 2026",
+      "title": "BigSport 5.0 released",
+      "gallery": "version5",
+      "version": "5.0",
+      "icon": "website"
+    }
+  ],
+  "bigsport_view_photos": "View photos",
+  "bigsport_socials_title": "BigSport on social media",
+  "bigsport_version_preview_alt": "BigSport {{version}} — photo {{number}}",
+  "bigsport_lightbox_label": "BigSport version gallery",
+  "bigsport_close_preview": "Close image viewer",
+  "bigsport_previous_photo": "Previous photo",
+  "bigsport_next_photo": "Next photo",
   "bigsport_slides": [
     {
       "title": "BigSport — Modern Sports Media",

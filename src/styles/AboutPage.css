@@ -1,219 +1,350 @@
-:root{
-  --blue:#2E8EEA;
-  --ink:#0b1220;
-  --muted:#4b5563;
-  --line:#e6e8ee;
-  --cardShadow: 0 8px 20px rgba(16,24,40,.08);
-}
-
-/* ===== Page ===== */
-.about-page{
-  max-width: 1100px;
+.about-page {
+  --about-gap: 24px;
+  width: min(100%, 1400px);
   margin: 0 auto;
-  padding: 24px 20px 96px;
-  margin-top: 100px;
+  padding: calc(var(--header-h) + var(--about-gap)) clamp(20px, 4.3vw, 60px) clamp(80px, 10vw, 140px);
+  box-sizing: border-box;
+  color: #f5f5f7;
+  font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  text-align: left;
 }
 
-/* ===== Hero ===== */
-.about-hero{ margin: 8px 0 28px; }
-.about-hero__solid{
-  border-radius: 22px;
-  background: #fff;
-  border: 1px solid var(--line);
-  box-shadow: var(--cardShadow);
-  padding: 10px 32px;
+.about-intro {
+  max-width: 850px;
+  margin: 0 auto var(--about-gap);
   text-align: center;
 }
-.about-hero__title{
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(32px, 6vw, 56px);
-  margin: 0;
-  color: var(--ink);
+
+.about-intro__title {
+  max-width: 100%;
 }
 
-/* ===== BIO (двоколонковий, однакова висота) ===== */
-.about-bio{
+.about-profile {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: stretch;       /* вирівнює по висоті */
-  gap: 28px;
-  margin: 40px 0 64px;
-}
-.white-card{
-  --r:16px;
-  border-radius: var(--r);
-  padding: 20px 22px;
-  background:#fff;
-  border:1px solid var(--line);
-  box-shadow: var(--cardShadow);
-}
-.white-frame{
-  background:#fff;
-  border:1px solid var(--line);
-  box-shadow: var(--cardShadow);
-  border-radius:16px;
-  overflow:hidden;
-}
-.bio-photo.white-frame{ display:flex; align-items:center; justify-content:center; }
-.bio-photo.white-frame img{ width:100%; height:100%; object-fit:cover; display:block; }
-
-.about-bio__text h2,
-.about-career h2{
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(24px, 3.5vw, 36px);
-  margin: 0 0 10px;
-  color: var(--ink);
-}
-.about-bio__text p{ color:#000; margin:0 0 12px; text-align:left; }
-
-/* ===== Timeline: кружок завжди по центру картки (через grid) ===== */
-
-.timeline{
-  list-style:none; margin:0; padding:0;
+  grid-template-columns: minmax(300px, 0.8fr) minmax(0, 1.2fr);
+  gap: var(--about-gap);
+  align-items: stretch;
 }
 
-.timeline li{
-  /* 2 колонки: 28px під кружок + 1fr під картку */
-  display: grid;
-  grid-template-columns: 28px 1fr;
-  align-items: center;          /* ← центрує кружок по вертикалі відносно картки */
-  column-gap: 12px;
-  margin-bottom: 28px;
-  padding: 0;                   /* прибираємо падінги, що зміщували центр */
-}
-
-/* кружок — більше не absolute */
-.tl-dot{
-  width: 16px; height: 16px; border-radius: 50%;
-  justify-self: center;         /* по центру своєї колонки */
-  background: var(--blue);
-  border: 3px solid #fff;
-  box-shadow:
-    0 2px 6px rgba(46,142,234,.25),
-    0 0 12px rgba(46,142,234,.35);
-  animation: tlPulse 2s ease-in-out infinite;
-}
-
-/* картка лишається як є */
-.tl-card{
-  padding: 14px 16px;
-  background: #fff;
+.about-profile__photo,
+.about-biography,
+.about-career {
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 14px;
-  border: 1px solid var(--line);
-  box-shadow: var(--cardShadow);
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.about-profile__photo {
   position: relative;
-  transition: transform .2s ease, box-shadow .2s ease;
-}
-.tl-card:hover{ transform: translateY(-2px); box-shadow: 0 10px 24px rgba(16,24,40,.1); }
-
-/* мʼякий пульс */
-@keyframes tlPulse{
-  0%,100%{ transform: scale(1); box-shadow: 0 2px 6px rgba(46,142,234,.25), 0 0 12px rgba(46,142,234,.35); }
-  50%    { transform: scale(1.12); box-shadow: 0 3px 8px rgba(46,142,234,.3), 0 0 18px rgba(46,142,234,.45); }
+  min-height: 720px;
+  overflow: hidden;
 }
 
-/* мобільно все так само центроване */
-@media (max-width: 900px){
-  .timeline li{ grid-template-columns: 24px 1fr; column-gap: 10px; }
-  .tl-dot{ width: 14px; height: 14px; }
+.about-profile__photo img {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  display: block;
+  width: auto;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  object-position: center bottom;
+  transform: translateX(-50%);
 }
 
+.about-biography {
+  padding: clamp(32px, 3.5vw, 48px);
+}
 
+.about-biography h2,
+.about-career h2 {
+  margin: 0;
+  font-family: inherit;
+  font-weight: 500;
+  letter-spacing: -0.035em;
+}
 
-/* ===== Горизонтальний вміст картки ===== */
-.tl-inline{
-  display:flex;
-  align-items:center;
-  gap: 14px;
-  min-height: 56px;
+.about-biography h2 {
+  color: #b0b1ff;
+  font-size: clamp(28px, 3vw, 40px);
 }
-.tl-logo-link{
-  display:inline-flex; align-items:center; justify-content:center;
-  width:40px; height:40px; border-radius:8px; background:#fff;
-  border:1px solid var(--line);
-  box-shadow: 0 2px 6px rgba(16,24,40,.08);
-  flex: 0 0 40px;
-}
-.tl-logo{ width:70%; height:70%; object-fit:contain; }
 
-.tl-main{
-  display:flex; flex-direction:row; align-items:baseline; gap:10px;
-  min-width: 0; /* для коректних переносів */
+.about-biography__copy {
+  margin-top: 28px;
 }
-.tl-company-name{
-  font-weight:600; color:var(--ink); font-size:18px; white-space:nowrap;
-}
-.tl-title{
-  color: var(--blue);
-  font-weight:700;
+
+.about-biography__copy p {
+  margin: 0 0 17px;
+  color: #b0b0b8;
   font-size: 16px;
-  white-space:nowrap;
+  line-height: 1.72;
 }
 
-/* штовхає дату вправо */
-.tl-spacer{ flex:1 1 auto; }
+.about-focus {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 36px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-/* дата як пілля */
-.tl-meta-pill{
-  flex: 0 0 auto;
-  background: rgba(46,142,234,.08);
-  color:#1f2937;
-  border:1px solid rgba(46,142,234,.25);
-  padding: 6px 10px;
-  border-radius: 999px;
-  font-size: 13px;
-  line-height: 1;
+.about-focus__item {
+  min-width: 0;
+  padding: 0 16px;
+  border-left: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.about-focus__item:first-child { padding-left: 0; border-left: 0; }
+.about-focus__item:last-child { padding-right: 0; }
+.about-focus__item svg { color: #8587ff; }
+.about-focus__item h3 {
+  margin: 15px 0 8px;
+  color: #f5f5f7;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+}
+.about-focus__item p {
+  margin: 0;
+  color: #85868f;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-profile__photo {
+    animation: about-photo-enter 2800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .about-biography {
+    animation: about-biography-enter 2800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .about-biography h2,
+  .about-biography__copy p,
+  .about-focus {
+    animation: about-biography-content-enter 2500ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  }
+
+  .about-biography h2 { animation-delay: 350ms; }
+  .about-biography__copy p:nth-child(1) { animation-delay: 550ms; }
+  .about-biography__copy p:nth-child(2) { animation-delay: 750ms; }
+  .about-biography__copy p:nth-child(3) { animation-delay: 950ms; }
+  .about-biography__copy p:nth-child(4) { animation-delay: 1150ms; }
+  .about-focus { animation-delay: 1350ms; }
+
+  .about-focus__item {
+    animation: about-focus-item-enter 2250ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  }
+
+  .about-focus__item:nth-child(1) { animation-delay: 1350ms; }
+  .about-focus__item:nth-child(2) { animation-delay: 1550ms; }
+  .about-focus__item:nth-child(3) { animation-delay: 1750ms; }
+  .about-focus__item:nth-child(4) { animation-delay: 1950ms; }
+}
+
+@keyframes about-photo-enter {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes about-biography-enter {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes about-biography-content-enter {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes about-focus-item-enter {
+  from { opacity: 0; transform: translateX(-40px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.about-career {
+  margin-top: var(--about-gap);
+  padding: clamp(32px, 4vw, 52px);
+}
+
+.about-career__heading { margin-bottom: 44px; }
+.about-career h2 { color: #f5f5f7; font-size: clamp(30px, 3vw, 42px); }
+
+@media (prefers-reduced-motion: no-preference) {
+  .about-career:not(.is-visible),
+  .about-career:not(.is-visible) .about-career__heading,
+  .about-career:not(.is-visible) .experience-company__identity,
+  .about-career:not(.is-visible) .experience-period,
+  .about-career:not(.is-visible) .experience-positions {
+    opacity: 0;
+  }
+
+  .about-career.is-visible {
+    animation: about-career-enter 2300ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
+
+  .about-career.is-visible .about-career__heading,
+  .about-career.is-visible .experience-company__identity,
+  .about-career.is-visible .experience-period,
+  .about-career.is-visible .experience-positions {
+    animation: about-career-content-enter 2100ms cubic-bezier(0.16, 1, 0.3, 1) backwards;
+  }
+
+  .about-career.is-visible .about-career__heading { animation-delay: 180ms; }
+  .about-career.is-visible .experience-company:first-child .experience-company__identity { animation-delay: 380ms; }
+  .about-career.is-visible .experience-company:first-child .experience-period { animation-delay: 560ms; }
+  .about-career.is-visible .experience-company:first-child .experience-positions { animation-delay: 740ms; }
+  .about-career.is-visible .experience-company:last-child .experience-company__identity { animation-delay: 960ms; }
+  .about-career.is-visible .experience-company:last-child .experience-period { animation-delay: 1140ms; }
+  .about-career.is-visible .experience-company:last-child .experience-positions { animation-delay: 1320ms; }
+}
+
+@keyframes about-career-enter {
+  from { opacity: 0; transform: translateY(60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes about-career-content-enter {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.experience-company {
+  display: grid;
+  grid-template-columns: minmax(270px, 0.9fr) minmax(145px, 0.45fr) minmax(330px, 1.2fr);
+  gap: clamp(28px, 4vw, 56px);
+  padding: 38px 0;
+}
+.experience-company:first-child { padding-top: 0; }
+.experience-company:last-child { padding-bottom: 0; }
+.experience-company + .experience-company { border-top: 1px solid rgba(255, 255, 255, 0.07); }
+
+.experience-company__identity {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr);
+  align-items: start;
+  gap: 18px;
+}
+.experience-logo {
+  width: 52px;
+  height: 52px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.04);
+}
+.experience-logo img { width: 100%; height: 100%; display: block; object-fit: cover; }
+.experience-company__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #f5f5f7;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.35;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+.experience-company__link svg { transition: transform 200ms ease; }
+.experience-company__link:hover { color: #a7a8ff; }
+.experience-company__link:hover svg { transform: translate(2px, -2px); }
+.experience-company__link:focus-visible { outline: 2px solid #8587ff; outline-offset: 4px; }
+.experience-company__employment {
+  margin: 7px 0 0;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
+}
+
+.experience-years {
+  margin: 3px 0 0;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.4;
   white-space: nowrap;
 }
 
-/* ===== Анімації ===== */
-.appear{ opacity:0; transform:translateY(40px); animation:fadeInUp .8s ease forwards; animation-delay:var(--delay,0s); }
-.appear[data-delay]{ --delay: attr(data-delay); }
-@keyframes fadeInUp{ from{opacity:0; transform:translateY(40px);} to{opacity:1; transform:translateY(0);} }
-
-@keyframes tlPulse{
-  0%,100%{ box-shadow: 0 0 0 4px rgba(46,142,234,.16), 0 6px 16px rgba(46,142,234,.25); transform: scale(1); }
-  50%{ box-shadow: 0 0 0 6px rgba(46,142,234,.22), 0 8px 22px rgba(46,142,234,.35); transform: scale(1.04); }
+.experience-duration {
+  margin: 5px 0 0;
+  color: rgba(255, 255, 255, 0.38);
+  font-size: 13px;
+  line-height: 1.4;
 }
 
-/* ===== Адаптація ===== */
-@media (max-width: 900px){
-  .about-bio{ grid-template-columns: 1fr; }
-  .tl-inline{
-    flex-wrap: wrap;            /* на мобайлі елементи переносяться */
-    gap: 10px 12px;
-  }
-  .tl-main{
-    width:100%;
-    flex-wrap: wrap;
-    gap: 6px 10px;
-  }
-  .tl-spacer{ display:none; }
-  .tl-meta-pill{ margin-left:auto; }
+.experience-positions { display: grid; gap: 28px; }
+.experience-positions--multiple { position: relative; }
+.experience-positions--multiple::before {
+  content: "";
+  position: absolute;
+  top: 11px;
+  bottom: 11px;
+  left: 4px;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.1);
+}
+.experience-position { position: relative; padding-left: 28px; }
+.experience-position::before {
+  content: "";
+  position: absolute;
+  top: 8px;
+  left: 0;
+  width: 9px;
+  height: 9px;
+  box-sizing: border-box;
+  border: 2px solid #666771;
+  border-radius: 50%;
+  background: #0d0e13;
+}
+.experience-position.is-current::before { border-color: #8587ff; background: #8587ff; }
+.experience-position h3 {
+  margin: 0;
+  color: #f5f5f7;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.experience-position p {
+  margin: 0;
+  padding-top: 7px;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 15px;
 }
 
-/* ===== Мобільна адаптація: дата зліва під назвою ===== */
+@media (max-width: 1100px) {
+  .about-focus { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 0; }
+  .about-focus__item:nth-child(3) { padding-left: 0; border-left: 0; }
+}
+
 @media (max-width: 900px) {
-  .tl-inline {
-    flex-direction: column;          /* усе стає вертикально */
-    align-items: flex-start;         /* вирівнюємо вліво */
-    gap: 6px;
+  .about-page {
+    --about-gap: 20px;
+    padding-top: calc(var(--header-h) + var(--about-gap));
   }
-
-  .tl-main {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 4px;
-  }
-
-  .tl-meta-pill {
-    order: 2;                        /* переносимо нижче назви */
-    margin: 4px 0 0 0;
-    align-self: flex-start;          /* зліва */
-  }
-
-  .tl-company-name, .tl-title {
-    order: 1;
-  }
+  .about-profile { grid-template-columns: 1fr; }
+  .about-profile__photo { min-height: 0; aspect-ratio: 4 / 5; }
+  .about-profile__photo img { height: 100%; }
+  .experience-company { grid-template-columns: 1fr; gap: 30px; }
+  .experience-years { margin: 0; }
 }
 
+@media (max-width: 560px) {
+  .about-intro { margin-bottom: var(--about-gap); }
+  .about-biography, .about-career { padding: 26px 20px; }
+  .about-focus { grid-template-columns: 1fr; gap: 0; }
+  .about-focus__item,
+  .about-focus__item:nth-child(3) {
+    padding: 20px 0;
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+  .about-focus__item:first-child { padding-top: 0; border-top: 0; }
+  .about-focus__item:last-child { padding-bottom: 0; }
+  .about-career__heading { margin-bottom: 34px; }
+  .experience-company { padding: 32px 0; }
+  .experience-company__identity { grid-template-columns: 52px minmax(0, 1fr); gap: 16px; }
+  .experience-logo { width: 48px; height: 48px; }
+  .experience-position { padding-left: 24px; }
+}

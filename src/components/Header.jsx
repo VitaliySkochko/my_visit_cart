@@ -2,19 +2,19 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTranslation } from 'react-i18next'; // 👈
+import logo from '../img/logo.png';
 import '../styles/Header.css';
 
 const links = [
-  { to: '/about', key: 'about' },
-  { to: '/projects', key: 'projects' },
-  { to: '/tech', key: 'tech' },
-  { to: '/contact', key: 'contact' },
+  { to: '/about', key: 'nav_about' },
+  { to: '/projects', key: 'nav_projects' },
+  { to: '/contact', key: 'nav_contact' },
 ];
 
 export default function Header() {
   const [open, setOpen] = useState(false);
   const { t, i18n } = useTranslation();
-  const [lang, setLang] = useState(localStorage.getItem('lang') || 'en');
+  const lang = i18n.resolvedLanguage === 'en' ? 'en' : 'ua';
 
   useEffect(() => {
     const onKey = (e) => e.key === 'Escape' && setOpen(false);
@@ -29,9 +29,8 @@ export default function Header() {
 
   const handleNavClick = () => setOpen(false);
 
-  const toggleLanguage = () => {
-    const next = lang === 'en' ? 'ua' : 'en';
-    setLang(next);
+  const switchLanguage = (next) => {
+    if (next === lang) return;
     i18n.changeLanguage(next);
     localStorage.setItem('lang', next);
   };
@@ -40,10 +39,7 @@ export default function Header() {
     <header className="site-header" role="banner">
       <div className="nav">
         <NavLink className="brand" to="/">
-          <div className="brand__text">
-            <span className="brand__title">{t('name')}</span>
-            <span className="brand__subtitle">{t('hero_title')}</span>
-          </div>
+          <img className="brand__logo" src={logo} alt="Vitaliy Skochko" />
         </NavLink>
 
         <nav className="nav__links" aria-label="Main menu">
@@ -61,14 +57,10 @@ export default function Header() {
 
         {/* 🔘 компактні дії справа: перемикач мови + бургер */}
         <div className="nav__actions">
-          <button
-            className="lang-switch"
-            type="button"
-            aria-label="Switch language"
-            onClick={toggleLanguage}
-          >
-            {lang === 'en' ? 'UA' : 'EN'}
-          </button>
+          <div className="lang-switch" role="group" aria-label={t('language')}>
+            <button type="button" className={`lang-switch__option${lang === 'ua' ? ' is-active' : ''}`} aria-pressed={lang === 'ua'} onClick={() => switchLanguage('ua')}>UA</button>
+            <button type="button" className={`lang-switch__option${lang === 'en' ? ' is-active' : ''}`} aria-pressed={lang === 'en'} onClick={() => switchLanguage('en')}>EN</button>
+          </div>
 
           <button
             className="nav__toggle"
@@ -102,10 +94,6 @@ export default function Header() {
             </NavLink>
           ))}
 
-          {/* Перемикач мови в drawer */}
-          <button className="drawer__lang" type="button" onClick={toggleLanguage}>
-            {lang === 'en' ? 'Українська' : 'English'}
-          </button>
         </div>
       </div>
     </header>

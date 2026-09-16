@@ -12,10 +12,18 @@ import shot2 from '../img/project-2.PNG';
 import shot3 from '../img/project-3.jpg';
 import shot4 from '../img/project-4.png';
 import shot5 from '../img/project-5.jpg';
-import shot6 from '../img/project-6.svg';
+import shot6 from '../img/intwriting.png';
 import shot7 from '../img/project-7.jpg';
 import shot8 from '../img/project-8.png';
+import luxMikrocementLogo from '../img/LM_01.png';
+import cognitiveDefenceLogo from '../img/cd.png';
 
+const hiddenWebProjectUrls = new Set([
+  'https://appmachine.store',
+  'https://social-network-spilno.web.app',
+]);
+
+const normalizeUrl = (url = '') => url.replace(/\/$/, '');
 
 export default function WebProjectsPage() {
   const { t } = useTranslation();
@@ -24,28 +32,27 @@ export default function WebProjectsPage() {
   const raw = t('web_projects', { returnObjects: true });
   const PROJECTS = Array.isArray(raw) ? raw : [];
 
-  // мапимо зображення вручну, бо вони з локальних імпортів
- const images = [shot8, shot7, shot6, shot5, shot4, shot3, shot2, shot1];
+  // мапимо зображення до фільтрації, щоб інші проєкти зберегли свої assets
+  const images = [cognitiveDefenceLogo, luxMikrocementLogo, shot8, shot7, shot6, shot5, shot4, shot3, shot2, shot1];
+  const visibleProjects = PROJECTS
+    .map((project, index) => ({ project, image: images[index % images.length] }))
+    .filter(({ project }) => !hiddenWebProjectUrls.has(normalizeUrl(project.href)));
 
   return (
     <main className="web-projects">
-      {/* HERO — уніфікований solid-білий, як на About/Contact/Projects */}
-      <header className="web-hero appear" style={{ animationDelay: '.02s' }}>
-        <div className="web-hero__solid">
-          <h1 className="web-hero__title">{t('web_projects_title')}</h1>
-        </div>
+      <header className="web-projects__intro">
+        <h1 className="page-title-accent page-title-accent--enter">{t('web_projects_title')}</h1>
       </header>
 
-      {/* LIST */}
       <section className="wp-list">
-        {PROJECTS.map((p, i) => (
+        {visibleProjects.map(({ project: p, image }, i) => (
           <ProjectCard
             key={`${p.title}-${i}`}
             title={p.title}
             year={p.year}
             desc={p.desc}
             tags={p.tags}
-            image={images[i % images.length]}
+            image={image}
             href={p.href}
             delay={0.06 * (i + 1)}
           />
@@ -54,4 +61,3 @@ export default function WebProjectsPage() {
     </main>
   );
 }
-

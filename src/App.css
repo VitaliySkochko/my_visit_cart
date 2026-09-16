@@ -1,174 +1,157 @@
 .App {
-  text-align: center;
+  min-height: 100vh;
   position: relative;
   z-index: 0;
-}
-
-/* ===== Глобальний фон ===== */
-.App::before{
-  content: "";
-  position: fixed;
-  inset: 0;
-  top: 0;
-
-  /* світлий синьо-білий градієнт */
-  background: linear-gradient(135deg, #e6f0ff 0%, #f9fbff 40%, #c9ddff 100%);
-  z-index: -2;
-}
-
-.App::after{
-  content: "";
-  position: fixed;
-  inset: 0;
-  top: 100px;
-
-  /* фото як шар поверх градієнта */
-  background: url("./img/about-photo.png") center/cover no-repeat;
-  filter: blur(10px) brightness(0.85);
-  opacity: 0.55;
-  z-index: -1;
-}
-
-/*--- Заголовок ---*/
-.pl-hero__title{
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(36px, 5vw, 64px);
-  font-weight: 700;
-  margin: 0;
-  color: #0b3b9c;
-}
-
-/*--- button ---*/
-.about-teaser__cta {
-  display: inline-block;
-  padding: 16px 34px;
-  border-radius: 999px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.05rem;
-  letter-spacing: 0.4px;
-cursor: pointer;
-  color: #fff;
-  background: linear-gradient(135deg, #3f8cff, #0050d1);
-  border: none;
-
-  
-
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-  min-width: 220px;
+  color: #f5f5f7;
   text-align: center;
+  background: #08090d;
 }
 
-.about-teaser__cta::after {
+.App::before {
   content: "";
-  position: absolute;
+  position: fixed;
   inset: 0;
-  border-radius: inherit;
-  background: linear-gradient(
-    120deg,
-    rgba(255, 255, 255, 0.45) 0%,
-    rgba(255, 255, 255, 0) 60%
-  );
-  transform: translateX(-120%);
-  transition: transform 0.6s ease;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 85% 12%, rgba(84, 79, 190, 0.08), transparent 32%),
+    #08090d;
 }
 
-.about-teaser__cta:hover {
-  transform: translateY(-3px) scale(1.02);
-}
+.App.is-home::before { background: #08090d; }
 
-.about-teaser__cta:hover::after {
-  transform: translateX(120%);
-}
-
-/* ======================================================
-   Мінімалістична кнопка-посилання (біла + hover #5ea0ff)
-   ====================================================== */
 .link-arrow {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  text-decoration: none;
+  gap: 9px;
+  color: #7779ed;
+  font-size: 1rem;
   font-weight: 600;
-  font-size: 1.05rem;
-  letter-spacing: 0.3px;
-  color: #2E8EEA;
-  position: relative;
-  transition: color 0.35s ease, transform 0.35s ease;
+  text-decoration: none;
+  transition: color 180ms ease, gap 180ms ease;
+}
+.link-arrow:hover { color: #9698ff; gap: 12px; }
+.link-arrow__icon { stroke: currentColor; }
+
+.page-title-accent {
+  display: inline-block;
+  margin: 0;
+  background: linear-gradient(90deg, #8587ff 0%, #b0b1ff 48%, #7779ed 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-size: clamp(48px, 6vw, 78px);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 1;
+  filter: drop-shadow(0 0 24px rgba(133, 135, 255, 0.11));
 }
 
-/* підкреслення */
-
-
-/* стрілка */
-.link-arrow__icon {
-  stroke-width: 2.4;
-  transition: transform 0.35s ease, opacity 0.35s ease, stroke 0.35s ease;
-  opacity: 0.85;
-  stroke: currentColor;
+.page-title-accent::after {
+  content: "";
+  display: block;
+  width: 52px;
+  height: 2px;
+  margin: 20px auto 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8587ff, #7779ed);
 }
 
-/* hover-ефекти */
-.link-arrow:hover {
-  color: #5ea0ff;
-  transform: translateY(-2px);
-  text-shadow: 0 0 10px rgba(94,160,255,0.4);
-}
+@media (prefers-reduced-motion: no-preference) {
+  .page-title-accent--enter {
+    animation: page-title-enter 2800ms cubic-bezier(0.16, 1, 0.3, 1) both;
+  }
 
-.link-arrow:hover::after {
-  transform: scaleX(1);
-}
-
-.link-arrow:hover .link-arrow__icon {
-  transform: translateX(6px);
-  opacity: 1;
-  stroke: #5ea0ff;
-}
-
-/* адаптив */
-@media (max-width: 640px) {
-  .link-arrow {
-    font-size: 0.95rem;
-    gap: 8px;
+  .page-title-accent--enter::after {
+    animation: page-title-line-enter 2800ms cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 }
 
+@keyframes page-title-enter {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
 
+@keyframes page-title-line-enter {
+  /* Offset the parent's leftward motion so the line starts 60px to the right. */
+  from { opacity: 0; transform: translateX(120px); }
+  to { opacity: 1; transform: translateX(0); }
+}
 
+.detail-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  color: #f5f5f7;
+  text-decoration: none;
+  font-size: 17px;
+  font-weight: 500;
+  transition: color 600ms cubic-bezier(0.22, 1, 0.36, 1), text-shadow 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
 
-
-
-/* ===== Глобальний фон для всіх сторінок ===== */
-.App::before{
+.detail-link::after {
   content: "";
-  position: fixed;
-  inset: 0;
-  top: 0;
-  background: linear-gradient(135deg, #e6f0ff 0%, #f9fbff 40%, #c9ddff 100%);
-  z-index: -2;
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, #4f8cff, #6476ff, #7667ff);
+  opacity: 0;
+  transform: scaleX(0);
+  transform-origin: left center;
+  box-shadow: 0 0 6px rgba(65, 120, 255, 0.85), 0 0 14px rgba(65, 100, 255, 0.55), 0 0 24px rgba(75, 90, 255, 0.22);
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1), opacity 600ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.App::after{
+.detail-link::before {
   content: "";
-  position: fixed;
-  inset: 0;
-  top: 100px;
-
-  background: url("./img/about-photo.png") center/cover no-repeat;
-  filter: blur(10px) brightness(0.85);
-  opacity: 0.55;
-  z-index: -1;
+  position: absolute;
+  right: 10%;
+  bottom: -14px;
+  left: 10%;
+  height: 14px;
+  background: radial-gradient(ellipse, rgba(80, 100, 255, 0.2), transparent 70%);
+  filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 650ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* ===== Для головної сторінки — чисте фото без фільтрів, але з тим самим зміщенням ===== */
-.App.is-home::after{
-  top: 100px; /* ✅ така ж відстань, як у глобальному фоні */
-  background: url("./img/about-photo.png") center/cover no-repeat;
-  filter: none;        /* ❌ без блюру */
-  opacity: 1;          /* ✅ повна видимість */
-  z-index: -1;         /* залишаємо той самий рівень */
+.detail-link:hover,
+.detail-link:focus-visible {
+  color: #6f8cff;
+  outline: none;
+  text-shadow: 0 0 6px rgba(90, 120, 255, 0.65), 0 0 14px rgba(70, 100, 255, 0.35);
 }
 
+.detail-link:hover::after,
+.detail-link:focus-visible::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
 
+.detail-link:hover::before,
+.detail-link:focus-visible::before { opacity: 1; }
+
+.detail-link__arrow {
+  display: inline-block;
+  color: inherit;
+  transition: transform 650ms cubic-bezier(0.22, 1, 0.36, 1), color 600ms cubic-bezier(0.22, 1, 0.36, 1), text-shadow 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.detail-link:hover .detail-link__arrow,
+.detail-link:focus-visible .detail-link__arrow {
+  transform: translateX(7px);
+  color: #5b8cff;
+  text-shadow: 0 0 7px rgba(70, 120, 255, 0.9), 0 0 15px rgba(70, 100, 255, 0.5);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-link,
+  .detail-link::before,
+  .detail-link::after,
+  .detail-link__arrow { transition: none; }
+  .detail-link__arrow { transform: none !important; }
+}

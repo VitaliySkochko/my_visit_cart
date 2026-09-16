@@ -1,145 +1,142 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import { ChartNoAxesCombined, Code2, ExternalLink, Rocket, Sparkles } from "lucide-react";
+import portrait from "../img/vitaliy_skochko_transparent.png";
+import intelligentWritingLogo from "../img/intwriting.png";
+import bigSportLogo from "../img/project-1.jpg";
+import { formatExperienceDuration } from "../utils/experienceDuration";
+import useScrollReveal from "../utils/useScrollReveal";
 import "../styles/AboutPage.css";
-import portrait from "../img/portrait.png";
 
-// logos
-import bigsportLogo from "../img/project-1.jpg";
-import intwritingLogo from "../img/intwriting.png";
+const focusAreas = [
+  { key: "development", icon: Code2 },
+  { key: "analytics", icon: ChartNoAxesCombined },
+  { key: "ai", icon: Sparkles },
+  { key: "products", icon: Rocket },
+];
 
-// 🔧 Localized duration formatter
-function formatDuration(startDate, endDate = new Date(), t) {
-  const start = new Date(startDate);
-  const end = new Date(endDate);
-  let years = end.getFullYear() - start.getFullYear();
-  let months = end.getMonth() - start.getMonth();
-  if (months < 0) { years -= 1; months += 12; }
-  if (years === 0 && months === 0) return t("duration_less_month");
-  if (years === 0) return t("duration_months", { count: months });
-  if (months === 0) return t("duration_years", { count: years });
-  return t("duration_full", { years, months });
-}
+const companyExperience = {
+  intelligentWriting: { startDate: "2025-02-01", endDate: null },
+  bigSport: { startDate: "2024-07-01", endDate: null },
+};
 
 export default function AboutPage() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const language = i18n.resolvedLanguage || i18n.language || "ua";
+  const careerReveal = useScrollReveal();
 
   return (
     <main className="about-page">
-      {/* HERO */}
-      <header className="about-hero appear" style={{ animationDelay: ".02s" }}>
-        <div className="about-hero__solid">
-          <h1 className="about-hero__title">{t("name")}</h1>
-        </div>
+      <header className="about-intro">
+        <h1 className="about-intro__title page-title-accent page-title-accent--enter">{t("about_page_label")}</h1>
       </header>
 
-      {/* BIO (двоколонковий, однакова висота) */}
-      <section className="about-bio appear" data-delay="0.05s">
-        <div className="bio-photo white-frame">
+      <section className="about-profile" aria-labelledby="biography-title">
+        <div className="about-profile__photo">
           <img src={portrait} alt={t("portrait_alt")} />
         </div>
 
-        <div className="about-bio__text white-card">
-          <h2>{t("bio_title")}</h2>
-          <p>{t("bio_paragraph_1")}</p>
-          <p>{t("bio_paragraph_2")}</p>
-          <p>{t("bio_paragraph_3")}</p>
+        <div className="about-biography">
+          <h2 id="biography-title">{t("bio_title")}</h2>
+          <div className="about-biography__copy">
+            <p>{t("bio_paragraph_1")}</p>
+            <p>{t("bio_paragraph_2")}</p>
+            <p>{t("bio_paragraph_3")}</p>
+            <p>{t("bio_paragraph_4")}</p>
+          </div>
+
+          <div className="about-focus" aria-label={t("focus_areas_label")}>
+            {focusAreas.map(({ key, icon: Icon }) => (
+              <article className="about-focus__item" key={key}>
+                <Icon aria-hidden="true" size={20} strokeWidth={1.7} />
+                <h3>{t(`focus_${key}_title`)}</h3>
+                <p>{t(`focus_${key}_text`)}</p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CAREER (таймлайн лишається; контент картки — горизонтально) */}
-      <section className="about-career">
-        <h2 className="appear" data-delay="0.05s">{t("career_title")}</h2>
+      <section
+        ref={careerReveal.sectionRef}
+        className={`about-career${careerReveal.isVisible ? " is-visible" : ""}`}
+        aria-labelledby="career-title"
+      >
+        <div className="about-career__heading">
+          <h2 id="career-title">{t("career_title")}</h2>
+        </div>
 
-        <ol className="timeline">
-          {/* Intelligent Writing — Eng Manager */}
-          <li className="appear" data-delay="0.16s">
-            <div className="tl-dot" />
-            <div className="tl-card white-card">
-              <div className="tl-inline">
-                <a
-                  href="https://intwriting.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="tl-logo-link"
-                  title="Intelligent Writing"
-                >
-                  <img src={intwritingLogo} alt="Intelligent Writing logo" className="tl-logo" />
+        <div className="experience-list">
+          <article className="experience-company">
+            <div className="experience-company__identity">
+              <div className="experience-logo">
+                <img src={intelligentWritingLogo} alt="Intelligent Writing logo" />
+              </div>
+              <div>
+                <a className="experience-company__link" href="https://intwriting.com" target="_blank" rel="noopener noreferrer">
+                  <span>Intelligent Writing</span>
+                  <ExternalLink aria-hidden="true" size={15} strokeWidth={1.8} />
                 </a>
-
-                <div className="tl-main">
-                  <div className="tl-company-name">Intelligent Writing</div>
-                  <div className="tl-title">{t("career_3_title")}</div>
-                </div>
-
-                <div className="tl-spacer" aria-hidden="true" />
-
-                <div className="tl-meta-pill">
-                  {t("career_3_date", { duration: formatDuration("2025-10-01", undefined, t) })}
-                </div>
+                <p className="experience-company__employment">{t("experience_full_time")}</p>
               </div>
             </div>
-          </li>
 
-          {/* Intelligent Writing — Full-stack */}
-          <li className="appear" data-delay="0.12s">
-            <div className="tl-dot" />
-            <div className="tl-card white-card">
-              <div className="tl-inline">
-                <a
-                  href="https://intwriting.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="tl-logo-link"
-                  title="Intelligent Writing"
-                >
-                  <img src={intwritingLogo} alt="Intelligent Writing logo" className="tl-logo" />
-                </a>
+            <div className="experience-period">
+              <p className="experience-years">{t("experience_iw_years")}</p>
+              <p className="experience-duration">
+                {formatExperienceDuration(
+                  companyExperience.intelligentWriting.startDate,
+                  companyExperience.intelligentWriting.endDate,
+                  language
+                )}
+              </p>
+            </div>
 
-                <div className="tl-main">
-                  <div className="tl-company-name">Intelligent Writing</div>
-                  <div className="tl-title">{t("career_2_title")}</div>
-                </div>
-
-                <div className="tl-spacer" aria-hidden="true" />
-
-                <div className="tl-meta-pill">
-                  {t("career_2_date", {
-                    duration: formatDuration("2025-02-01", "2025-10-01", t),
-                  })}
-                </div>
+            <div className="experience-positions experience-positions--multiple">
+              <div className="experience-position is-current">
+                <h3>Engineering Manager</h3>
+                <p>{t("experience_iw_manager_date")}</p>
+              </div>
+              <div className="experience-position">
+                <h3>Full-stack Web Developer</h3>
+                <p>{t("experience_iw_developer_date")}</p>
               </div>
             </div>
-          </li>
+          </article>
 
-          {/* BigSport */}
-          <li className="appear" data-delay="0.08s">
-            <div className="tl-dot" />
-            <div className="tl-card white-card">
-              <div className="tl-inline">
-                <a
-                  href="https://bigsport.com.ua/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="tl-logo-link"
-                  title="BigSport"
-                >
-                  <img src={bigsportLogo} alt="BigSport logo" className="tl-logo" />
+          <article className="experience-company">
+            <div className="experience-company__identity">
+              <div className="experience-logo">
+                <img src={bigSportLogo} alt="BigSport logo" />
+              </div>
+              <div>
+                <a className="experience-company__link" href="https://bigsport.com.ua/" target="_blank" rel="noopener noreferrer">
+                  <span>BigSport</span>
+                  <ExternalLink aria-hidden="true" size={15} strokeWidth={1.8} />
                 </a>
-
-                <div className="tl-main">
-                  <div className="tl-company-name">BigSport</div>
-                  <div className="tl-title">{t("career_1_title")}</div>
-                </div>
-
-                <div className="tl-spacer" aria-hidden="true" />
-
-                <div className="tl-meta-pill">
-                  {t("career_1_date", { duration: formatDuration("2024-07-01", undefined, t) })}
-                </div>
+                <p className="experience-company__employment">{t("experience_part_time")}</p>
               </div>
             </div>
-          </li>
-        </ol>
+
+            <div className="experience-period">
+              <p className="experience-years">{t("experience_bigsport_years")}</p>
+              <p className="experience-duration">
+                {formatExperienceDuration(
+                  companyExperience.bigSport.startDate,
+                  companyExperience.bigSport.endDate,
+                  language
+                )}
+              </p>
+            </div>
+
+            <div className="experience-positions">
+              <div className="experience-position is-current">
+                <h3>Founder &amp; Full-stack Developer</h3>
+                <p>{t("experience_bigsport_date")}</p>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
     </main>
   );
