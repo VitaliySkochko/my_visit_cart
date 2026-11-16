@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/Header';
 import ScrollToTop from './components/ScrollToTop';
+import CollaborationsPage from './pages/CollaborationsPage';
 import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import WebProjectsPage from './pages/WebProjectsPage';
@@ -43,6 +44,7 @@ export default function App() {
         <Route path="/tech" element={<TechStackPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/bigsport" element={<BigSportPage />} />
+        <Route path="/projects/collaborations" element={<CollaborationsPage />} />
       </Routes>
     </div>
   );

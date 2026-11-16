@@ -58,7 +58,8 @@
   "career_title": "Досвід",
   "experience_full_time": "Повний робочий день",
   "experience_part_time": "Неповний робочий день",
-  "experience_iw_manager_date": "жов 2025 — дотепер",
+  "experience_iw_ai_engineer_date": "жов 2026 — дотепер",
+  "experience_iw_manager_date": "жов 2025 — жов 2026",
   "experience_iw_developer_date": "лют 2025 — жов 2025",
   "experience_bigsport_date": "лип 2024 — дотепер",
   "experience_iw_years": "2025 — дотепер",
@@ -188,13 +189,52 @@
       ]
     }
   ],
+  "collaboration_about": "Про проєкт",
+  "collaboration_contribution": "Мій внесок",
+  "collaboration_projects": [
+    {
+      "id": "ai-kitchen",
+      "title": "AI Kitchen",
+      "ongoing": true,
+      "startedMonth": "2026-09",
+      "period": "Вересень 2026 — дотепер",
+      "href": "https://aikitchen.agency/",
+      "technologies": ["React", "Node.js"],
+      "technologySeparator": " · ",
+      "description": "AI Kitchen — вебагенція, що створює сайти для бізнесу за підписною моделлю. Платформа включає автоматизовану систему пошуку потенційних клієнтів, яка знаходить бізнеси та використовує AI для формування й надсилання персоналізованих пропозицій через Telegram і WhatsApp.",
+      "contribution": "Розробив сайт агенції, frontend і backend внутрішньої системи управління клієнтами та автоматизації продажів. Реалізував систему пошуку потенційних клієнтів із використанням OpenClaw, інтеграцію AI-агентів та автоматизовану комунікацію через Telegram і WhatsApp."
+    },
+    {
+      "id": "pdm",
+      "completedMonth": "2025-06",
+      "title": "PDM",
+      "period": "Лютий 2025 — Червень 2025",
+      "technologies": ["C#", "JavaScript"],
+      "description": "Програма для автоматичного отримання специфікацій із креслень SolidWorks та формування PDF-документів зі специфікаціями й оформленими штампами.",
+      "contribution": "Повна розробка frontend і backend частин програми на C#, а також створення шаблонів документів зі штампами за допомогою JavaScript для подальшого автоматичного заповнення даними."
+    },
+    {
+      "id": "chatshop-konteyner",
+      "title": "ChatShop",
+      "completedMonth": "2026-05",
+      "period": "Січень 2026 — Травень 2026",
+      "href": "https://konteyner.ua/",
+      "technologies": ["React", "Node.js"],
+      "technologySeparator": " · ",
+      "description": "AI-чат-магазин крафтового пива київського закладу Konteyner. Користувачі можуть замовляти пиво, спілкуватися з AI-асистентом, дізнаватися про новинки та отримувати персоналізовані рекомендації щодо вибору пива.",
+      "contribution": "Повністю розробив frontend на React та backend на Node.js. Інтегрував AI-асистента для консультацій і персоналізованих рекомендацій. Також реалізував інтеграцію з Odoo для роботи з товарами та чеками."
+    }
+  ],
+  "collaborations_title": "Колаборації",
+  "collaborations_description": "Проєкти, у розробці яких я брав участь, співпрацюючи з командами та іншими спеціалістами. Спільна робота над цифровими продуктами — від окремих функцій до повноцінних рішень.",
+  "collaborations_empty": "Колаборацій поки немає.",
   "web_projects_title": "Веб-проєкти",
   "web_projects": [
     {
       "title": "Institute of Cognitive Defence",
       "year": 2026,
       "desc": "Сайт-візитка для дослідницької організації, яка вивчає загрози когнітивного впливу на суспільство вільного світу.",
-      "href": "https://icd2026.org/"
+      "href": "https://cogdefua.org/"
     },
     {
       "title": "Lux MIKROCEMENT",

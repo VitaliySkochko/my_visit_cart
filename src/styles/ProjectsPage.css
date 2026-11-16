@@ -41,6 +41,10 @@
   line-height: 1;
 }
 
+#projects-collaborations-title {
+  overflow-wrap: anywhere;
+}
+
 .projects-direction__content p {
   max-width: 560px;
   margin: clamp(24px, 2.5vw, 34px) 0 0;

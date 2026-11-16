@@ -58,7 +58,8 @@
   "career_title": "Experience",
   "experience_full_time": "Full-time",
   "experience_part_time": "Part-time",
-  "experience_iw_manager_date": "Oct 2025 — Present",
+  "experience_iw_ai_engineer_date": "Oct 2026 — Present",
+  "experience_iw_manager_date": "Oct 2025 — Oct 2026",
   "experience_iw_developer_date": "Feb 2025 — Oct 2025",
   "experience_bigsport_date": "Jul 2024 — Present",
   "experience_iw_years": "2025 — Present",
@@ -188,13 +189,52 @@
       ]
     }
   ],
+  "collaboration_about": "About the project",
+  "collaboration_contribution": "My contribution",
+  "collaboration_projects": [
+    {
+      "id": "ai-kitchen",
+      "title": "AI Kitchen",
+      "ongoing": true,
+      "startedMonth": "2026-09",
+      "period": "September 2026 — Present",
+      "href": "https://aikitchen.agency/",
+      "technologies": ["React", "Node.js"],
+      "technologySeparator": " · ",
+      "description": "AI Kitchen is a web agency that builds websites for businesses on a subscription basis. Its platform includes an automated lead generation system that finds businesses and uses AI to write and send personalized proposals via Telegram and WhatsApp.",
+      "contribution": "I built the agency website and developed the frontend and backend of its internal customer management and sales automation system. I implemented OpenClaw-powered lead generation, integrated AI agents, and automated outreach via Telegram and WhatsApp."
+    },
+    {
+      "id": "pdm",
+      "completedMonth": "2025-06",
+      "title": "PDM",
+      "period": "February 2025 — June 2025",
+      "technologies": ["C#", "JavaScript"],
+      "description": "An application that automatically extracts bills of materials from SolidWorks drawings and generates PDF documents with the bills of materials and formatted title blocks.",
+      "contribution": "Developed the entire frontend and backend in C# and created JavaScript document templates with title blocks that can be populated automatically."
+    },
+    {
+      "id": "chatshop-konteyner",
+      "title": "ChatShop",
+      "completedMonth": "2026-05",
+      "period": "January 2026 — May 2026",
+      "href": "https://konteyner.ua/",
+      "technologies": ["React", "Node.js"],
+      "technologySeparator": " · ",
+      "description": "An AI-powered craft beer chat store for Konteyner, a Kyiv venue. Customers can order beer, chat with the AI assistant, discover new arrivals, and get personalized beer recommendations.",
+      "contribution": "I built the entire frontend in React and the backend in Node.js. I integrated an AI assistant to answer questions and provide personalized recommendations. I also integrated Odoo to manage products and receipts."
+    }
+  ],
+  "collaborations_title": "Collaborations",
+  "collaborations_description": "Projects I helped develop alongside teams and other specialists. We worked together on digital products, from individual features to complete solutions.",
+  "collaborations_empty": "No collaborations yet.",
   "web_projects_title": "Web Projects",
   "web_projects": [
     {
       "title": "Institute of Cognitive Defence",
       "year": 2026,
       "desc": "A company website for a research organization studying threats of cognitive influence on the free world’s societies.",
-      "href": "https://icd2026.org/"
+      "href": "https://cogdefua.org/"
     },
     {
       "title": "Lux MIKROCEMENT",

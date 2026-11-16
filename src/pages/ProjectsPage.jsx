@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import webImage from "../img/web.png";
 import backendImage from "../img/backend.png";
+import collaborationsImage from "../img/Collaborations.png";
 import useScrollReveal from "../utils/useScrollReveal";
 import "../styles/ProjectsPage.css";
 
 export default function ProjectsPage() {
   const { t } = useTranslation();
   const webReveal = useScrollReveal();
+  const collaborationsReveal = useScrollReveal();
   const backendReveal = useScrollReveal({ threshold: 0.25, rootMargin: '0px 0px -20% 0px' });
 
   return (
@@ -52,6 +54,23 @@ export default function ProjectsPage() {
 
         <div className="projects-direction__visual projects-direction__visual--backend">
           <img src={backendImage} alt={t("projects_backend_alt")} />
+        </div>
+      </section>
+      <section
+        ref={collaborationsReveal.sectionRef}
+        className={`projects-direction projects-direction--web${collaborationsReveal.isVisible ? " is-visible" : ""}`}
+        aria-labelledby="projects-collaborations-title"
+      >
+        <div className="projects-direction__visual projects-direction__visual--web">
+          <img src={collaborationsImage} alt="" />
+        </div>
+        <div className="projects-direction__content">
+          <h2 id="projects-collaborations-title">{t("collaborations_title")}</h2>
+          <p>{t("collaborations_description")}</p>
+          <Link className="detail-link" to="/projects/collaborations">
+            <span>{t("home_projects_more")}</span>
+            <span className="detail-link__arrow" aria-hidden="true">→</span>
+          </Link>
         </div>
       </section>
     </main>

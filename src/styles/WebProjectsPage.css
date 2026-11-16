@@ -18,6 +18,18 @@
   background: rgba(255, 255, 255, 0.025);
 }
 
+#collaborations-title {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.wp-list__empty {
+  margin: 0;
+  padding: 32px 20px;
+  color: rgba(255, 255, 255, 0.68);
+  text-align: center;
+}
+
 .web-projects .appear {
   opacity: 0;
   transform: translateY(24px);

@@ -94,6 +94,10 @@ export default function AboutPage() {
 
             <div className="experience-positions experience-positions--multiple">
               <div className="experience-position is-current">
+                <h3>AI Engineer &amp; Engineering Manager</h3>
+                <p>{t("experience_iw_ai_engineer_date")}</p>
+              </div>
+              <div className="experience-position">
                 <h3>Engineering Manager</h3>
                 <p>{t("experience_iw_manager_date")}</p>
               </div>
